@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class AvailableInstallmentPlansResponseParser
  */
-class AvailableInstallmentPlansResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class AvailableInstallmentPlansResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
 
     /**

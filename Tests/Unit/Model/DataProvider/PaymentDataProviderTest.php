@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\DataProvider;
 
 class PaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
@@ -24,7 +24,7 @@ class PaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testgetPayment()
     {
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\PaymentDataProvider::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class)
             ->disableOriginalConstructor()
             ->setMethods(['createInvoicePayment','createDebitNotePayment', 'createInstallmentPayment'])
             ->getMock();
@@ -37,24 +37,24 @@ class PaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals(2, $sut->getPayment('afterpaydebitnote'));
         $this->assertEquals(3, $sut->getPayment('afterpayinstallment'));
 
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\PaymentException::class);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException::class);
         $this->assertEquals(3, $sut->getPayment('foobar'));
     }
 
     public function testcreateDebitNotePayment() {
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\PaymentDataProvider::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class);
         $sutreturn = $sut->createDebitNotePayment(1,2);
         $this->assertEquals('{"type":"Invoice","directDebit":{"bankAccount":1,"bankCode":2}}', json_encode($sutreturn->exportData()));
     }
 
     public function testcreateInvoicePayment() {
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\PaymentDataProvider::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class);
         $sutreturn = $sut->createInvoicePayment(1,2);
         $this->assertEquals('{"type":"Invoice"}', json_encode($sutreturn->exportData()));
     }
 
     public function testcreateInstallmentPayment() {
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\PaymentDataProvider::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class);
         $sutreturn = $sut->createInstallmentPayment(1,2,3,4);
         $expected = '{"type":"Installment","directDebit":{"bankAccount":1,"bankCode":2},"installment":{"profileNo":3,"numberOfInstallments":4}}';
         $this->assertEquals($expected, json_encode($sutreturn->exportData()));

@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class ValidateBankAccountDataProvider
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class ValidateBankAccountDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class ValidateBankAccountDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * @param string $sIBAN
@@ -32,7 +32,7 @@ class ValidateBankAccountDataProvider extends \OxidProfessionalServices\ArvatoAf
      */
     public function getDataObject($sIBAN, $sBIC)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\ValidateBankAccountEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\ValidateBankAccountEntity::class);
         $dataObject->setBankAccount($sIBAN);
         $dataObject->setBankCode($sBIC);
         return $dataObject;

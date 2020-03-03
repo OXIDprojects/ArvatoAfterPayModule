@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 use \OxidEsales\Eshop\Core\DatabaseProvider;
 
@@ -30,7 +30,7 @@ class ArvatoAfterpayEvents
     {
 
         $db = DatabaseProvider::getDb();
-        $Logging = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Logging::class);
+        $Logging = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class);
 
         foreach (self::getSQLs() as $sql) {
 

@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class AddressParser: Parser for address entities.
  */
-class AddressParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class AddressParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     /**
      * Parses a standard object into a entity.
@@ -29,7 +29,7 @@ class AddressParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Appli
      */
     public function parse(\stdClass $object)
     {
-        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AddressEntity::class);
+        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AddressEntity::class);
 
         $responseMessage->setCountryCode($object->countryCode);
         $responseMessage->setPostalCode($object->postalCode);

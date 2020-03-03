@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class AvailablePaymentMethodsResponseParser: Parser for the capture response.
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class AvailablePaymentMethodsResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class AvailablePaymentMethodsResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
 
     public function parse(\stdClass $object) {

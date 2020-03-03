@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity;
 
 /**
  * Class ResponseMessageEntity: Entitiy for response messages.
  */
-class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity
+class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity
 {
     /**
      * Constants for type property.

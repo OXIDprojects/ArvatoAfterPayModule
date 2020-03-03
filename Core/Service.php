@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class Service
@@ -119,16 +119,16 @@ class Service
     {
         $base = $this->getBaseClassName();
         if (is_array($response)) {
-            $entity = oxNew('\\OxidProfessionalServices\\ArvatoAfterPayModule\\Application\\Model\\Entity\\' . $base . 'ResponseEntity');
+            $entity = oxNew('\\OxidProfessionalServices\\ArvatoAfterpayModule\\Application\\Model\\Entity\\' . $base . 'ResponseEntity');
             $messages = [];
             foreach ($response as $item) {
-                $messages[] = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\ResponseMessageParser::class)->parse($item);
+                $messages[] = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\ResponseMessageParser::class)->parse($item);
             }
             $entity->setErrors($messages);
         } elseif (is_object($response)) {
-            $entity = oxNew('\\OxidProfessionalServices\\ArvatoAfterPayModule\\Application\\Model\\Parser\\' . $base . 'ResponseParser')->parse($response);
+            $entity = oxNew('\\OxidProfessionalServices\\ArvatoAfterpayModule\\Application\\Model\\Parser\\' . $base . 'ResponseParser')->parse($response);
         } else {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('Cannot parse non-StdClass response ' . serialize($response));
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('Cannot parse non-StdClass response ' . serialize($response));
         }
         return $entity;
     }

@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Parser;
 
 /**
  * Class CaptureShippingResponseParserTest: Tests for CaptureShippingResponseParser.
@@ -52,7 +52,7 @@ class CaptureShippingResponseParserTest extends \OxidEsales\TestingLibrary\UnitT
      */
     protected function getSUT()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\CaptureShippingResponseParser::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\CaptureShippingResponseParser::class);
     }
 
 }

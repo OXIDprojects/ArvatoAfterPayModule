@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\DataProvider;
 
 use \OxidEsales\Eshop\Core\DatabaseProvider;
 
@@ -52,7 +52,7 @@ class AddressDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $address->assign($testAddressData);
         $address->setUser($user);
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AddressDataProvider::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AddressDataProvider::class);
         $address = $testObject->getUserAddress($user);
 
         $this->assertEquals('DE', $address->getCountryCode());
@@ -92,7 +92,7 @@ class AddressDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $address->assign($testAddressData);
         $address->setUser($user);
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AddressDataProvider::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AddressDataProvider::class);
         $address = $testObject->getDeliveryAddress($user);
 
         $this->assertEquals('DE', $address->getCountryCode());
@@ -121,7 +121,7 @@ class AddressDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $user->assign($testData);
 
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AddressDataProvider::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AddressDataProvider::class);
         $address = $testObject->getDeliveryAddress($user);
 
         $this->assertEquals('DE', $address->getCountryCode());

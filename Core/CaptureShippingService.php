@@ -14,14 +14,14 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class CaptureShippingService: Service for capturing a shipping.
  */
-class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -86,7 +86,7 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterPayMod
      * @codeCoverageIgnore : Untested since we would have to mock away both lines
      */
     protected function _executeRequestFromOrderData(
-        \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder $AfterpayOrder,
+        \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder $AfterpayOrder,
         $trackingId,
         $sRecordedApiKey,
         $shippingCompany,
@@ -106,7 +106,7 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterPayMod
      */
     protected function getData($trackingId, $shippingCompany, $type)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\CaptureShippingDataProvider::class)->getDataObject(
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\CaptureShippingDataProvider::class)->getDataObject(
             $trackingId,
             $shippingCompany,
             $type
@@ -121,9 +121,9 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterPayMod
      * @return WebServiceClient
      * @codeCoverageIgnore Mocked away
      */
-    protected function getClient(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder $AfterpayOrder, $sRecordedApiKey)
+    protected function getClient(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder $AfterpayOrder, $sRecordedApiKey)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getCaptureShippingClient(
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getCaptureShippingClient(
             $AfterpayOrder->getOxOrder()->oxorder__oxordernr->value,
             $AfterpayOrder->arvatoafterpayafterpayorder__apcaptureno->value,
             null,

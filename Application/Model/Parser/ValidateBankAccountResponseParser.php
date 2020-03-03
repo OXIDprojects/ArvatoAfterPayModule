@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class ValidateBankAccountResponseParser
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class ValidateBankAccountResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class ValidateBankAccountResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     /**
      * Parses a standard object into a entity.
@@ -33,7 +33,7 @@ class ValidateBankAccountResponseParser extends \OxidProfessionalServices\Arvato
      */
     public function parse(\stdClass $object)
     {
-        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\ValidateBankAccountResponseEntity::class);
+        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\ValidateBankAccountResponseEntity::class);
         if (isset($object->isValid)) {$responseMessage->setIsValid($object->isValid);}
         if (isset($object->message)) {$responseMessage->setErrors([$object->message]);}
         return $responseMessage;

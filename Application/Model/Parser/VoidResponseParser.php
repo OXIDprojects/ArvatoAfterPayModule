@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class VoidResponseParser: Parser for the capture response.
  */
-class VoidResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class VoidResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
 
     public function parse(\stdClass $object) {

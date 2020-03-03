@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class ValidateBankAccountResponseParser
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class OrderDetailsResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class OrderDetailsResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     protected $aFields = ['orderDetails', 'captures', 'refunds'];
 }

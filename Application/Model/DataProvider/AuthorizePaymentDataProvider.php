@@ -14,14 +14,14 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 use \OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class AuthorizePaymentDataProvider: Data provider for autorize payment data.
  */
-class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets the data object for an AfterPay authorize payment request.
@@ -63,7 +63,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
 
         // Assign Data
 
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AuthorizePaymentEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentEntity::class);
         $dataObject->setPayment($payment);
         $dataObject->setCustomer($billCustomer);
         $dataObject->setOrder($orderSummary);
@@ -88,7 +88,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
      */
     protected function getOrderSummeryByBasket($basket, $orderId, \OxidEsales\Eshop\Application\Model\Order $oOrder)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\OrderDataProvider::class)->getOrderSummaryByBasket($basket, $orderId, $oOrder);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\OrderDataProvider::class)->getOrderSummaryByBasket($basket, $orderId, $oOrder);
     }
 
     /**
@@ -100,7 +100,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
      */
     protected function getCustomer($user, $languageAbbr)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\CheckoutCustomerDataProvider::class)->getCustomer($user, $languageAbbr);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\CheckoutCustomerDataProvider::class)->getCustomer($user, $languageAbbr);
     }
 
     /**
@@ -113,7 +113,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
      */
     protected function getPayment(\OxidEsales\Eshop\Core\Session $session, $basket, $iSelectedInstallmentPlanProfileId)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\PaymentDataProvider::class)->getPayment(
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class)->getPayment(
             $basket->getPaymentId(),
             $session->getVariable('arvatoAfterpayIBAN'),
             $session->getVariable('arvatoAfterpayBIC'),
@@ -130,7 +130,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
      */
     protected function getDelCustomer($user, $languageAbbr)
     {
-        $deliveryCustomer = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\CheckoutCustomerDataProvider::class)
+        $deliveryCustomer = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\CheckoutCustomerDataProvider::class)
             ->getDeliveryCustomer($user, $languageAbbr);
         return $deliveryCustomer;
     }

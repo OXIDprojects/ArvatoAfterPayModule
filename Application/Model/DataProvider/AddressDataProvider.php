@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class AddressDataProvider: Data provider for address data.
  */
-class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets the address object of a given user.
@@ -29,7 +29,7 @@ class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule
      */
     public function getUserAddress(\OxidEsales\Eshop\Application\Model\User $user)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AddressEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AddressEntity::class);
         $dataObject->setCountryCode($this->_getCountryCode($user->oxuser__oxcountryid->value));
         $dataObject->setPostalCode($user->oxuser__oxzip->value);
         $dataObject->setStreet($user->oxuser__oxstreet->value);
@@ -53,7 +53,7 @@ class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule
         $address = $user->getSelectedAddress();
 
         if (!empty($address)) {
-            $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AddressEntity::class);
+            $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AddressEntity::class);
             $dataObject->setCountryCode($this->_getCountryCode($address->oxaddress__oxcountryid->value));
             $dataObject->setPostalCode($address->oxaddress__oxzip->value);
             $dataObject->setStreet($address->oxaddress__oxstreet->value);

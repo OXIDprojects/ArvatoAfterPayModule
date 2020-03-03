@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class CaptureShippingDataProvider: Data provider for capture shipping
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class CaptureShippingDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class CaptureShippingDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets the data object for an AfterPay capture request.
@@ -35,7 +35,7 @@ class CaptureShippingDataProvider extends \OxidProfessionalServices\ArvatoAfterP
      */
     public function getDataObject($trackingId, $shippingCompany, $type)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CaptureShippingEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CaptureShippingEntity::class);
         $dataObject->setTrackingId($trackingId);
         $dataObject->setShippingCompany($shippingCompany);
         $dataObject->setType($type);

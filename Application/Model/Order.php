@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
 
 use \OxidEsales\Eshop\Core\Registry;
 use \OxidEsales\Eshop\Core\DatabaseProvider;
@@ -88,7 +88,7 @@ class Order extends Order_parent
     protected function _getGateway()
     {
         if (!$this->isAfterpayPaymentType()) {return parent::_getGateway();}
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class);
     }
 
     /**
@@ -167,7 +167,7 @@ class Order extends Order_parent
      */
     public function getAfterpayOrder()
     {
-        $aporder = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder::class, $this);
+        $aporder = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $this);
 
         if (!$this->isAfterpayPaymentType()) {
             return $aporder;

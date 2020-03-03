@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class RefundItemDataProvider: Data provider to convert backend refund item array to request objects
  */
-class RefundItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class RefundItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
 
     public function getRefundDataFromOrderItems($captureNumber, $aOrderItems)
@@ -27,7 +27,7 @@ class RefundItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayMod
         if (!count($aOrderItems)) {
             throw new \OxidEsales\Eshop\Core\Exception\StandardException('No valid refund itemd defined. They must contain a gross price at least.');
         }
-        $RefundEntity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\RefundEntity::class);
+        $RefundEntity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\RefundEntity::class);
 
         foreach ($aOrderItems as &$item) {
             unset($item->oxArticle);
@@ -47,7 +47,7 @@ class RefundItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayMod
         if (!count($items)) {
             throw new \OxidEsales\Eshop\Core\Exception\StandardException('No valid refund itemd defined. They must contain a gross price at least.');
         }
-        $RefundEntity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\RefundEntity::class);
+        $RefundEntity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\RefundEntity::class);
         $RefundEntity->setItems($items);
         $RefundEntity->setCaptureNumber($captureNumber);
 
@@ -91,7 +91,7 @@ class RefundItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayMod
         $net = ($item['grossunitprice'] / (100 + $vatPercent)) * 100;
         $vat = $gross - $net;
 
-        $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::class);
+        $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
 
         $orderItem->setProductId($item['productId']);
         $orderItem->setGroupId($item['groupId']);

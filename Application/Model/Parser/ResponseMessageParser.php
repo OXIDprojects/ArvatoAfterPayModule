@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class ResponseMessageParser: Parser for the response messages.
  */
-class ResponseMessageParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class ResponseMessageParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     /**
      * Parses a standard object into a entity.
@@ -29,7 +29,7 @@ class ResponseMessageParser extends \OxidProfessionalServices\ArvatoAfterPayModu
      */
     public function parse(\stdClass $object)
     {
-        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\ResponseMessageEntity::class);
+        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\ResponseMessageEntity::class);
 
         $responseMessage->setType($object->type);
         $responseMessage->setCode($object->code);

@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity;
 
 /**
  * Class AuthorizePaymentResponseEntity: Entitiy for the autorize payment response.
  */
-class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity
+class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity
 {
     /**
      * Constants for outcome property.

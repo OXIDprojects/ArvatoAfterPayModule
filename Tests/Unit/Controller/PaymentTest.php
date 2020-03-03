@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Controller;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Controller;
 
 use \OxidEsales\Eshop\Core\Registry;
 

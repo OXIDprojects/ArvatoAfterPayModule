@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class AuthorizePaymentService: Service for external autorization of payments with AfterPay.
  */
-class AuthorizePaymentService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class AuthorizePaymentService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -133,7 +133,7 @@ class AuthorizePaymentService extends \OxidProfessionalServices\ArvatoAfterPayMo
      */
     protected function getAuthorizePaymentDataProvider()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AuthorizePaymentDataProvider::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AuthorizePaymentDataProvider::class);
     }
 
     /**
@@ -142,6 +142,6 @@ class AuthorizePaymentService extends \OxidProfessionalServices\ArvatoAfterPayMo
      */
     public function getAuthorizePaymentClient()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getAuthorizePaymentClient();
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getAuthorizePaymentClient();
     }
 }

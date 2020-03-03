@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -86,7 +86,7 @@ class AfterpayOrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     protected function getSUT()
     {
         $dummyOxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder::class, $dummyOxOrder);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $dummyOxOrder);
     }
 
 }

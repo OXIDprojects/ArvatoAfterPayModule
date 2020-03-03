@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class CustomerResponseParser: Parser for the authorize payment response.
  */
-class AuthorizePaymentResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class AuthorizePaymentResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     /**
      * Cert. Manual p.21: Classes that are pure data containers don’t include any logic
@@ -35,18 +35,18 @@ class AuthorizePaymentResponseParser extends \OxidProfessionalServices\ArvatoAft
     {
 
         /** @var AuthorizePaymentResponseEntity $responseMessage */
-        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AuthorizePaymentResponseEntity::class);
+        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentResponseEntity::class);
 
         if (isset($object->outcome)) {
             $responseMessage->setOutcome($object->outcome);
         }
 
         if (isset($object->customer)) {
-            $responseMessage->setCustomer(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\CustomerResponseParser::class)->parse($object->customer));
+            $responseMessage->setCustomer(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\CustomerResponseParser::class)->parse($object->customer));
         }
 
         if (isset($object->deliveryCustomer)) {
-            $responseMessage->setDeliveryCustomer(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\CustomerResponseParser::class)->parse($object->deliveryCustomer));
+            $responseMessage->setDeliveryCustomer(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\CustomerResponseParser::class)->parse($object->deliveryCustomer));
         }
 
         if (isset($object->reservationId)) {
@@ -59,7 +59,7 @@ class AuthorizePaymentResponseParser extends \OxidProfessionalServices\ArvatoAft
 
         if (is_array($object->riskCheckMessages)) {
             foreach ($object->riskCheckMessages as $riskCheckMessage) {
-                $responseMessage->addAddress(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\ResponseMessageParser::class)->parse($riskCheckMessage));
+                $responseMessage->addAddress(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\ResponseMessageParser::class)->parse($riskCheckMessage));
                 if($riskCheckMessage->customerFacingMessage) {
                     $responseMessage->setCustomerFacingMessage($riskCheckMessage->customerFacingMessage);
                 }

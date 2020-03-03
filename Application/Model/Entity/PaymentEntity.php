@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity;
 
 /**
  * Class PaymentEntity: Entity for payment data.
  */
-class PaymentEntity extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity
+class PaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity
 {
     /**
      * Constants for type property.

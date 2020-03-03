@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class CaptureService: Service for capturing autorized payments with AfterPay.
  */
-class CaptureService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -58,7 +58,7 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core
         if (is_numeric($capturedAmout) && $capturedAmout > 0
             && is_numeric($remainingAuthorizedAmount)
         ) {
-            $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_CAPTURED, $captureNumber);
+            $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_CAPTURED, $captureNumber);
             $this->_afterpayOrder->save();
         }
 
@@ -105,7 +105,7 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core
      */
     protected function getCaptureDataForApi(array $aOrderItems = null)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\CaptureDataProvider::class)->getDataObject($this->_oxOrder, $aOrderItems)->exportData();
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\CaptureDataProvider::class)->getDataObject($this->_oxOrder, $aOrderItems)->exportData();
     }
 
     /**
@@ -117,7 +117,7 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core
      */
     protected function getCaptureClientForApi($sRecordedApiKey)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getCaptureClient($this->_oxOrder->oxorder__oxordernr->value, $sRecordedApiKey);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getCaptureClient($this->_oxOrder->oxorder__oxordernr->value, $sRecordedApiKey);
     }
 
 }

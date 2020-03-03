@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -88,7 +88,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
     {
 
         $sut =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AuthorizePaymentService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang()])
                 ->disableOriginalClone()
                 ->setMethods(['getAuthorizePaymentClient', 'getAuthorizePaymentDataProvider'])
@@ -97,7 +97,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
         // Client
 
         $mockClient =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class)
                 //->disableOriginalConstructor()
                 //->disableOriginalClone()
                 ->setMethods(['execute'])
@@ -116,14 +116,14 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
         // Data provider
 
         $mockDataProvider =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AuthorizePaymentDataProvider::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentDataProvider::class)
                 ->setMethods(['getDataObject'])
                 ->getMock();
 
         $mockDataProvider
             ->expects($this->once())
             ->method('getDataObject')
-            ->will($this->returnValue(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class)));
+            ->will($this->returnValue(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class)));
 
         $sut
             ->expects($this->once())
@@ -173,7 +173,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
     protected function getAuthorizePaymentServiceMockedSut(\stdClass $response, \OxidEsales\Eshop\Application\Core\Session $mockOxSession, \OxidEsales\Eshop\Core\Language $oxLang)
     {
         $mockAuthorizePaymentService =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AuthorizePaymentService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class)
                 ->setConstructorArgs([$mockOxSession, $oxLang])
                 ->disableOriginalClone()
                 ->setMethods(array('executeRequestFromSessionData'))
@@ -248,7 +248,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
             ->will($this->returnValue($bIsUserFound ? $mockOxUser : null));
 
         $sut =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AuthorizePaymentService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class)
                 ->setConstructorArgs([$mockOxSession, Registry::getLang()])
                 ->disableOriginalClone()
                 ->setMethods(['getAuthorizePaymentClient', 'getAuthorizePaymentDataProvider'])

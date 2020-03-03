@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class CaptureShippingResponseEntityTest: Tests for CaptureShippingResponseEntity.
@@ -48,7 +48,7 @@ class CaptureShippingResponseEntityTest extends \OxidEsales\TestingLibrary\UnitT
      */
     protected function getSUT()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CaptureShippingResponseEntity::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CaptureShippingResponseEntity::class);
     }
 
 }

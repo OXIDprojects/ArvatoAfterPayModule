@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity;
 
 /**
  * @method array getAvailableInstallmentPlans()
@@ -23,7 +23,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class AvailableInstallmentPlansResponseEntity extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity
+class AvailableInstallmentPlansResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity
 {
 
     public function getAvailableInstallmentPlanFormattings()

@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class OrderDetailsService
  */
-class OrderDetailsService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class OrderDetailsService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
 
@@ -58,7 +58,7 @@ class OrderDetailsService extends \OxidProfessionalServices\ArvatoAfterPayModule
      */
     protected function getClient()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getOrderDetailsClient(
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getOrderDetailsClient(
             $this->_oxOrder->oxorder__oxordernr->value,
             $this->_afterpayOrder->getUsedApiKey()
         );

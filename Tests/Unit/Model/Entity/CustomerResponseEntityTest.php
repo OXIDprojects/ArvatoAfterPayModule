@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class CustomerResponseEntityTest: Tests for CustomerResponseEntity.
  */
-class CustomerResponseEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity\EntityAbstract
+class CustomerResponseEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity\EntityAbstract
 {
     /**
      * Testing all getters and Setters
@@ -46,6 +46,6 @@ class CustomerResponseEntityTest extends \OxidProfessionalServices\ArvatoAfterPa
      */
     protected function getSUT()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CustomerResponseEntity::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CustomerResponseEntity::class);
     }
 }

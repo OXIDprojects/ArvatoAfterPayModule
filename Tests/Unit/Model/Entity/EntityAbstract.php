@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class EntityTest: Base class for the entity tests.
@@ -27,7 +27,7 @@ abstract class EntityAbstract extends \OxidEsales\TestingLibrary\UnitTestCase
      * @param Entity $testObject
      * @param mixed[] $testData
      */
-    protected function _testGetSet(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity $testObject, $testData)
+    protected function _testGetSet(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity $testObject, $testData)
     {
         foreach ($testData as $key => $value)
         {

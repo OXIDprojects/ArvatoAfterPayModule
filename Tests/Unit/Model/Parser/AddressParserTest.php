@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Parser;
 
 /**
  * Class AddressParserTest: Tests for AddressParserv.
@@ -32,7 +32,7 @@ class AddressParserTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $object->postalPlace = '6';
         $object->careOf = '7';
 
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\AddressParser::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\AddressParser::class);
         $sutReturn = $sut->parse($object);
         $expected = '{"countryCode":"1","postalCode":"2","street":"3","streetNumber":"4","streetNumberAdditional":"5","postalPlace":"6","careOf":"7"}';
         $this->assertEquals($expected, json_encode($sutReturn->exportData()));

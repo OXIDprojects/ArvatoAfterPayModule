@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 use \OxidEsales\Eshop\Core\DatabaseProvider;
@@ -130,7 +130,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function test_executeRequestFromOrderData() {
 
         $sut =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CaptureService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CaptureService::class)
                 ->disableOriginalConstructor()
                 ->setMethods(['getCaptureDataForApi', 'getCaptureClientForApi'])
                 ->getMock();
@@ -138,7 +138,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         // Client
 
         $mockClient =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class)
                 ->setMethods(['execute'])
                 ->getMock();
 
@@ -172,7 +172,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     protected function getMockedCaptureService($response, \OxidEsales\Eshop\Application\Model\Order $mockOxOrder)
     {
         $mockCaptureService =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CaptureService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CaptureService::class)
                 ->setConstructorArgs([$mockOxOrder])
                 ->setMethods(array('_executeRequestFromOrderData'))
                 ->getMock();

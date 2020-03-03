@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class AvailableInstallmentPlansDataProvider
@@ -23,7 +23,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  *
  * @codeCoverageIgnore
  */
-class OrderDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class OrderDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets an order request object from the basket.
@@ -36,7 +36,7 @@ class OrderDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\A
      */
     public function getOrderSummaryByBasket(\OxidEsales\Eshop\Application\Model\Basket $basket, $orderId, \OxidEsales\Eshop\Application\Model\Order $oOrder)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity::class);
 
         $fNettoSum = round($oOrder->getOrderNetSum(), 2);
         $fBruttoSum = round($oOrder->getTotalOrderSum(), 2);
@@ -45,7 +45,7 @@ class OrderDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\A
         $dataObject->setTotalNetAmount($fNettoSum);
 
         $dataObject->setCurrency($basket->getBasketCurrency()->name);
-        $dataObject->setItems(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\OrderItemDataProvider::class)->getOrderItemList($basket));
+        $dataObject->setItems(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\OrderItemDataProvider::class)->getOrderItemList($basket));
         $dataObject->setNumber((string)$orderId);
 
         return $dataObject;
@@ -60,7 +60,7 @@ class OrderDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\A
      */
     public function getOrderSummaryByOxOrder(\OxidEsales\Eshop\Application\Model\Order $order)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity::class);
         $dataObject->setTotalGrossAmount($order->oxorder__oxtotalbrutsum->value);
         $dataObject->setCurrency($order->getOrderCurrency()->name);
         $dataObject->setTotalNetAmount($order->oxorder__oxtotalnetsum->value);

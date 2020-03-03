@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class VoidService: Service for voiding autorized payments with AfterPay.
  */
-class VoidService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -55,7 +55,7 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Se
         if (is_numeric($this->_getEntity()->getTotalAuthorizedAmount())
             && is_numeric($this->_getEntity()->getTotalCapturedAmount())
         ) {
-            $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_AUTHORIZATIONVOIDED);
+            $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_AUTHORIZATIONVOIDED);
             $this->_afterpayOrder->save();
         }
 
@@ -104,7 +104,7 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Se
      */
     protected function getVoidDataForApi(array $aOrderItems = null)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\VoidDataProvider::class)->getDataObject($this->_oxOrder, $aOrderItems)->exportData();
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\VoidDataProvider::class)->getDataObject($this->_oxOrder, $aOrderItems)->exportData();
     }
 
     /**
@@ -116,7 +116,7 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Se
      */
     protected function getVoidClientForApi($sRecordedApiKey)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getVoidClient($this->_oxOrder->oxorder__oxordernr->value,
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getVoidClient($this->_oxOrder->oxorder__oxordernr->value,
             $sRecordedApiKey);
     }
 

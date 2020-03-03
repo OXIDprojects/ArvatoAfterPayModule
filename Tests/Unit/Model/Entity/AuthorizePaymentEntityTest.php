@@ -14,25 +14,25 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class AuthorizePaymentEntityTest: unit tests for AuthorizePaymentEntity.
  */
-class AuthorizePaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity\EntityAbstract
+class AuthorizePaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity\EntityAbstract
 {
     /**
      * Tests the data container.
      */
     public function testDataContainer()
     {
-        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::class);
+        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::class);
 
-        $payment->setType(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE);
-        $customer = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
-        $customer->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
-        $deliveryCustomer = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
-        $deliveryCustomer->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
+        $payment->setType(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE);
+        $customer = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
+        $customer->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
+        $deliveryCustomer = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
+        $deliveryCustomer->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
 
         $testData = [
             'payment'                       => $payment,
@@ -40,19 +40,19 @@ class AuthorizePaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterPa
             'merchantId'                    => 'abcde12345',
             'customer'                      => $customer,
             'deliveryCustomer'              => $deliveryCustomer,
-            'order'                         => oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderEntity::class),
+            'order'                         => oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity::class),
             'parentTransactionReference'    => 'x1x2x3x'
         ];
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AuthorizePaymentEntity::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentEntity::class);
         $this->_testGetSet($testObject, $testData);
 
         $this->assertEquals((object) [
-            'payment'                       => (object) ['type' => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE],
+            'payment'                       => (object) ['type' => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE],
             'checkoutId'                    => '12345abcde',
             'merchantId'                    => 'abcde12345',
-            'customer'                      => (object) ['customerCategory' => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON],
-            'deliveryCustomer'              => (object) ['customerCategory' => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON],
+            'customer'                      => (object) ['customerCategory' => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON],
+            'deliveryCustomer'              => (object) ['customerCategory' => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON],
             'order'                         => (object) [],
             'parentTransactionReference'    => 'x1x2x3x'
         ], $testObject->exportData(), 'exported object not valid');

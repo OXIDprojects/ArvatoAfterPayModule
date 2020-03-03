@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity;
 
 /**
  * Class AuthorizePaymentEntity: Entity for authorize payment call.
  */
-class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity
+class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity
 {
     /**
      * Getter for payment property.
@@ -96,7 +96,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterPayMod
      *
      * @param CheckoutCustomerEntity $customer
      */
-    public function setCustomer(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity $customer)
+    public function setCustomer(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity $customer)
     {
         $this->_setData('customer', $customer);
     }
@@ -116,7 +116,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterPayMod
      *
      * @param CheckoutCustomerEntity $deliveryCustomer
      */
-    public function setDeliveryCustomer(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity $deliveryCustomer)
+    public function setDeliveryCustomer(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity $deliveryCustomer)
     {
         $this->_setData('deliveryCustomer', $deliveryCustomer);
     }
@@ -136,7 +136,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterPayMod
      *
      * @param OrderEntity $order
      */
-    public function setOrder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderEntity $order)
+    public function setOrder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity $order)
     {
         $this->_setData('order', $order);
     }

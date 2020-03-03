@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 class AvailableInstallmentPlanServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
@@ -23,14 +23,14 @@ class AvailableInstallmentPlanServiceTest extends \OxidEsales\TestingLibrary\Uni
     {
 
         $sut =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailableInstallmentPlansService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailableInstallmentPlansService::class)
                 ->setMethods(['_parseResponse', 'getAvailableInstallmentPlansClient'])
                 ->getMock();
 
         // Client
 
         $mockClient =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class)
                 ->setMethods(['execute'])
                 ->getMock();
 

@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -25,7 +25,7 @@ use \OxidEsales\Eshop\Core\Registry;
  *
  * @codeCoverageIgnore
  */
-class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets the customer of an order.
@@ -37,9 +37,9 @@ class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfter
      */
     public function getCustomer(\OxidEsales\Eshop\Application\Model\User $user, $language)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
-        $dataObject->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
-        $dataObject->setAddress(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AddressDataProvider::class)->getUserAddress($user));
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
+        $dataObject->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
+        $dataObject->setAddress(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AddressDataProvider::class)->getUserAddress($user));
         $dataObject->setFirstName($user->oxuser__oxfname->value);
         $dataObject->setLastName($user->oxuser__oxlname->value);
         $dataObject->setCustomerNumber($user->oxuser__oxcustnr->value);
@@ -128,9 +128,9 @@ class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfter
         $address = $user->getSelectedAddress();
 
         if (!empty($address)) {
-            $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
-            $dataObject->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
-            $dataObject->setAddress(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AddressDataProvider::class)->getDeliveryAddress($user));
+            $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
+            $dataObject->setCustomerCategory(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON);
+            $dataObject->setAddress(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AddressDataProvider::class)->getDeliveryAddress($user));
             $dataObject->setFirstName($address->oxaddress__oxfname->value);
             $dataObject->setLastName($address->oxaddress__oxlname->value);
             $dataObject->setCustomerNumber($user->oxuser__oxcustnr->value);

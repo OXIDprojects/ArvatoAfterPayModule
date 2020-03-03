@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class AvailableInstallmentPlansService
  */
-class AvailableInstallmentPlansService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class AvailableInstallmentPlansService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -52,7 +52,7 @@ class AvailableInstallmentPlansService extends \OxidProfessionalServices\ArvatoA
      */
     protected function getAvailableInstallmentPlansDataProvider()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AvailableInstallmentPlansDataProvider::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AvailableInstallmentPlansDataProvider::class);
     }
 
     /**
@@ -61,7 +61,7 @@ class AvailableInstallmentPlansService extends \OxidProfessionalServices\ArvatoA
      */
     protected function getAvailableInstallmentPlansClient()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getAvailableInstallmentPlansClient();
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getAvailableInstallmentPlansClient();
     }
 
 }

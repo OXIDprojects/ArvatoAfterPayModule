@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class PaymentEntityTest: unit tests for PaymentEntity.
  */
-class PaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity\EntityAbstract
+class PaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity\EntityAbstract
 {
     /**
      * Tests the data container.
@@ -27,10 +27,10 @@ class PaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\T
     public function testDataContainer()
     {
         $testData = [
-            'type' => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::TYPE_INVOICE
+            'type' => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_INVOICE
         ];
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::class);
         $this->_testGetSet($testObject, $testData);
         $this->assertEquals((object)$testData, $testObject->exportData(), 'exported object not valid');
     }

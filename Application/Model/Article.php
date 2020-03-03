@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
 
 class Article extends Article_parent
 {

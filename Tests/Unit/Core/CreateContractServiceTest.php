@@ -14,19 +14,19 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 class CreateContractServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
     public function test__construct() {
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CreateContractService::class, [123]);
-        $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CreateContractService::class, $sut);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);
+        $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $sut);
     }
 
     public function test_executeRequest_exception() {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\PaymentException::class);
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CreateContractService::class, [123]);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);
         $sut->executeRequest(null,null,null,null);
     }
 

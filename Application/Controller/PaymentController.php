@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Controller;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -43,7 +43,7 @@ class PaymentController extends PaymentController_parent
         $oSmarty->assign('aAvailableAfterpayInstallmentPlans', $aAvailableInstallmentPlans);
 
         // ... their formatting ...
-        $aAvailableInstallmentPlanFormattings = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AvailableInstallmentPlansResponseEntity::class)->getAvailableInstallmentPlanFormattings();
+        $aAvailableInstallmentPlanFormattings = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AvailableInstallmentPlansResponseEntity::class)->getAvailableInstallmentPlanFormattings();
         $oSmarty->assign('aAvailableAfterpayInstallmentPlanFormattings', $aAvailableInstallmentPlanFormattings);
 
         // ... and currently selected installment plan (if there is a selected one)
@@ -276,7 +276,7 @@ class PaymentController extends PaymentController_parent
      */
     protected function getAvailableInstallmentPlansService()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailableInstallmentPlansService::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailableInstallmentPlansService::class);
     }
 
     /**

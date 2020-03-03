@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\DataProvider;
 
 use \OxidEsales\Eshop\Core\Registry;
 use \OxidEsales\Eshop\Core\DatabaseProvider;
@@ -60,14 +60,14 @@ class AuthorizePaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTe
      */
     public function testGetDataObject()
     {
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AuthorizePaymentDataProvider::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AuthorizePaymentDataProvider::class)
             ->disableOriginalConstructor()
             ->setMethods(['getOrderSummeryByBasket','getCustomer', 'getPayment'])
             ->getMock();
 
-        $sut->method('getOrderSummeryByBasket')->willReturn(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderEntity::class));
-        $sut->method('getPayment')->willReturn(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::class));
-        $sut->method('getCustomer')->willReturn(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CheckoutCustomerEntity::class));
+        $sut->method('getOrderSummeryByBasket')->willReturn(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity::class));
+        $sut->method('getPayment')->willReturn(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::class));
+        $sut->method('getCustomer')->willReturn(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::class));
 
         // Construction of in-session-basket incomplete.
         //There must be an easier way.
@@ -100,7 +100,7 @@ class AuthorizePaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTe
         $oxLang = Registry::getLang();
         $oxLang->getBaseLanguage();
         $sutReturn = $sut->getDataObject($oxSesssion, $oxLang, oxNew(\OxidEsales\Eshop\Application\Model\Order::class));
-        $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AuthorizePaymentEntity::class, $sutReturn);
+        $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentEntity::class, $sutReturn);
     }
 
 }

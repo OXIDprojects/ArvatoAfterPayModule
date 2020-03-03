@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception;
 
 /**
  * Class CurlException: Exception class of curl errors.

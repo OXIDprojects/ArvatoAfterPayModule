@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class OrderEntityTest: unit tests for OrderEntity.
  */
-class OrderEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity\EntityAbstract
+class OrderEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity\EntityAbstract
 {
     /**
      * Tests the data container.
@@ -39,7 +39,7 @@ class OrderEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tes
             'discountAmount'          => 5
         ];
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderEntity::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity::class);
         $this->_testGetSet($testObject, $testData);
         $this->assertEquals((object)$testData, $testObject->exportData(), 'exported object not valid');
     }

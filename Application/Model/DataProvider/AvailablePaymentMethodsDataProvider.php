@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class AvailablePaymentMethodsDataProvider
@@ -22,6 +22,6 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class AvailablePaymentMethodsDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AuthorizePaymentDataProvider
+class AvailablePaymentMethodsDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AuthorizePaymentDataProvider
 {
 }

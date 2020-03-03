@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 use \OxidEsales\Eshop\Core\DatabaseProvider;
@@ -153,7 +153,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     protected function getMockedCaptureShippingService($response, \OxidEsales\Eshop\Application\Model\Order $mockOxOrder)
     {
         $mockCaptureService =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CaptureShippingService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CaptureShippingService::class)
                 ->setConstructorArgs([$mockOxOrder])
                 ->setMethods(array('_executeRequestFromOrderData'))
                 ->getMock();

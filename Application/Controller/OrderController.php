@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Controller;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -176,7 +176,7 @@ class OrderController extends OrderController_parent
         $oSmarty = Registry::getUtilsView()->getSmarty();
 
         // Assign installment plan formatting ...
-        $aAvailableInstallmentPlanFormattings = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AvailableInstallmentPlansResponseEntity::class)->getAvailableInstallmentPlanFormattings();
+        $aAvailableInstallmentPlanFormattings = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AvailableInstallmentPlansResponseEntity::class)->getAvailableInstallmentPlanFormattings();
         $oSmarty->assign('aAvailableAfterpayInstallmentPlanFormattings', $aAvailableInstallmentPlanFormattings);
 
         // ... and the URL to the legal documents, based upon current plan choice ...
@@ -258,7 +258,7 @@ class OrderController extends OrderController_parent
      */
     protected function getAvailableInstallmentPlansService()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailableInstallmentPlansService::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailableInstallmentPlansService::class);
     }
 
     /**

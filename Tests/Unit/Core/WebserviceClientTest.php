@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 /**
  * Class WebServiceClientTest: Tests for WebServiceClient.
@@ -97,7 +97,7 @@ class WebServiceClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function getSUT()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class);
     }
 
     /**
@@ -105,7 +105,7 @@ class WebServiceClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function getSutMockedForExecute()
     {
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class)
             ->setMethods(array('executeJsonRequest'))
             ->getMock();
         return $sut;

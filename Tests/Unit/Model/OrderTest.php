@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model;
 
 /**
  * Class OrderTest: Tests for Order.
@@ -63,7 +63,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->setId('UNITTEST123');
         $sut->oxorder__oxpaymenttype = new \OxidEsales\Eshop\Core\Field('afterpayinvoice');
 
-        $afterpayOrder = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder::class, $sut);
+        $afterpayOrder = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $sut);
         $afterpayOrder->save();
 
         // Selftest

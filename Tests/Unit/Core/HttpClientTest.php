@@ -19,7 +19,7 @@
  * THE CREDENTIALS MUST MATCH THE PUBLIC SANDBOX - INTERNAL SANDBOX CREDENTIALS WILL FAIL.
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 /**
  * Class HttpClientTest: Test class for HttpClient.
@@ -31,7 +31,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testexecuteHttpRequest_GET()
     {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $data = $service->executeHttpRequest('GET','version');
 
@@ -46,7 +46,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testexecuteHttpRequest_POST()
     {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $data = $service->executeHttpRequest('POST','version', 'POST data');
 
@@ -61,8 +61,8 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testexecuteHttpRequest_NotPOSTorGET()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class, 'Unknown httpMethod FOOBAR');
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class, 'Unknown httpMethod FOOBAR');
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $service->executeHttpRequest('FOOBAR','version', 'POST data');
     }
@@ -72,7 +72,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testexecuteHttpRequest_PostRequestWithHeaders()
     {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $service->setRequestHeaders(array('X-Auth-Key: ABCDEF'));
         $data = $service->executeHttpRequest('POST','version', 'POST data');
@@ -85,41 +85,41 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
     public function testexecuteHttpRequest_badurl()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class, 'Could not resolve host: nowhere', 6);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class, 'Could not resolve host: nowhere', 6);
 
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->executeHttpRequest('POST','http://nowhere/');
     }
 
     public function testexecuteHttpRequest_nomethod()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->executeHttpRequest(null,'http://nowhere/');
     }
 
     public function testexecuteHttpRequest_nourl()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->executeHttpRequest('xxx', null);
     }
 
     public function testexecuteJsonRequest_nomethod()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->executeJsonRequest(null,'http://nowhere/');
     }
 
     public function testexecuteJsonRequest_nourl()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class);
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->executeJsonRequest('xxx', null);
     }
 
@@ -128,7 +128,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testexecuteJsonRequest()
     {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient::class);
+        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $inputData = (object) ['data' => 'json'];
         $outputData = $service->executeJsonRequest('POST','version', $inputData);

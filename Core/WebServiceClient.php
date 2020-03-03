@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class WebServiceClient
  */
-class WebServiceClient extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\HttpClient
+class WebServiceClient extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient
 {
     /**
      * Constants for the REST-functions (i.e. the URL-paths)
@@ -86,7 +86,7 @@ class WebServiceClient extends \OxidProfessionalServices\ArvatoAfterPayModule\Co
 
             foreach ($sprintfArgs as $k => $urlParameter) {
                 if (!isset($urlParameter)) {
-                    throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException("Parameter $k for curl function $function was empty");
+                    throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException("Parameter $k for curl function $function was empty");
                 }
             }
 

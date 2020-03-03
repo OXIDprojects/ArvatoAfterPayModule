@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class CaptureDataProvider: Data provider for capture payment data.
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class VoidDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class VoidDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets the data object for an AfterPay capture request.
@@ -53,7 +53,7 @@ class VoidDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Ap
             }
         }
 
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\VoidEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\VoidEntity::class);
         $dataObject->setCancellationDetails($orderDetails);
         return $dataObject;
     }

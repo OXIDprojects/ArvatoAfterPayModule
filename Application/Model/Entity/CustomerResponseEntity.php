@@ -14,14 +14,14 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity;
 
 /**
  * Cert. Manual p.21: Classes that are pure data containers don’t include any logic
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity
+class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity
 {
     /**
      * Getter for customer number property.

@@ -38,20 +38,20 @@ $aModule = [
     'url' => '',
     'email' => '',
     'events' => [
-        'onActivate'   => '\OxidProfessionalServices\ArvatoAfterPayModule\Core\ArvatoAfterpayEvents::onActivate',
-        'onDeactivate' => '\OxidProfessionalServices\ArvatoAfterPayModule\Core\ArvatoAfterpayEvents::onDeactivate'
+        'onActivate'   => '\OxidProfessionalServices\ArvatoAfterpayModule\Core\ArvatoAfterpayEvents::onActivate',
+        'onDeactivate' => '\OxidProfessionalServices\ArvatoAfterpayModule\Core\ArvatoAfterpayEvents::onDeactivate'
     ],
     'extend' => [
         // Controller
-        \OxidEsales\Eshop\Application\Controller\OrderController::class    => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Controller\OrderController::class,
-        \OxidEsales\Eshop\Application\Controller\UserController::class     => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Controller\UserController::class,
-        \OxidEsales\Eshop\Application\Controller\PaymentController::class  => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Controller\PaymentController::class,
+        \OxidEsales\Eshop\Application\Controller\OrderController::class    => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller\OrderController::class,
+        \OxidEsales\Eshop\Application\Controller\UserController::class     => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller\UserController::class,
+        \OxidEsales\Eshop\Application\Controller\PaymentController::class  => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller\PaymentController::class,
         // Model
-        \OxidEsales\Eshop\Application\Model\Article::class => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Article::class,
-        \OxidEsales\Eshop\Application\Model\Order::class   => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Order::class
+        \OxidEsales\Eshop\Application\Model\Article::class => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Article::class,
+        \OxidEsales\Eshop\Application\Model\Order::class   => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Order::class
     ],
     'controllers' => [
-        'OrderAfterpay' => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Controller\Admin\OrderAfterpay::class
+        'OrderAfterpay' => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller\Admin\OrderAfterpay::class
     ],
     'templates' => [
         'order_afterpay.tpl'                                     => 'arvato/afterpay/Application/views/admin/tpl/order_afterpay.tpl',

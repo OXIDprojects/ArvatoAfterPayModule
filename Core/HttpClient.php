@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class HttpClient: Client for the afterpay webservice.
@@ -73,10 +73,10 @@ class HttpClient
     public function executeJsonRequest($httpMethod, $serviceUrl, $data = null)
     {
         if (!$httpMethod) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('$httpMethod was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('$httpMethod was empty');
         }
         if (!$serviceUrl) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('$serviceUrl was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('$serviceUrl was empty');
         }
 
         $encodedData = json_encode($data, JSON_PRETTY_PRINT);
@@ -85,7 +85,7 @@ class HttpClient
         $encodedResponse = $this->executeHttpRequest($httpMethod, $serviceUrl, $encodedData);
         $duration = microtime(true) - $startTime;
         $response = json_decode($encodedResponse);
-        oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Logging::class)->logRestRequest($encodedData, $encodedResponse, $serviceUrl, $duration);
+        oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class)->logRestRequest($encodedData, $encodedResponse, $serviceUrl, $duration);
         return $response;
     }
 
@@ -102,10 +102,10 @@ class HttpClient
     public function executeHttpRequest($httpMethod, $serviceUrl, $data = null)
     {
         if (!$httpMethod) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('$httpMethod was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('$httpMethod was empty');
         }
         if (!$serviceUrl) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('$serviceUrl was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('$serviceUrl was empty');
         }
 
         $this->init($this->_baseUrl . $serviceUrl);
@@ -117,7 +117,7 @@ class HttpClient
         } elseif ('GET' == $httpMethod) {
             $this->setGet();
         } else {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('Unknown httpMethod ' . $httpMethod);
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('Unknown httpMethod ' . $httpMethod);
         }
 
         $this->addHeaders();
@@ -210,7 +210,7 @@ class HttpClient
     protected function catchRequestError()
     {
         if (curl_errno($this->_handle) != 0) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException(curl_error($this->_handle), curl_errno($this->_handle));
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException(curl_error($this->_handle), curl_errno($this->_handle));
         }
     }
 }

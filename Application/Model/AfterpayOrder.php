@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
 
 /**
  * Class AfterpayOrder
@@ -34,7 +34,7 @@ class AfterpayOrder extends \OxidEsales\Eshop\Core\Model\BaseModel
     /**
      * @var string Name of current class
      */
-    protected $_sClassName = 'OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder';
+    protected $_sClassName = 'OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder';
 
     /**
      * @var string Database Table to persist entities

@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model;
 
 /**
  * Class PaymentGatewayTest: Tests for PaymentGateway.
@@ -89,13 +89,13 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $bic->value = 222;
         $dynValues = [$iban, $bic];
 
-        $class = new \ReflectionClass(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class);
+        $class = new \ReflectionClass(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class);
         $method = $class->getMethod('gatherIBANandBIC');
         $method->setAccessible(true);
 
         $oUserpayment = oxNew(\OxidEsales\Eshop\Application\Model\UserPayment::class);
         $oUserpayment->setDynValues($dynValues);
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class);
         $sut->setPaymentParams($oUserpayment);
         $sutReturn = $method->invokeArgs($sut, []);
 
@@ -105,7 +105,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function testhandleInstallment_ok()
     {
 
-        $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ValidateBankAccountService::class)
+        $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class)
             ->disableOriginalConstructor()
             ->setMethods(array('isValid'))
             ->getMock();
@@ -113,7 +113,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('isValid')
             ->will($this->returnValue(true));
 
-        $mockAvailPaymenteService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ValidateBankAccountService::class)
+        $mockAvailPaymenteService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class)
             ->disableOriginalConstructor()
             ->setMethods(['isSpecificInstallmentAvailable','getNumberOfInstallmentsByProfileId'])
             ->getMock();
@@ -124,7 +124,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('getNumberOfInstallmentsByProfileId')
             ->will($this->returnValue(9));
 
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class)
             ->disableOriginalConstructor()
             ->setMethods([
                 'gatherIBANandBIC',
@@ -148,7 +148,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function testhandleInstallment_notavailable()
     {
 
-        $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ValidateBankAccountService::class)
+        $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class)
             ->disableOriginalConstructor()
             ->setMethods(array('isValid'))
             ->getMock();
@@ -156,7 +156,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('isValid')
             ->will($this->returnValue(true));
 
-        $mockAvailPaymenteService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Service\AvailablePaymentMethodsService::class)
+        $mockAvailPaymenteService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Service\AvailablePaymentMethodsService::class)
             ->disableOriginalConstructor()
             ->setMethods(['isSpecificInstallmentAvailable','getNumberOfInstallmentsByProfileId'])
             ->getMock();
@@ -167,7 +167,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('getNumberOfInstallmentsByProfileId')
             ->will($this->returnValue(9));
 
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class)
             ->disableOriginalConstructor()
             ->setMethods([
                 'gatherIBANandBIC',
@@ -203,7 +203,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $oUserpayment = oxNew(\OxidEsales\Eshop\Application\Model\UserPayment::class);
         $oUserpayment->setDynValues($dynValues);
 
-        $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ValidateBankAccountService::class)
+        $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class)
             ->disableOriginalConstructor()
             ->setMethods(array('isValid'))
             ->getMock();
@@ -211,7 +211,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('isValid')
             ->will($this->returnValue(true));
 
-        $mockAvailPaymenteService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Service\AvailablePaymentMethodsService::class)
+        $mockAvailPaymenteService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Service\AvailablePaymentMethodsService::class)
             ->disableOriginalConstructor()
             ->setMethods(['isDirectDebitAvailable'])
             ->getMock();
@@ -219,7 +219,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('isDirectDebitAvailable')
             ->will($this->returnValue(true));
 
-        $mockCCService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\CreateContractService::class)
+        $mockCCService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class)
             ->disableOriginalConstructor()
             ->setMethods(['createContract'])
             ->getMock();
@@ -228,7 +228,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue(12345));
 
 
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class)
             ->disableOriginalConstructor()
             ->setMethods([
                 'getValidateBankAccountService',
@@ -265,7 +265,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
         $mockService = $this->getMockedService($blIsAfterpayOrder, $blSuccess);
 
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\PaymentGateway::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class)
             ->disableOriginalConstructor()
             ->setMethods(array('dereferToOtherPaymentProviders', 'getAuthorizePaymentService'))
             ->getMock();
@@ -309,7 +309,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $expectAuthorizedPaymentCall = $blIsAfterpayOrder ? $this->once() : $this->never();
         $expectGetErrorMessagesCall = ($blIsAfterpayOrder && !$blSuccess) ? $this->once() : $this->never();
 
-        $mockService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AuthorizePaymentService::class)
+        $mockService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class)
             ->disableOriginalConstructor()
             ->setMethods(array('authorizePayment', 'getErrorMessages'))
             ->getMock();

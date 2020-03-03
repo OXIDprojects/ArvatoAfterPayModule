@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 /**
  * Class ArvatoAfterpayEventsTest: Tests for arvatoAfterpayEvents.
@@ -37,10 +37,10 @@ class ArvatoAfterpayEventsTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     public function testOnActivate()
     {
-        $sutReturn = \OxidProfessionalServices\ArvatoAfterPayModule\Core\ArvatoAfterpayEvents::onActivate();
+        $sutReturn = \OxidProfessionalServices\ArvatoAfterpayModule\Core\ArvatoAfterpayEvents::onActivate();
         $this->assertTrue( $sutReturn);
         // Must be idempotent - let's repeat
-        $sutReturn = \OxidProfessionalServices\ArvatoAfterPayModule\Core\ArvatoAfterpayEvents::onActivate();
+        $sutReturn = \OxidProfessionalServices\ArvatoAfterpayModule\Core\ArvatoAfterpayEvents::onActivate();
         $this->assertTrue( $sutReturn);
     }
 

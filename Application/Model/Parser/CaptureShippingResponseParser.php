@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class CaptureShippingResponseParser: Parser for the capture shipping response.
  */
-class CaptureShippingResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class CaptureShippingResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     /**
      * Parses a standard object into a entity.
@@ -30,7 +30,7 @@ class CaptureShippingResponseParser extends \OxidProfessionalServices\ArvatoAfte
      */
     public function parse(\stdClass $object)
     {
-        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CaptureShippingResponseEntity::class);
+        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CaptureShippingResponseEntity::class);
         if (isset($object->shippingNumber)) {$responseMessage->setShippingNumber($object->shippingNumber);}
         if (isset($object->message)) {$responseMessage->setErrors([$object->message]);}
         return $responseMessage;

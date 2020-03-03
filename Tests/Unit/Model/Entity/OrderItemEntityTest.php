@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class OrderItemEntityTest: unit tests for OrderItemEntity.
  */
-class OrderItemEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity\EntityAbstract
+class OrderItemEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity\EntityAbstract
 {
     /**
      * Tests the data container.
@@ -34,7 +34,7 @@ class OrderItemEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule
             'groupId'                 => 'abcde12345',
             'netUnitPrice'            => 1.1,
             'unitCode'                => 'tons',
-            'vatCategory'             => \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::VAT_CATEGORY_MIDDLE,
+            'vatCategory'             => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::VAT_CATEGORY_MIDDLE,
             'vatPercent'              => 19,
             'vatAmount'               => 10,
             'imageUrl'                => 'http://www.oxid-esales.com/Innenspiegel.jpg',
@@ -47,7 +47,7 @@ class OrderItemEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule
             'marketPlaceSellerId'     => '12345abcde'
         ];
 
-        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::class);
+        $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
         $this->_testGetSet($testObject, $testData);
         $this->assertEquals((object)$testData, $testObject->exportData(), 'exported object not valid');
     }

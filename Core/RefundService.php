@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class CaptureShippingService: Service for capturing a shipping.
  */
-class RefundService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -51,11 +51,11 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\
     {
 
         if ($vatSplittedRefunds && $aOrderItems) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('Provide either $vatSplittedRefunds or $aOrderItems, not both');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('Provide either $vatSplittedRefunds or $aOrderItems, not both');
         }
 
         if (!$vatSplittedRefunds && !$aOrderItems) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('vatSplittedRefunds and aOrderItems were empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('vatSplittedRefunds and aOrderItems were empty');
         }
 
         if ($vatSplittedRefunds) {
@@ -95,9 +95,9 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\
         $vatSplittedRefunds,
         $sRecordedApiKey
     ) {
-        $data = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromVatSplittedRefunds($sLastCaptureId,
+        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromVatSplittedRefunds($sLastCaptureId,
             $vatSplittedRefunds)->exportData();
-        $client = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getRefundClient($sOrderNr, $sRecordedApiKey);
+        $client = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getRefundClient($sOrderNr, $sRecordedApiKey);
         return $client->execute($data);
     }
 
@@ -118,9 +118,9 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\
         $aOrderItems,
         $sRecordedApiKey
     ) {
-        $data = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromOrderItems($sLastCaptureId,
+        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromOrderItems($sLastCaptureId,
             $aOrderItems)->exportData();
-        $client = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getRefundClient($sOrderNr, $sRecordedApiKey);
+        $client = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getRefundClient($sOrderNr, $sRecordedApiKey);
         return $client->execute($data);
     }
 

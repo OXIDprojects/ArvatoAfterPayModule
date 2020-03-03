@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class CreateContractService
  */
-class CreateContractService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class CreateContractService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     protected $_afterpayCheckoutId;
@@ -82,14 +82,14 @@ class CreateContractService extends \OxidProfessionalServices\ArvatoAfterPayModu
         $iNumberOfInstallments = null
     ) {
         if (!$afterpayCheckoutID || !$paymentId || !$sIBAN || !$sBIC) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\PaymentException(
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException(
                 'Missing either of $afterpayCheckoutID, $paymentId, $sIBAN, $sBIC: '
                 . "$afterpayCheckoutID, $paymentId, $sIBAN, $sBIC"
             );
         }
 
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\PaymentDataProvider::class)->getPayment($paymentId, $sIBAN, $sBIC, $iSelectedInstallmentPlanProfileId, $iNumberOfInstallments);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class)->getPayment($paymentId, $sIBAN, $sBIC, $iSelectedInstallmentPlanProfileId, $iNumberOfInstallments);
         $data = $dataObject->exportData('paymentInfo');
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getCreateContractClient($afterpayCheckoutID)->execute($data);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getCreateContractClient($afterpayCheckoutID)->execute($data);
     }
 }

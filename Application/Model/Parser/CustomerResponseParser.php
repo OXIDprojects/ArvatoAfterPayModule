@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser;
 
 /**
  * Class CustomerResponseParser: Parser for the customer response.
@@ -23,7 +23,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class CustomerResponseParser extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\Parser
+class CustomerResponseParser extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\Parser
 {
     /**
      * Parses a standard object into a entity.
@@ -33,7 +33,7 @@ class CustomerResponseParser extends \OxidProfessionalServices\ArvatoAfterPayMod
      */
     public function parse(\stdClass $object)
     {
-        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CustomerResponseEntity::class);
+        $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CustomerResponseEntity::class);
 
         $responseMessage->setCustomerNumber($object->customerNumber);
         $responseMessage->setFirstName($object->firstName);
@@ -41,7 +41,7 @@ class CustomerResponseParser extends \OxidProfessionalServices\ArvatoAfterPayMod
 
         if (is_array($object->addressList)) {
             foreach ($object->addressList as $address) {
-                $responseMessage->addAddress(oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Parser\AddressParser::class)->parse($address));
+                $responseMessage->addAddress(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\AddressParser::class)->parse($address));
             }
         }
 

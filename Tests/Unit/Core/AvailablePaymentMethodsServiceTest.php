@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -27,8 +27,8 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
     public function test__construct()
     {
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class, Registry::getSession(), Registry::getLang(), $order);
-        $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class, $sut);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class, Registry::getSession(), Registry::getLang(), $order);
+        $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class, $sut);
     }
 
     public function testgetAvailablePaymentMethods()
@@ -36,12 +36,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $entity->setPaymentMethods('LoremIpsum');
 
         $sut->method('_parseResponse')->willReturn($entity);
@@ -55,12 +55,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $entity->setPaymentMethods('LoremIpsum');
 
         $sut->method('_parseResponse')->willReturn($entity);
@@ -72,12 +72,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $paymentMethod->type = 'Invoice';
         $entity->setPaymentMethods([$paymentMethod]);
@@ -91,12 +91,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $paymentMethod->type = 'Invoice';
         $paymentMethod->installmentProfileNumber = 1;
@@ -111,7 +111,7 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
@@ -125,12 +125,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $paymentMethod->type = 'Installment';
         $paymentMethod->installment = new \stdClass();
@@ -149,12 +149,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $entity->setPaymentMethods([$paymentMethod]);
 
@@ -167,12 +167,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $paymentMethod->type = 'Invoice';
         $paymentMethod->directDebit = ['lorem'];
@@ -187,12 +187,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $paymentMethod->type = 'Installment';
         $paymentMethod->installment = new \stdClass();
@@ -209,12 +209,12 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
         $order = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $sut =
             $this
-                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\AvailablePaymentMethodsService::class)
+                ->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class)
                 ->setConstructorArgs([Registry::getSession(), Registry::getLang(), $order])
                 ->setMethods(['executeRequestFromSessionData', '_parseResponse'])
                 ->getMock();
 
-        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+        $entity = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
         $paymentMethod = new \stdClass();
         $paymentMethod->type = 'Installment';
         $paymentMethod->installment = new \stdClass();

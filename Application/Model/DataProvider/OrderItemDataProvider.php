@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class AvailableInstallmentPlansDataProvider
@@ -23,7 +23,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  *
  * @codeCoverageIgnore
  */
-class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Returns AfterPay order items from a given OXID basket.
@@ -51,7 +51,7 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModu
         // Add delivery costs
 
         if ($basket->getDeliveryCost()->getBruttoPrice()) {
-            $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::class);
+            $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
             $orderItem->setProductId('ShippingFee');
             $orderItem->setDescription('Shipping/Versandkosten');
             $orderItem->setQuantity(1);
@@ -81,7 +81,7 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModu
             $grossVaucher = 0 - round($basket->getVoucherDiscValue(), 2);
             $netVaucher = round($grossVaucher * ($sumNetto / $sumBrutto), 2);
 
-            $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::class);
+            $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
             $orderItem->setProductId('Vaucher');
             $orderItem->setDescription('Vaucher/Gutschein');
             $orderItem->setQuantity(1);
@@ -109,7 +109,7 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModu
             $fGrossDiscount = 0 - abs(round($fGrossDiscount, 2));
             $fNetDiscount = round($fGrossDiscount * ($sumNetto / $sumBrutto), 2);
 
-            $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::class);
+            $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
             $orderItem->setProductId('Discount');
             $orderItem->setDescription('Discount');
             $orderItem->setQuantity(1);
@@ -141,7 +141,7 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModu
      */
     public function getOrderItem(\OxidEsales\Eshop\Application\Model\BasketItem $item)
     {
-        $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\OrderItemEntity::class);
+        $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
         $orderItem->setProductId($item->getArticle()->oxarticles__oxid->value);
         $orderItem->setDescription($this->_getItemDescription($item));
         $orderItem->setQuantity($item->getAmount());

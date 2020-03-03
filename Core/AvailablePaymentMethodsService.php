@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 /**
  * Class AvailablePaymentMethodsService
  */
-class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -149,12 +149,12 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
      */
     protected function executeRequestFromSessionData()
     {
-        $data = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\AvailablePaymentMethodsDataProvider::class)->getDataObject(
+        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\AvailablePaymentMethodsDataProvider::class)->getDataObject(
             $this->_session,
             $this->_lang,
             $this->_oxOrder
         )->exportData();
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getAvailablePaymentMethodsClient()->execute($data);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getAvailablePaymentMethodsClient()->execute($data);
     }
 
     /**

@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity;
 
 /**
  * Class AuthorizePaymentResponseEntityTest: Tests for AuthorizePaymentResponseEntity.
  */
-class AuthorizePaymentResponseEntityTest extends \OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Model\Entity\EntityAbstract
+class AuthorizePaymentResponseEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\Entity\EntityAbstract
 {
     /**
      * Testing all getters and Setters
@@ -28,8 +28,8 @@ class AuthorizePaymentResponseEntityTest extends \OxidProfessionalServices\Arvat
     {
         $testData = [
             'outcome' => 111,
-            'customer' => oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CustomerResponseEntity::class),
-            'deliveryCustomer' => oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\CustomerResponseEntity::class),
+            'customer' => oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CustomerResponseEntity::class),
+            'deliveryCustomer' => oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CustomerResponseEntity::class),
             'reservationId' => 444,
             'checkoutId' => 555,
             'riskCheckMessages' => 666
@@ -47,6 +47,6 @@ class AuthorizePaymentResponseEntityTest extends \OxidProfessionalServices\Arvat
      */
     protected function getSUT()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AuthorizePaymentResponseEntity::class);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentResponseEntity::class);
     }
 }

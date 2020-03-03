@@ -14,14 +14,14 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class ValidateBankAccountService
  */
-class ValidateBankAccountService extends \OxidProfessionalServices\ArvatoAfterPayModule\Core\Service
+class ValidateBankAccountService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Service
 {
 
     /**
@@ -71,7 +71,7 @@ class ValidateBankAccountService extends \OxidProfessionalServices\ArvatoAfterPa
      */
     protected function getRequestData($sIBAN, $sBIC)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\ValidateBankAccountDataProvider::class)->getDataObject($sIBAN, $sBIC)->exportData();
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\ValidateBankAccountDataProvider::class)->getDataObject($sIBAN, $sBIC)->exportData();
     }
 
     /**
@@ -80,7 +80,7 @@ class ValidateBankAccountService extends \OxidProfessionalServices\ArvatoAfterPa
      */
     protected function getClient()
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\ClientConfigurator::class)->getValidateBankAccountClient();
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getValidateBankAccountClient();
     }
 
 }

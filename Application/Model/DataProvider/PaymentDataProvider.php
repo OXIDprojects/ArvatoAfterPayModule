@@ -14,12 +14,12 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class PaymentDataProvider: Data provider for payment data.
  */
-class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * Gets the payment data for a user.
@@ -50,7 +50,7 @@ class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule
             $payment = $this->createInstallmentPayment($sIBAN, $sBIC, $iSelectedInstallmentPlanProfileId,
                 $iNumberOfInstallments);
         } else {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\PaymentException('Unknown Payment Type ' . $paymentId);
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException('Unknown Payment Type ' . $paymentId);
         }
         return $payment;
     }
@@ -63,12 +63,12 @@ class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule
      */
     public function createDebitNotePayment($sIBAN, $sBIC)
     {
-        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::class);
+        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::class);
 
-        $payment->setType(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE);
+        $payment->setType(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE);
 
         if ($sIBAN && $sBIC) {
-            $directDebit = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\BankAccountEntity::class);
+            $directDebit = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\BankAccountEntity::class);
             $directDebit->setBankAccount($sIBAN);
             $directDebit->setBankCode($sBIC);
             $payment->setDirectDebit($directDebit);
@@ -82,8 +82,8 @@ class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule
      */
     public function createInvoicePayment()
     {
-        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::class);
-        $payment->setType(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::TYPE_INVOICE);
+        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::class);
+        $payment->setType(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_INVOICE);
         return $payment;
     }
 
@@ -101,18 +101,18 @@ class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule
         $iSelectedInstallmentPlanProfileId,
         $iNumberOfInstallments
     ) {
-        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::class);
-        $payment->setType(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\PaymentEntity::TYPE_INSTALLMENT);
+        $payment = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::class);
+        $payment->setType(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_INSTALLMENT);
 
         if ($sIBAN && $sBIC) {
-            $directDebit = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\BankAccountEntity::class);
+            $directDebit = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\BankAccountEntity::class);
             $directDebit->setBankAccount($sIBAN);
             $directDebit->setBankCode($sBIC);
             $payment->setDirectDebit($directDebit);
         }
 
         if ($iSelectedInstallmentPlanProfileId || $iNumberOfInstallments) {
-            $installment = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\Entity::class);
+            $installment = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity::class);
             $iSelectedInstallmentPlanProfileId && $installment->setProfileNo($iSelectedInstallmentPlanProfileId);
             $iNumberOfInstallments && $installment->setNumberOfInstallments($iNumberOfInstallments);
             $payment->setInstallment($installment);

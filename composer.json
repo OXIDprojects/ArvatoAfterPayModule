@@ -1,5 +1,5 @@
 {
-    "name": "oxps/arvatoafterpay-module",
+    "name": "oxps/arvato-afterpay-module",
     "description": "The payment module by Arvato AfterPay.",
     "type": "oxideshop-module",
     "keywords": ["oxid", "modules", "eShop"],
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "OxidProfessionalServices\\ArvatoAfterPayModule\\": "../../../source/modules/oxps/arvatoafterpay"
+            "OxidProfessionalServices\\ArvatoAfterpayModule\\": "../../../source/modules/oxps/arvatoafterpay"
         }
     }
 }

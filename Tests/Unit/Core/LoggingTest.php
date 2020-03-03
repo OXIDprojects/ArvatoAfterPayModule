@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -89,7 +89,7 @@ class LoggingTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function getMokedSut($loggingEnabled, $willOverrideLoggingStatus = false)
     {
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Logging::class)
+        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class)
             ->setMethods(array('isLoggingEnabled'))
             ->getMock();
         $sut->expects($willOverrideLoggingStatus? $this->never() : $this->once())
@@ -107,7 +107,7 @@ class LoggingTest extends \OxidEsales\TestingLibrary\UnitTestCase
     {
         $this->assertEquals(
             Registry::getConfig()->getConfigParam('arvatoAfterpayApiRequestLogging'),
-            oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Logging::class)->isLoggingEnabled()
+            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class)->isLoggingEnabled()
         );
     }
 

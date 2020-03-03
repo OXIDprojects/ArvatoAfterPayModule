@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
 use \OxidEsales\Eshop\Core\Registry;
 
@@ -45,8 +45,8 @@ class ClientConfigurator
     public function getAuthorizePaymentClient()
     {
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_AUTHORIZE_CHECKOUT,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_AUTHORIZE_CHECKOUT,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_AUTHORIZE_CHECKOUT,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AUTHORIZE_CHECKOUT,
             null
         );
         return $client;
@@ -68,12 +68,12 @@ class ClientConfigurator
     public function getCaptureClient($sOrderNr, $sRecordedApiKey)
     {
         if (!$sOrderNr) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('sOrderNr was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
 
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_CAPTURE,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_CAPTURE,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_CAPTURE,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_CAPTURE,
             [$sOrderNr],
             null,
             $sRecordedApiKey
@@ -99,12 +99,12 @@ class ClientConfigurator
     public function getVoidClient($sOrderNr, $sRecordedApiKey)
     {
         if (!$sOrderNr) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('sOrderNr was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
 
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_VOID,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_VOID,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_VOID,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_VOID,
             [$sOrderNr],
             null,
             $sRecordedApiKey
@@ -128,15 +128,15 @@ class ClientConfigurator
     public function getOrderDetailsClient($sOrderNr, $sRecordedApiKey)
     {
         if (!$sOrderNr) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('sOrderNr was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
         if (!$sRecordedApiKey) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('$sRecordedApiKey was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('$sRecordedApiKey was empty');
         }
 
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_ORDERDETAILS,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_ORDERDETAILS,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_ORDERDETAILS,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_ORDERDETAILS,
             [$sOrderNr],
             null,
             $sRecordedApiKey
@@ -163,15 +163,15 @@ class ClientConfigurator
         $sRecordedApiKey = ''
     ) {
         if (!$sOrderNr) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('sOrderNr was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
         if (!$lastCaptureId) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('lastCaptureId was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('lastCaptureId was empty');
         }
 
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_CAPTURESHIPPING,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_CAPTURESHIPPING,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_CAPTURESHIPPING,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_CAPTURESHIPPING,
             [$sOrderNr, $lastCaptureId],
             $bIsInstallmentApi,
             $sRecordedApiKey
@@ -192,8 +192,8 @@ class ClientConfigurator
         $sRecordedApiKey = ''
     ) {
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_VALIDATEBANKACCOUNT,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_VALIDATEBANKACCOUNT,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_VALIDATEBANKACCOUNT,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_VALIDATEBANKACCOUNT,
             null,
             $bIsInstallmentApi,
             $sRecordedApiKey
@@ -211,12 +211,12 @@ class ClientConfigurator
     public function getRefundClient($sOrderNr, $sRecordedApiKey = '')
     {
         if (!$sOrderNr) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('sOrderNr was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
 
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_REFUND,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_REFUND,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_REFUND,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_REFUND,
             [$sOrderNr],
             null,
             $sRecordedApiKey
@@ -233,8 +233,8 @@ class ClientConfigurator
     public function getAvailablePaymentMethodsClient($bIsInstallmentApi = false, $sRecordedApiKey = '')
     {
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_AVAILABLEPAYMENTMETHODS,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_AVAILABLEPAYMENTMETHODS,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_AVAILABLEPAYMENTMETHODS,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AVAILABLEPAYMENTMETHODS,
             null,
             $bIsInstallmentApi,
             $sRecordedApiKey
@@ -253,8 +253,8 @@ class ClientConfigurator
     public function getCreateContractClient($checkoutId, $bIsInstallmentApi = false, $sRecordedApiKey = '')
     {
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_CREATECONTRACT,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_CREATECONTRACT,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_CREATECONTRACT,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_CREATECONTRACT,
             [$checkoutId],
             $bIsInstallmentApi,
             $sRecordedApiKey
@@ -269,8 +269,8 @@ class ClientConfigurator
     public function getAvailableInstallmentPlansClient()
     {
         $client = $this->getBaseClient(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::HTTPMETHOD_AVAILABLEINSTALLMENTPLANS,
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::FUNCTION_AVAILABLEINSTALLMENTPLANS,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_AVAILABLEINSTALLMENTPLANS,
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AVAILABLEINSTALLMENTPLANS,
             null,
             true
         );
@@ -297,15 +297,15 @@ class ClientConfigurator
         $sRecordedApiKey = ''
     ) {
         if (!$httpmethod) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('httpmethod was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('httpmethod was empty');
         }
         if (!$function) {
-            throw new \OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException('function was empty');
+            throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('function was empty');
         }
 
         list($url, $key) = $this->getApiCredentials($bIsInstallmentApi, $sRecordedApiKey);
 
-        $client = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\WebServiceClient::class);
+        $client = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class);
         $client->setBaseUrl($url);
         $client->setHttpmethod($httpmethod);
         $client->setRequestHeaders(array(

@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
 /**
  * Class AvailableInstallmentPlansDataProvider
@@ -22,7 +22,7 @@ namespace OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataPr
  * (only getters and setters), can be excluded from test coverage:
  * @codeCoverageIgnore
  */
-class AvailableInstallmentPlansDataProvider extends \OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\DataProvider\DataProvider
+class AvailableInstallmentPlansDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\DataProvider
 {
     /**
      * @param double $dAmount
@@ -31,7 +31,7 @@ class AvailableInstallmentPlansDataProvider extends \OxidProfessionalServices\Ar
      */
     public function getDataObject($dAmount)
     {
-        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\Entity\AvailableInstallmentPlansEntity::class);
+        $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AvailableInstallmentPlansEntity::class);
         $dataObject->setAmount($dAmount);
         return $dataObject;
     }

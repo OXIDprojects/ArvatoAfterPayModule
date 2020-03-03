@@ -14,7 +14,7 @@
  * @copyright (C) OXID eSales AG 2003-2020
  */
 
-namespace OxidProfessionalServices\ArvatoAfterPayModule\Tests\Unit\Core;
+namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
 class RefundServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
@@ -22,24 +22,24 @@ class RefundServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function test__construct()
     {
         $this->assertInstanceOf(
-            \OxidProfessionalServices\ArvatoAfterPayModule\Core\RefundService::class,
-            oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\RefundService::class, oxNew(\OxidEsales\Eshop\Application\Model\Order::class))
+            \OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class,
+            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class, oxNew(\OxidEsales\Eshop\Application\Model\Order::class))
         );
     }
 
     public function test_refund_exception()
     {
-        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterPayModule\Core\Exception\CurlException::class);
-        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Core\RefundService::class, oxNew(\OxidEsales\Eshop\Application\Model\Order::class));
+        $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
+        $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class, oxNew(\OxidEsales\Eshop\Application\Model\Order::class));
         $sut->refund(null, 'SomeApiKey');
     }
 
     public function test_refund_ok()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
-        $AfterpayOrder = oxNew(\OxidProfessionalServices\ArvatoAfterPayModule\Application\Model\AfterpayOrder::class, $oxOrder);
+        $AfterpayOrder = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $oxOrder);
         $sut =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterPayModule\Core\RefundService::class)
+            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class)
                 ->setConstructorArgs([$oxOrder, $AfterpayOrder])
                 ->setMethods(['_executeRequestFromVatSplittedRefundFields', '_parseResponse'])
                 ->getMock();
