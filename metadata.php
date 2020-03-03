@@ -38,8 +38,8 @@ $aModule = [
     'url' => '',
     'email' => '',
     'events' => [
-        'onActivate'   => '\OxidProfessionalServices\ArvatoAfterpayModule\Core\ArvatoAfterpayEvents::onActivate',
-        'onDeactivate' => '\OxidProfessionalServices\ArvatoAfterpayModule\Core\ArvatoAfterpayEvents::onDeactivate'
+        'onActivate'   => '\OxidProfessionalServices\ArvatoAfterpayModule\Core\Events::onActivate',
+        'onDeactivate' => '\OxidProfessionalServices\ArvatoAfterpayModule\Core\Events::onDeactivate'
     ],
     'extend' => [
         // Controller

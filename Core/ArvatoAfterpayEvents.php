@@ -21,7 +21,7 @@ use \OxidEsales\Eshop\Core\DatabaseProvider;
 /**
  * Class ArvatoAfterpayEvents: Events for the afterpay module.
  */
-class ArvatoAfterpayEvents
+class Events
 {
     /**
      * On module activation callback
