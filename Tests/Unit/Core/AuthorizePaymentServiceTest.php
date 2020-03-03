@@ -42,7 +42,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
 
         $responseData = json_decode(file_get_contents(
                 Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/arvato/afterpay/Tests/Fixtures/1stepAuthPaymentSuccessResponse.json')
+                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/1stepAuthPaymentSuccessResponse.json')
         );
 
         $mockOxSession = $this->getMockOxSession();

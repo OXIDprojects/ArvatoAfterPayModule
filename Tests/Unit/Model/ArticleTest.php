@@ -64,7 +64,7 @@ class ArticleTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function setUp()
     {
         parent::setUp();
-        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/arvato/afterpay/Tests/Fixtures/dataproviders_setUp.sql');
+        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/oxps/arvatoafterpay/Tests/Fixtures/dataproviders_setUp.sql');
         foreach (explode(';', $sql) as $query) {
             $query = trim($query);
             if ($query) {
@@ -79,7 +79,7 @@ class ArticleTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function tearDown()
     {
         parent::tearDown();
-        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/arvato/afterpay/Tests/Fixtures/generalTearDown.sql');
+        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/oxps/arvatoafterpay/Tests/Fixtures/generalTearDown.sql');
         foreach (explode(';', $sql) as $query) {
             $query = trim($query);
             if ($query) {

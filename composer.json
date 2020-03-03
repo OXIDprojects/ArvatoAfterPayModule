@@ -1,5 +1,5 @@
 {
-    "name": "oxps/arvato-afterpay-module",
+    "name": "oxps/arvatoafterpay",
     "description": "The payment module by Arvato AfterPay.",
     "type": "oxideshop-module",
     "keywords": ["oxid", "modules", "eShop"],
@@ -16,6 +16,7 @@
             "target-directory": "oxps/arvatoafterpay"
         }
     },
+    "version": "2.0.0",
     "require": {
         "oxid-esales/oxideshop-ce": ">=v6.3"
     },

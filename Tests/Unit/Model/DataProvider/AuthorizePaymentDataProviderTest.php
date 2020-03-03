@@ -31,7 +31,7 @@ class AuthorizePaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTe
     public function setUp()
     {
         parent::setUp();
-        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/arvato/afterpay/Tests/Fixtures/dataproviders_setUp.sql');
+        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/oxps/arvatoafterpay/Tests/Fixtures/dataproviders_setUp.sql');
         foreach (explode(';', $sql) as $query) {
             $query = trim($query);
             if ($query) {
@@ -46,7 +46,7 @@ class AuthorizePaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTe
     public function tearDown()
     {
         parent::tearDown();
-        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/arvato/afterpay/Tests/Fixtures/dataproviders_tearDown.sql');
+        $sql = file_get_contents(Registry::getConfig()->getConfigParam('sShopDir') . '/modules/oxps/arvatoafterpay/Tests/Fixtures/dataproviders_tearDown.sql');
         foreach (explode(';', $sql) as $query) {
             $query = trim($query);
             if ($query) {
