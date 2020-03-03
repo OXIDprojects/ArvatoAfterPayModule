@@ -67,10 +67,6 @@ $aModule = [
         'wave/page/checkout/inc/order_installmentplan_boxes.tpl' => 'oxps/arvatoafterpay/Application/views/flow/page/checkout/inc/order_installmentplan_boxes.tpl',
         'wave/page/checkout/inc/afterpay_required_dynvalues.tpl' => 'oxps/arvatoafterpay/Application/views/flow/page/checkout/inc/afterpay_required_dynvalues.tpl'
     ],
-    'events' => [
-        'onActivate'   => 'arvatoAfterpayEvents::onActivate',
-        'onDeactivate' => 'arvatoAfterpayEvents::onDeactivate',
-    ],
     'blocks' => [
         [
             'theme'    => 'flow',
