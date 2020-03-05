@@ -16,7 +16,6 @@
             "target-directory": "oxps/arvatoafterpay"
         }
     },
-    "version": "2.0.0",
     "require": {
         "oxid-esales/oxideshop-ce": ">=v6.3"
     },
