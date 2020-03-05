@@ -28,7 +28,6 @@ class Events
      */
     public static function onActivate()
     {
-echo "TTTT";
         $db = DatabaseProvider::getDb();
         $Logging = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class);
 
