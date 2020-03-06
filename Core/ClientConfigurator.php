@@ -44,12 +44,11 @@ class ClientConfigurator
      */
     public function getAuthorizePaymentClient()
     {
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_AUTHORIZE_CHECKOUT,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AUTHORIZE_CHECKOUT,
             null
         );
-        return $client;
     }
 
     /**
@@ -71,14 +70,13 @@ class ClientConfigurator
             throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
 
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_CAPTURE,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_CAPTURE,
             [$sOrderNr],
             null,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -102,14 +100,13 @@ class ClientConfigurator
             throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
 
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_VOID,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_VOID,
             [$sOrderNr],
             null,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -134,14 +131,13 @@ class ClientConfigurator
             throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('$sRecordedApiKey was empty');
         }
 
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_ORDERDETAILS,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_ORDERDETAILS,
             [$sOrderNr],
             null,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -169,14 +165,13 @@ class ClientConfigurator
             throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('lastCaptureId was empty');
         }
 
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_CAPTURESHIPPING,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_CAPTURESHIPPING,
             [$sOrderNr, $lastCaptureId],
             $bIsInstallmentApi,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -191,14 +186,13 @@ class ClientConfigurator
         $bIsInstallmentApi = false,
         $sRecordedApiKey = ''
     ) {
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_VALIDATEBANKACCOUNT,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_VALIDATEBANKACCOUNT,
             null,
             $bIsInstallmentApi,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -214,14 +208,13 @@ class ClientConfigurator
             throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException('sOrderNr was empty');
         }
 
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_REFUND,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_REFUND,
             [$sOrderNr],
             null,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -232,14 +225,13 @@ class ClientConfigurator
      */
     public function getAvailablePaymentMethodsClient($bIsInstallmentApi = false, $sRecordedApiKey = '')
     {
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_AVAILABLEPAYMENTMETHODS,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AVAILABLEPAYMENTMETHODS,
             null,
             $bIsInstallmentApi,
             $sRecordedApiKey
         );
-        return $client;
     }
 
     /**
@@ -252,7 +244,7 @@ class ClientConfigurator
      */
     public function getCreateContractClient($checkoutId, $bIsInstallmentApi = false, $sRecordedApiKey = '')
     {
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_CREATECONTRACT,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_CREATECONTRACT,
             [$checkoutId],
@@ -260,7 +252,6 @@ class ClientConfigurator
             $sRecordedApiKey
 
         );
-        return $client;
     }
 
     /**
@@ -268,13 +259,12 @@ class ClientConfigurator
      */
     public function getAvailableInstallmentPlansClient()
     {
-        $client = $this->getBaseClient(
+        return $this->getBaseClient(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::HTTPMETHOD_AVAILABLEINSTALLMENTPLANS,
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AVAILABLEINSTALLMENTPLANS,
             null,
             true
         );
-        return $client;
     }
 
     /**

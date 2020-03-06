@@ -102,7 +102,7 @@ class Logging
     *
     * @return Monolog\Logger
     */
-    protected function getLogger(string $sLogger = '', string $sFile = '', string $sLogLevel = '')
+    protected function getLogger(string $sLogger = null, string $sFile = null, string $sLogLevel = null)
     {
         $sLogger = (!empty($sLogger) ? $sLogger : 'OXID Logger');
 

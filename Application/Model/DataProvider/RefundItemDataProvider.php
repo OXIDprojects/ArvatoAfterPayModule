@@ -85,7 +85,7 @@ class RefundItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayMod
         $gross = (float)str_replace(',', '.', $item['grossUnitPrice']);
 
         if (!$gross) {
-            return;
+            return null;
         }
 
         $net = ($item['grossunitprice'] / (100 + $vatPercent)) * 100;

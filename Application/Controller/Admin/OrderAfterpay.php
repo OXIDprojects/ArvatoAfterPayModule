@@ -140,7 +140,7 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         if ('void' == $sOderItemAction) {
             return $this->orderitemaction_void($orderDetailsResponse, $aOrderItemQuantities);
         }
-
+        return null;
     }
 
     /**
@@ -174,6 +174,7 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         // Run capture with order items set
         $this->capture($aApiOrderItems);
 
+        return null;
     }
 
     /**
@@ -372,6 +373,8 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         }
 
         $this->_aViewData['aErrorMessages'] = $service->getErrorMessages() ?: $response->getErrors();
+
+        return null;
     }
 
     /**

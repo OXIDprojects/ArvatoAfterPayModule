@@ -74,8 +74,7 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Se
     {
         $data = $this->getVoidDataForApi($aOrderItems);
         $client = $this->getVoidClientForApi($sRecordedApiKey);
-        $response = $client->execute($data);
-        return $response;
+        return $client->execute($data);
     }
 
     /////////////////////////////////////////////////////

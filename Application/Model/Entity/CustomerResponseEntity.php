@@ -1,4 +1,5 @@
-<?php
+<?php /** @noinspection PhpLongTypeFormInspection */
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -116,7 +117,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
     /**
      * Removes an address.
      *
-     * @param integer $index
+     * @param int $index
      */
     public function removeAddress($index)
     {

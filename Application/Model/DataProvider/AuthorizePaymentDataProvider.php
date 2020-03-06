@@ -57,7 +57,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
 
         $payment = $this->getPayment($session, $basket, $iSelectedInstallmentPlanProfileId);
 
-        $risk = new \stdClass;
+        $risk = new \stdClass();
         $risk->channelType = Registry::getConfig()->getConfigParam('arvatoAfterpayRiskChannelType') ?: 'Internet';
         $risk->deliveryType = Registry::getConfig()->getConfigParam('arvatoAfterpayRiskDeliveryType') ?: 'Normal';
 
@@ -130,8 +130,7 @@ class AuthorizePaymentDataProvider extends \OxidProfessionalServices\ArvatoAfter
      */
     protected function getDelCustomer($user, $languageAbbr)
     {
-        $deliveryCustomer = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\CheckoutCustomerDataProvider::class)
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\CheckoutCustomerDataProvider::class)
             ->getDeliveryCustomer($user, $languageAbbr);
-        return $deliveryCustomer;
     }
 }

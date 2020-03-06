@@ -172,13 +172,11 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function getMockOxSession()
     {
-        $mockOxSession =
-            $this->getMockBuilder(\OxidEsales\Eshop\Core\Session::class)
+        return $this->getMockBuilder(\OxidEsales\Eshop\Core\Session::class)
                 ->disableOriginalConstructor()
                 ->disableOriginalClone()
                 ->setMethods(array('setVariable'))
                 ->getMock();
-        return $mockOxSession;
     }
 
     /**
@@ -203,8 +201,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
         // End of Self-Test
 
-        $sut = $this->getMockedCaptureShippingService($response, $oxOrder);
-        return $sut;
+        return $this->getMockedCaptureShippingService($response, $oxOrder);
     }
 
     /**
@@ -223,8 +220,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertNotNull($oxOrder->getAfterpayOrder());
         // End of Self-Test
 
-        $sut = $this->getMockedCaptureShippingService($response, $oxOrder);
-        return $sut;
+        return $this->getMockedCaptureShippingService($response, $oxOrder);
     }
 
     /**
@@ -252,8 +248,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
         // End of Self-Test
 
-        $sut = $this->getMockedCaptureShippingService($response, $oxOrder);
-        return $sut;
+        return $this->getMockedCaptureShippingService($response, $oxOrder);
     }
 
 }

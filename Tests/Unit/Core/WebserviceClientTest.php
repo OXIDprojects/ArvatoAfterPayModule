@@ -105,10 +105,9 @@ class WebServiceClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function getSutMockedForExecute()
     {
-        $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class)
+        return $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::class)
             ->setMethods(array('executeJsonRequest'))
             ->getMock();
-        return $sut;
     }
 
 }

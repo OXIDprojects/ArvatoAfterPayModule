@@ -66,7 +66,7 @@ class PaymentController extends PaymentController_parent
     {
 
         if (!$this->getUser()) {
-            return;
+            return null;
         }
 
         $oSmarty = Registry::getUtilsView()->getSmarty();
@@ -230,10 +230,8 @@ class PaymentController extends PaymentController_parent
                 $aDynvalue['afterpayInstallmentProfileId']
             );
             return 0;
-        } else {
-            return self::ARVATO_ORDER_STATE_SELECTINSTALLMENT; //Select installment plan profile id
         }
-        return 0;
+        return self::ARVATO_ORDER_STATE_SELECTINSTALLMENT; //Select installment plan profile id
     }
 
 

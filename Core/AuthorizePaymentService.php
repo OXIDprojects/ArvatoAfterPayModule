@@ -73,9 +73,7 @@ class AuthorizePaymentService extends \OxidProfessionalServices\ArvatoAfterpayMo
         $data = $dataObject->exportData();
 
         $client = $this->getAuthorizePaymentClient();
-        $response = $client->execute($data);
-
-        return $response;
+        return $client->execute($data);
     }
 
     /**

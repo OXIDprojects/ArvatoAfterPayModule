@@ -103,9 +103,7 @@ class Order extends Order_parent
         if (!$paymenttype) {
             $paymenttype = $this->oxorder__oxpaymenttype->value;
         }
-        $blIsAfterPay = (0 === strpos($paymenttype, 'afterpay'));
-
-        return $blIsAfterPay;
+        return (0 === strpos($paymenttype, 'afterpay'));
     }
 
     /**
@@ -120,9 +118,7 @@ class Order extends Order_parent
         if (!$paymenttype) {
             $paymenttype = $this->oxorder__oxpaymenttype->value;
         }
-        $blIsAfterPay = ('afterpaydebitnote' === $paymenttype);
-
-        return $blIsAfterPay;
+        return ('afterpaydebitnote' === $paymenttype);
     }
 
     /**
@@ -137,9 +133,7 @@ class Order extends Order_parent
         if (!$paymenttype) {
             $paymenttype = $this->oxorder__oxpaymenttype->value;
         }
-        $blIsAfterPay = ('afterpayinvoice' === $paymenttype);
-
-        return $blIsAfterPay;
+        return ('afterpayinvoice' === $paymenttype);
     }
 
     /**
@@ -154,9 +148,7 @@ class Order extends Order_parent
         if (!$paymenttype) {
             $paymenttype = $this->oxorder__oxpaymenttype->value;
         }
-        $blIsAfterPay = ('afterpayinstallment' === $paymenttype);
-
-        return $blIsAfterPay;
+        return ('afterpayinstallment' === $paymenttype);
     }
 
     /**

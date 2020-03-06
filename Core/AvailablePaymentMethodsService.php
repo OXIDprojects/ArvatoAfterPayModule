@@ -59,7 +59,7 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
             $this->_session->setVariable('arvatoAfterpayCheckoutId', $this->_entity->getCheckoutId());
             return $this->_entity->getPaymentMethods();
         }
-
+        return null;
     }
 
     /**
@@ -173,7 +173,7 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
         if (isset($this->_mappingInstallmentPfofileId2NumberOfInstallments[$iProfileId])) {
             return $this->_mappingInstallmentPfofileId2NumberOfInstallments[$iProfileId];
         }
-
+        return null;
     }
 
     /**

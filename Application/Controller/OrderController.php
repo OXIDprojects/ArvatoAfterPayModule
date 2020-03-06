@@ -145,7 +145,7 @@ class OrderController extends OrderController_parent
         if ($bReturnNewProfileId) {
             return $aDynValue['afterpayInstallmentProfileId'];
         }
-
+        return null;
     }
 
     /**
@@ -203,7 +203,7 @@ class OrderController extends OrderController_parent
     /**
      * self::ARVATO_ORDER_STATE_CHECKADDRESS makes user check his address
      *
-     * @param integer $iSuccess status code
+     * @param int $iSuccess status code
      *
      * @return  string  $sNextStep  partial parameter url for next step
      */

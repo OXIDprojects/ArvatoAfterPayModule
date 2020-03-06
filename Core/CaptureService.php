@@ -76,8 +76,7 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
     {
         $data = $this->getCaptureDataForApi($aOrderItems);
         $client = $this->getCaptureClientForApi($sRecordedApiKey);
-        $response = $client->execute($data);
-        return $response;
+        return $response = $client->execute($data);
     }
 
     /////////////////////////////////////////////////////

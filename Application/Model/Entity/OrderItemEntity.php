@@ -254,7 +254,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
     /**
      * Getter for google product category id property.
      *
-     * @return integer
+     * @return int
      */
     public function getGoogleProductCategoryId()
     {
@@ -264,7 +264,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
     /**
      * Setter for google product category id property.
      *
-     * @param integer $googleProductCategoryId
+     * @param int $googleProductCategoryId
      */
     public function setGoogleProductCategoryId($googleProductCategoryId)
     {
@@ -314,7 +314,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
     /**
      * Getter for line number id property.
      *
-     * @return integer
+     * @return int
      */
     public function getLineNumber()
     {
@@ -324,7 +324,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
     /**
      * Setter for line number id property.
      *
-     * @param integer $lineNumber
+     * @param int $lineNumber
      */
     public function setLineNumber($lineNumber)
     {

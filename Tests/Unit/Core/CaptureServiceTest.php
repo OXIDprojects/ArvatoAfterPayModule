@@ -193,13 +193,11 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function getMockOxSession()
     {
-        $mockOxSession =
-            $this->getMockBuilder(\OxidEsales\Eshop\Core\Session::class)
+        return $this->getMockBuilder(\OxidEsales\Eshop\Core\Session::class)
                 ->disableOriginalConstructor()
                 ->disableOriginalClone()
                 ->setMethods(array('setVariable'))
                 ->getMock();
-        return $mockOxSession;
     }
 
     /**
@@ -224,8 +222,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
         // End of Self-Test
 
-        $sut = $this->getMockedCaptureService($response, $oxOrder);
-        return $sut;
+        return $this->getMockedCaptureService($response, $oxOrder);
     }
 
     /**
@@ -253,8 +250,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
         // End of Self-Test
 
-        $sut = $this->getMockedCaptureService($response, $oxOrder);
-        return $sut;
+        return $this->getMockedCaptureService($response, $oxOrder);
     }
 
 }

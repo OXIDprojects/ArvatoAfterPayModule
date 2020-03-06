@@ -47,7 +47,7 @@ class Article extends Article_parent
                 return $oCatTmp->oxcategories__aapproductgroup->value;
             }
         }
-
+        return null;
     }
 
 }

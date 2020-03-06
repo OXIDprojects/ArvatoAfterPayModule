@@ -97,7 +97,7 @@ class Events
     {
     }
 
-    protected static function getSQLs(): array
+    protected static function getSQLs()
     {
         return [
             "CREATE TABLE IF NOT EXISTS `arvatoafterpayafterpayorder` (
@@ -135,7 +135,7 @@ class Events
         ];
     }
 
-    protected static function getShopSpecificSQLs(): array
+    protected static function getShopSpecificSQLs()
     {
         return [
             "REPLACE INTO `oxobject2group` (`OXID`, `OXSHOPID`, `OXOBJECTID`, `OXGROUPSID`, `OXTIMESTAMP`) VALUES

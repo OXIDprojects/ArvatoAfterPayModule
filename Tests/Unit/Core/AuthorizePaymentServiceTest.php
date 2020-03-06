@@ -194,13 +194,11 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
      */
     protected function getMockOxSession()
     {
-        $mockOxSession =
-            $this->getMockBuilder(\OxidEsales\Eshop\Core\Session::class)
+        return $this->getMockBuilder(\OxidEsales\Eshop\Core\Session::class)
                 ->disableOriginalConstructor()
                 ->disableOriginalClone()
                 ->setMethods(['setVariable'])
                 ->getMock();
-        return $mockOxSession;
     }
 
     /**
@@ -247,14 +245,11 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
             ->method('getUser')
             ->will($this->returnValue($bIsUserFound ? $mockOxUser : null));
 
-        $sut =
-            $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class)
+        return $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class)
                 ->setConstructorArgs([$mockOxSession, Registry::getLang()])
                 ->disableOriginalClone()
                 ->setMethods(['getAuthorizePaymentClient', 'getAuthorizePaymentDataProvider'])
                 ->getMock();
-
-        return $sut;
     }
 
 }

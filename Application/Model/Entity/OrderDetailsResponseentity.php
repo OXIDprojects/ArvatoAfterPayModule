@@ -77,12 +77,9 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
             $allItems = $this->getAllItems();
             $capturedItems = $this->getCapturedItems(true);
             $aNonCapturedItems = $this->subtractItems($allItems, $capturedItems);
-            $aNonCapturedNorVoidedItems = $this->subtractItems($aNonCapturedItems, $this->getVoidedItems());
-
-            return $aNonCapturedNorVoidedItems;
-
+            return $this->subtractItems($aNonCapturedItems, $this->getVoidedItems());
         }
-
+        return null;
     }
 
     public function canFreeRefund() {
@@ -220,10 +217,6 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
                     $oArt->load($oCaptureItem->productId);
                     $aCaptureItems[$captureItemIndex]->oxArticle = $oArt;
                 }
-
-            }
-
-            if (!$bMerge) {
 
             }
 

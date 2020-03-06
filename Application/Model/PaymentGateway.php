@@ -191,8 +191,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
         $afterpayCheckoutId = Registry::getSession()->getVariable('arvatoAfterpayCheckoutId');
         $service = $this->getCreateContractService($afterpayCheckoutId);
         $paymentType = $oOrder->oxorder__oxpaymenttype->value;
-        $contractId = $service->createContract($paymentType, $apdebitbankaccount, $apdebitbankcode);
-        return $contractId;
+        return $service->createContract($paymentType, $apdebitbankaccount, $apdebitbankcode);
     }
 
     /**
@@ -262,8 +261,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
     {
         $session = Registry::getSession();
         $language = Registry::getLang();
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class, $session, $language);
-        return $service;
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class, $session, $language);
     }
 
     /**
@@ -277,8 +275,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
     {
         $session = Registry::getSession();
         $language = Registry::getLang();
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class, $session, $language, $oOrder);
-        return $service;
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class, $session, $language, $oOrder);
     }
 
     /**
@@ -290,8 +287,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
      */
     protected function getValidateBankAccountService()
     {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class);
-        return $service;
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class);
     }
 
     /**
@@ -304,8 +300,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
      */
     protected function getCreateContractService($checkoutId)
     {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $checkoutId);
-        return $service;
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $checkoutId);
     }
 
     /**
