@@ -123,7 +123,7 @@ class HttpClient
 
         $this->addHeaders();
 
-        $response = $this->curl_exec();
+        $response = $this->curlExec();
         $this->close();
 
         return $response;
@@ -146,7 +146,7 @@ class HttpClient
      * @return string
      * @throws CurlException
      */
-    protected function curl_exec()
+    protected function curlExec()
     {
         $response = curl_exec($this->_handle);
         $this->catchRequestError();

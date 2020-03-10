@@ -30,7 +30,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getCapturedAmount()
     {
-        return $this->_getData('capturedAmount');
+        return $this->getData('capturedAmount');
     }
 
     /**
@@ -40,7 +40,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setCapturedAmount($capturedAmount)
     {
-        return $this->_setData('capturedAmount', $capturedAmount);
+        return $this->setData('capturedAmount', $capturedAmount);
     }
 
     /**
@@ -50,7 +50,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getAuthorizedAmount()
     {
-        return $this->_getData('authorizedAmount');
+        return $this->getData('authorizedAmount');
     }
 
     /**
@@ -60,7 +60,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setAuthorizedAmount($authorizedAmount)
     {
-        return $this->_setData('authorizedAmount', $authorizedAmount);
+        return $this->setData('authorizedAmount', $authorizedAmount);
     }
 
     /**
@@ -70,7 +70,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getRemainingAuthorizedAmount()
     {
-        return $this->_getData('remainingAuthorizedAmount');
+        return $this->getData('remainingAuthorizedAmount');
     }
 
     /**
@@ -80,7 +80,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setRemainingAuthorizedAmount($remainingAuthorizedAmount)
     {
-        return $this->_setData('remainingAuthorizedAmount', $remainingAuthorizedAmount);
+        return $this->setData('remainingAuthorizedAmount', $remainingAuthorizedAmount);
     }
 
     /**
@@ -90,7 +90,7 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getCaptureNumber()
     {
-        return $this->_getData('captureNumber');
+        return $this->getData('captureNumber');
     }
 
     /**
@@ -100,6 +100,6 @@ class CaptureResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setCaptureNumber($captureNumber)
     {
-        return $this->_setData('captureNumber', $captureNumber);
+        return $this->setData('captureNumber', $captureNumber);
     }
 }

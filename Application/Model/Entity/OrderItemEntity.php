@@ -39,7 +39,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getProductId()
     {
-        return $this->_getData('productId');
+        return $this->getData('productId');
     }
 
     /**
@@ -49,7 +49,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setProductId($productId)
     {
-        $this->_setData('productId', $productId);
+        $this->setData('productId', $productId);
     }
 
     /**
@@ -59,7 +59,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getDescription()
     {
-        return $this->_getData('description');
+        return $this->getData('description');
     }
 
     /**
@@ -69,7 +69,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setDescription($description)
     {
-        $this->_setData('description', $description);
+        $this->setData('description', $description);
     }
 
     /**
@@ -79,7 +79,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getGrossUnitPrice()
     {
-        return $this->_getData('grossUnitPrice');
+        return $this->getData('grossUnitPrice');
     }
 
     /**
@@ -89,7 +89,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setGrossUnitPrice($grossUnitPrice)
     {
-        $this->_setData('grossUnitPrice', $grossUnitPrice);
+        $this->setData('grossUnitPrice', $grossUnitPrice);
     }
 
     /**
@@ -99,7 +99,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getQuantity()
     {
-        return $this->_getData('quantity');
+        return $this->getData('quantity');
     }
 
     /**
@@ -109,7 +109,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setQuantity($quantity)
     {
-        $this->_setData('quantity', $quantity);
+        $this->setData('quantity', $quantity);
     }
 
     /**
@@ -119,7 +119,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getGroupId()
     {
-        return $this->_getData('groupId');
+        return $this->getData('groupId');
     }
 
     /**
@@ -129,7 +129,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setGroupId($groupId)
     {
-        $this->_setData('groupId', $groupId);
+        $this->setData('groupId', $groupId);
     }
 
     /**
@@ -139,7 +139,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getNetUnitPrice()
     {
-        return $this->_getData('netUnitPrice');
+        return $this->getData('netUnitPrice');
     }
 
     /**
@@ -149,7 +149,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setNetUnitPrice($netUnitPrice)
     {
-        $this->_setData('netUnitPrice', $netUnitPrice);
+        $this->setData('netUnitPrice', $netUnitPrice);
     }
 
     /**
@@ -159,7 +159,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getUnitCode()
     {
-        return $this->_getData('unitCode');
+        return $this->getData('unitCode');
     }
 
     /**
@@ -169,7 +169,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setUnitCode($unitCode)
     {
-        $this->_setData('unitCode', $unitCode);
+        $this->setData('unitCode', $unitCode);
     }
 
     /**
@@ -179,7 +179,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getVatCategory()
     {
-        return $this->_getData('vatCategory');
+        return $this->getData('vatCategory');
     }
 
     /**
@@ -189,7 +189,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setVatCategory($vatCategory)
     {
-        $this->_setData('vatCategory', $vatCategory);
+        $this->setData('vatCategory', $vatCategory);
     }
 
     /**
@@ -199,7 +199,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getVatPercent()
     {
-        return $this->_getData('vatPercent');
+        return $this->getData('vatPercent');
     }
 
     /**
@@ -209,7 +209,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setVatPercent($vatPercent)
     {
-        $this->_setData('vatPercent', $vatPercent);
+        $this->setData('vatPercent', $vatPercent);
     }
 
     /**
@@ -219,7 +219,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getVatAmount()
     {
-        return $this->_getData('vatAmount');
+        return $this->getData('vatAmount');
     }
 
     /**
@@ -229,7 +229,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setVatAmount($vatAmount)
     {
-        $this->_setData('vatAmount', $vatAmount);
+        $this->setData('vatAmount', $vatAmount);
     }
 
     /**
@@ -239,7 +239,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getImageUrl()
     {
-        return $this->_getData('imageUrl');
+        return $this->getData('imageUrl');
     }
 
     /**
@@ -249,7 +249,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setImageUrl($imageUrl)
     {
-        $this->_setData('imageUrl', $imageUrl);
+        $this->setData('imageUrl', $imageUrl);
     }
 
     /**
@@ -259,7 +259,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getGoogleProductCategoryId()
     {
-        return $this->_getData('googleProductCategoryId');
+        return $this->getData('googleProductCategoryId');
     }
 
     /**
@@ -269,7 +269,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setGoogleProductCategoryId($googleProductCategoryId)
     {
-        $this->_setData('googleProductCategoryId', $googleProductCategoryId);
+        $this->setData('googleProductCategoryId', $googleProductCategoryId);
     }
 
     /**
@@ -279,7 +279,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getGoogleProductCategory()
     {
-        return $this->_getData('googleProductCategory');
+        return $this->getData('googleProductCategory');
     }
 
     /**
@@ -289,7 +289,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setGoogleProductCategory($googleProductCategory)
     {
-        $this->_setData('googleProductCategory', $googleProductCategory);
+        $this->setData('googleProductCategory', $googleProductCategory);
     }
 
     /**
@@ -299,7 +299,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getMerchantProductType()
     {
-        return $this->_getData('merchantProductType');
+        return $this->getData('merchantProductType');
     }
 
     /**
@@ -309,7 +309,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setMerchantProductType($merchantProductType)
     {
-        $this->_setData('merchantProductType', $merchantProductType);
+        $this->setData('merchantProductType', $merchantProductType);
     }
 
     /**
@@ -319,7 +319,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getLineNumber()
     {
-        return $this->_getData('lineNumber');
+        return $this->getData('lineNumber');
     }
 
     /**
@@ -329,7 +329,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setLineNumber($lineNumber)
     {
-        $this->_setData('lineNumber', $lineNumber);
+        $this->setData('lineNumber', $lineNumber);
     }
 
     /**
@@ -339,7 +339,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getDiscountAmount()
     {
-        return $this->_getData('discountAmount');
+        return $this->getData('discountAmount');
     }
 
     /**
@@ -349,7 +349,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setDiscountAmount($discountAmount)
     {
-        $this->_setData('discountAmount', $discountAmount);
+        $this->setData('discountAmount', $discountAmount);
     }
 
     /**
@@ -359,7 +359,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getProductUrl()
     {
-        return $this->_getData('productUrl');
+        return $this->getData('productUrl');
     }
 
     /**
@@ -369,7 +369,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setProductUrl($productUrl)
     {
-        $this->_setData('productUrl', $productUrl);
+        $this->setData('productUrl', $productUrl);
     }
 
     /**
@@ -379,7 +379,7 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function getMarketPlaceSellerId()
     {
-        return $this->_getData('marketPlaceSellerId');
+        return $this->getData('marketPlaceSellerId');
     }
 
     /**
@@ -389,6 +389,6 @@ class OrderItemEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\App
      */
     public function setMarketPlaceSellerId($marketPlaceSellerId)
     {
-        $this->_setData('marketPlaceSellerId', $marketPlaceSellerId);
+        $this->setData('marketPlaceSellerId', $marketPlaceSellerId);
     }
 }

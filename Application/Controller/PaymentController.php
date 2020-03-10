@@ -55,7 +55,7 @@ class PaymentController extends PaymentController_parent
         $this->assignRequiredDynValue();
 
         // Finally resume oxids handling
-        return $this->parent_render();
+        return $this->parentRender();
     }
 
     public function getOrderStateSelectInstallmentConstant()
@@ -105,7 +105,7 @@ class PaymentController extends PaymentController_parent
      */
     public function validatePayment()
     {
-        $parentReturn = $this->parent_validate_payment();
+        $parentReturn = $this->parentValidatePayment();
 
         $sPaymentId = $this->getRequestOrSessionParameter('paymentid');
         $aDynvalue = $this->getRequestOrSessionParameter('dynvalue');
@@ -250,7 +250,7 @@ class PaymentController extends PaymentController_parent
      * @codeCoverageIgnore Deliberately untested, since mocked
      * @return mixed
      */
-    protected function parent_render()
+    protected function parentRender()
     {
         return parent::render();
     }
@@ -259,7 +259,7 @@ class PaymentController extends PaymentController_parent
      * @codeCoverageIgnore Deliberately untested, since mocked
      * @return mixed
      */
-    protected function parent_validate_payment()
+    protected function parentValidatePayment()
     {
         return parent::validatePayment();
     }

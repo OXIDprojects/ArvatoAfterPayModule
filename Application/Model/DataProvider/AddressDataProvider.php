@@ -31,7 +31,7 @@ class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule
     public function getUserAddress(\OxidEsales\Eshop\Application\Model\User $user)
     {
         $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AddressEntity::class);
-        $dataObject->setCountryCode($this->_getCountryCode($user->oxuser__oxcountryid->value));
+        $dataObject->setCountryCode($this->getCountryCode($user->oxuser__oxcountryid->value));
         $dataObject->setPostalCode($user->oxuser__oxzip->value);
         $dataObject->setStreet($user->oxuser__oxstreet->value);
         $dataObject->setStreetNumber($user->oxuser__oxstreetnr->value);
@@ -55,7 +55,7 @@ class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule
 
         if (!empty($address)) {
             $dataObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AddressEntity::class);
-            $dataObject->setCountryCode($this->_getCountryCode($address->oxaddress__oxcountryid->value));
+            $dataObject->setCountryCode($this->getCountryCode($address->oxaddress__oxcountryid->value));
             $dataObject->setPostalCode($address->oxaddress__oxzip->value);
             $dataObject->setStreet($address->oxaddress__oxstreet->value);
             $dataObject->setStreetNumber($address->oxaddress__oxstreetnr->value);
@@ -75,7 +75,7 @@ class AddressDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule
      * @param string $id
      * @return string
      */
-    protected function _getCountryCode($id)
+    protected function getCountryCode($id)
     {
         $country = oxNew(\OxidEsales\Eshop\Application\Model\Country::class);
         $country->load($id);

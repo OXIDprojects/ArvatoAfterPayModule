@@ -36,7 +36,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
      * Assert that payment get derefered to other payment providers
      * Majority of assertions is in the mocks! See expects-never / expects-once
      */
-    public function testExecutePayment_noAfterpayOrder()
+    public function testExecutePaymentNoAfterpayOrder()
     {
         $blIsAfterpayOrder = false;
         $blSuccess = false;
@@ -52,7 +52,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
      * Testing method executePayment for non-accepted orders.
      * Majority of assertions is in the mocks! See expects-never / expects-once
      */
-    public function testExecutePayment_afterpayOrder_notAccepted()
+    public function testExecutePaymentAfterpayOrderNotAccepted()
     {
         $blIsAfterpayOrder = true;
         $blSuccess = false;
@@ -68,7 +68,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
      * Testing method executePayment for non-accepted orders.
      * Majority of assertions is in the mocks! See expects-never / expects-once
      */
-    public function testExecutePayment_afterpayOrder_accepted()
+    public function testExecutePaymentAfterpayOrderAccepted()
     {
         $blIsAfterpayOrder = true;
         $blSuccess = true;
@@ -103,7 +103,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals([222, 111], $sutReturn);
     }
 
-    public function testhandleInstallment_ok()
+    public function testhandleInstallmentOk()
     {
 
         $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class)
@@ -145,7 +145,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     }
 
 
-    public function testhandleInstallment_notavailable()
+    public function testhandleInstallmentNotavailable()
     {
 
         $mockValidateService = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class)
@@ -189,7 +189,7 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      *
      */
-    public function testhandleDebitNote_ok()
+    public function testhandleDebitNoteOk()
     {
 
         $iban = new \stdClass();

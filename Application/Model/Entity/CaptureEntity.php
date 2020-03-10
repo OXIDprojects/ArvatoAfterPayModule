@@ -29,7 +29,7 @@ class CaptureEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getOrderDetails()
     {
-        return $this->_getData('orderDetails');
+        return $this->getData('orderDetails');
     }
 
     /**
@@ -39,6 +39,6 @@ class CaptureEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setOrderDetails($orderDetails)
     {
-        $this->_setData('orderDetails', $orderDetails);
+        $this->setData('orderDetails', $orderDetails);
     }
 }

@@ -29,7 +29,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getStreet()
     {
-        return $this->_getData('street');
+        return $this->getData('street');
     }
 
     /**
@@ -39,7 +39,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setStreet($street)
     {
-        $this->_setData('street', $street);
+        $this->setData('street', $street);
     }
 
     /**
@@ -49,7 +49,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getStreetNumber()
     {
-        return $this->_getData('streetNumber');
+        return $this->getData('streetNumber');
     }
 
     /**
@@ -59,7 +59,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setStreetNumberAdditional($streetNumberAdditional)
     {
-        $this->_setData('streetNumberAdditional', $streetNumberAdditional);
+        $this->setData('streetNumberAdditional', $streetNumberAdditional);
     }
 
     /**
@@ -69,7 +69,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getStreetNumberAdditional()
     {
-        return $this->_getData('streetNumberAdditional');
+        return $this->getData('streetNumberAdditional');
     }
 
     /**
@@ -79,7 +79,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setStreetNumber($streetNumber)
     {
-        $this->_setData('streetNumber', $streetNumber);
+        $this->setData('streetNumber', $streetNumber);
     }
 
     /**
@@ -89,7 +89,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getPostalCode()
     {
-        return $this->_getData('postalCode');
+        return $this->getData('postalCode');
     }
 
     /**
@@ -99,7 +99,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setPostalCode($postalCode)
     {
-        $this->_setData('postalCode', $postalCode);
+        $this->setData('postalCode', $postalCode);
     }
 
     /**
@@ -109,7 +109,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getPostalPlace()
     {
-        return $this->_getData('postalPlace');
+        return $this->getData('postalPlace');
     }
 
     /**
@@ -119,7 +119,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setPostalPlace($postalPlace)
     {
-        $this->_setData('postalPlace', $postalPlace);
+        $this->setData('postalPlace', $postalPlace);
     }
 
     /**
@@ -129,7 +129,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getCountryCode()
     {
-        return $this->_getData('countryCode');
+        return $this->getData('countryCode');
     }
 
     /**
@@ -139,7 +139,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setCountryCode($countryCode)
     {
-        $this->_setData('countryCode', $countryCode);
+        $this->setData('countryCode', $countryCode);
     }
 
     /**
@@ -149,7 +149,7 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getCareOf()
     {
-        return $this->_getData('careOf');
+        return $this->getData('careOf');
     }
 
     /**
@@ -159,6 +159,6 @@ class AddressEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setCareOf($careOf)
     {
-        $this->_setData('careOf', $careOf);
+        $this->setData('careOf', $careOf);
     }
 }

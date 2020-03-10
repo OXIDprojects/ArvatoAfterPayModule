@@ -59,11 +59,11 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterpayMod
             );
         }
 
-        $response = $this->_executeRequestFromOrderData($this->_afterpayOrder, $trackingId, $sRecordedApiKey, $shippingCompany, $type);
+        $response = $this->executeRequestFromOrderData($this->_afterpayOrder, $trackingId, $sRecordedApiKey, $shippingCompany, $type);
 
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
 
-        $shippingNumber = $this->_getEntity()->getShippingNumber();
+        $shippingNumber = $this->getEntity()->getShippingNumber();
 
         if (is_numeric($shippingNumber) && $shippingNumber > 0) {
             $this->_oxOrder->oxorder__oxtrackcode = new \OxidEsales\Eshop\Core\Field($trackingId);
@@ -73,7 +73,7 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterpayMod
             $this->_oxOrder->save();
         }
 
-        return $this->_getEntity();
+        return $this->getEntity();
     }
 
     /**
@@ -86,7 +86,7 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterpayMod
      * @return stdClass|stdClass[]
      * @codeCoverageIgnore : Untested since we would have to mock away both lines
      */
-    protected function _executeRequestFromOrderData(
+    protected function executeRequestFromOrderData(
         \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder $AfterpayOrder,
         $trackingId,
         $sRecordedApiKey,

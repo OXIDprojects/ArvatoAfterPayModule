@@ -60,7 +60,7 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
         }
 
         if ($vatSplittedRefunds) {
-            $response = $this->_executeRequestFromVatSplittedRefundFields(
+            $response = $this->executeRequestFromVatSplittedRefundFields(
                 $this->_oxOrder->oxorder__oxordernr->value,
                 $sCaptureNo ?: $this->_afterpayOrder->getCaptureNo(),
                 $vatSplittedRefunds,
@@ -75,9 +75,9 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
             );
         }
 
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
 
-        return $this->_getEntity();
+        return $this->getEntity();
     }
 
     /**
@@ -90,7 +90,7 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
      * @return mixed
      * @codeCoverageIgnore Untested, since it contains only mockled-away oxNew-Calls.
      */
-    protected function _executeRequestFromVatSplittedRefundFields(
+    protected function executeRequestFromVatSplittedRefundFields(
         $sOrderNr,
         $sLastCaptureId,
         $vatSplittedRefunds,

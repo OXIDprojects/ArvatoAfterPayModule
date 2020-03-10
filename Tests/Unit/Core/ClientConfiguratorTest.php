@@ -32,7 +32,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals(\OxidProfessionalServices\ArvatoAfterpayModule\Core\WebServiceClient::FUNCTION_AUTHORIZE_CHECKOUT, $sutReturn->getFunction());
     }
 
-    public function testgetCaptureClient_ex()
+    public function testgetCaptureClientEx()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = $this->getSUT();
@@ -47,21 +47,21 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals($expected, $sutReturn->getFunction());
     }
 
-    public function testgetCaptureShippingClient_ex01()
+    public function testgetCaptureShippingClientEx01()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = $this->getSUT();
         $sut->getCaptureShippingClient(0, 1);
     }
 
-    public function testgetCaptureShippingClient_ex10()
+    public function testgetCaptureShippingClientEx10()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = $this->getSUT();
         $sut->getCaptureShippingClient(1, 0);
     }
 
-    public function testgetCaptureShippingClient_ok()
+    public function testgetCaptureShippingClientOk()
     {
         $sut = $this->getSUT();
         $this->assertInstanceOf(
@@ -79,7 +79,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetRefundClient_ex()
+    public function testgetRefundClientEx()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = $this->getSUT();
@@ -122,7 +122,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetBaseClient_ex01()
+    public function testgetBaseClientEx01()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = $this->getSUT();
@@ -132,7 +132,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetBaseClient_ex10()
+    public function testgetBaseClientEx10()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = $this->getSUT();
@@ -142,7 +142,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetBaseClient_ok_live()
+    public function testgetBaseClientOkLive()
     {
         $sut = $this->getSUT();
         $this->assertInstanceOf(
@@ -151,7 +151,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetBaseClient_ok_live_fixedurl()
+    public function testgetBaseClientOkLiveFixedurl()
     {
         Registry::getConfig()->setConfigParam('arvatoAfterpayApiUrl', 'http://lorem');
         $sut = $this->getSUT();
@@ -161,7 +161,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetBaseClient_ok_sandbox()
+    public function testgetBaseClientOkSandbox()
     {
         Registry::getConfig()->setConfigParam('arvatoAfterpayApiSandboxMode', true);
         $sut = $this->getSUT();
@@ -171,7 +171,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetUserCountryCodeIdFromSession_AT()
+    public function testgetUserCountryCodeIdFromSessionAT()
     {
         $oUser = oxNew(\OxidEsales\Eshop\Application\Model\User::class);
         $oUser->oxuser__oxcountryid = new \OxidEsales\Eshop\Core\Field('a7c40f6320aeb2ec2.72885259');
@@ -180,7 +180,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('AT', $sut->getUserCountryCodeIdFromSession());
     }
 
-    public function testgetUserCountryCodeIdFromSession_CH()
+    public function testgetUserCountryCodeIdFromSessionCH()
     {
         $oUser = oxNew(\OxidEsales\Eshop\Application\Model\User::class);
         $oUser->oxuser__oxcountryid = new \OxidEsales\Eshop\Core\Field('a7c40f6321c6f6109.43859248');
@@ -189,7 +189,7 @@ class ClientConfiguratorTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('CH', $sut->getUserCountryCodeIdFromSession());
     }
 
-    public function testgetUserCountryCodeIdFromSession_DE()
+    public function testgetUserCountryCodeIdFromSessionDE()
     {
         $oUser = oxNew(\OxidEsales\Eshop\Application\Model\User::class);
         $oUser->oxuser__oxcountryid = new \OxidEsales\Eshop\Core\Field('somethingelse');

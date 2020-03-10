@@ -20,7 +20,7 @@ namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 class RefundServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
-    public function test__construct()
+    public function testConstruct()
     {
         $this->assertInstanceOf(
             \OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class,
@@ -28,30 +28,30 @@ class RefundServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function test_refund_exception()
+    public function testRefundException()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class, oxNew(\OxidEsales\Eshop\Application\Model\Order::class));
         $sut->refund(null, 'SomeApiKey');
     }
 
-    public function test_refund_ok()
+    public function testRefundOk()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $AfterpayOrder = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $oxOrder);
         $sut =
             $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\RefundService::class)
                 ->setConstructorArgs([$oxOrder, $AfterpayOrder])
-                ->setMethods(['_executeRequestFromVatSplittedRefundFields', '_parseResponse'])
+                ->setMethods(['executeRequestFromVatSplittedRefundFields', 'parseResponse'])
                 ->getMock();
         $sut
             ->expects($this->once())
-            ->method('_executeRequestFromVatSplittedRefundFields')
+            ->method('executeRequestFromVatSplittedRefundFields')
             ->will($this->returnValue(123));
 
         $sut
             ->expects($this->once())
-            ->method('_parseResponse')
+            ->method('parseResponse')
             ->will($this->returnValue('###OK###'));
 
         // run

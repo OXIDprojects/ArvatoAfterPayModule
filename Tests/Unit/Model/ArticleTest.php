@@ -26,7 +26,7 @@ use OxidEsales\Eshop\Core\DatabaseProvider;
 class ArticleTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
-    public function testgetAfterpayProductGroup_foundbyarticle()
+    public function testgetAfterpayProductGroupFoundbyarticle()
     {
         $ce = ($this->isEE() ? '' : 'ce');
 
@@ -35,7 +35,7 @@ class ArticleTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('ProductgroupByArticle', $sut->getAfterpayProductGroup());
     }
 
-    public function testgetAfterpayProductGroup_foundbycat()
+    public function testgetAfterpayProductGroupFoundbycat()
     {
         $ce = ($this->isEE() ? '' : 'ce');
 

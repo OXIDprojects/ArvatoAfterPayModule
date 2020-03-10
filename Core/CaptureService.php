@@ -49,13 +49,13 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
      */
     public function capture($sRecordedApiKey, array $aOrderItems = null)
     {
-        $response = $this->_executeRequestFromOrderData($sRecordedApiKey, $aOrderItems);
+        $response = $this->executeRequestFromOrderData($sRecordedApiKey, $aOrderItems);
 
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
 
-        $capturedAmout = $this->_getEntity()->getCapturedAmount();
-        $remainingAuthorizedAmount = $this->_getEntity()->getRemainingAuthorizedAmount();
-        $captureNumber = $this->_getEntity()->getCaptureNumber();
+        $capturedAmout = $this->getEntity()->getCapturedAmount();
+        $remainingAuthorizedAmount = $this->getEntity()->getRemainingAuthorizedAmount();
+        $captureNumber = $this->getEntity()->getCaptureNumber();
         if (
             is_numeric($capturedAmout) && $capturedAmout > 0
             && is_numeric($remainingAuthorizedAmount)
@@ -64,7 +64,7 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
             $this->_afterpayOrder->save();
         }
 
-        return $this->_getEntity();
+        return $this->getEntity();
     }
 
     /**
@@ -74,7 +74,7 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
      *
      * @return stdClass|stdClass[]
      */
-    protected function _executeRequestFromOrderData($sRecordedApiKey, array $aOrderItems = null)
+    protected function executeRequestFromOrderData($sRecordedApiKey, array $aOrderItems = null)
     {
         $data = $this->getCaptureDataForApi($aOrderItems);
         $client = $this->getCaptureClientForApi($sRecordedApiKey);
@@ -92,9 +92,9 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
      *
      * @return stdClass|stdClass[]
      */
-    public function test_executeRequestFromOrderData($sRecordedApiKey)
+    public function testexecuteRequestFromOrderData($sRecordedApiKey)
     {
-        return $this->_executeRequestFromOrderData($sRecordedApiKey);
+        return $this->executeRequestFromOrderData($sRecordedApiKey);
     }
 
     /**

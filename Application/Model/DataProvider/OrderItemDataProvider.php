@@ -141,7 +141,7 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModu
     {
         $orderItem = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
         $orderItem->setProductId($item->getArticle()->oxarticles__oxid->value);
-        $orderItem->setDescription($this->_getItemDescription($item));
+        $orderItem->setDescription($this->getItemDescription($item));
         $orderItem->setQuantity($item->getAmount());
         $orderItem->setGrossUnitPrice($item->getUnitPrice()->getBruttoPrice());
         $orderItem->setNetUnitPrice($item->getUnitPrice()->getNettoPrice());
@@ -165,7 +165,7 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModu
      *
      * @return string
      */
-    protected function _getItemDescription(\OxidEsales\Eshop\Application\Model\BasketItem $item)
+    protected function getItemDescription(\OxidEsales\Eshop\Application\Model\BasketItem $item)
     {
         $description = $item->getTitle();
 

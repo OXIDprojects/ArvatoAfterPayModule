@@ -59,7 +59,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method captureShipping
      */
-    public function testCaptureShipping_success()
+    public function testCaptureShippingSuccess()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitcapturedorder');
@@ -79,7 +79,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method capture - failure
      */
-    public function testCaptureShipping_failure()
+    public function testCaptureShippingFailure()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitcapturedorder');
@@ -99,7 +99,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method capture - failure
      */
-    public function testCaptureShipping_exception()
+    public function testCaptureShippingException()
     {
         $this->setExpectedException(\OxidEsales\Eshop\Core\Exception\StandardException::class);
 
@@ -114,7 +114,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method getErrorMessages - Capture fails, Error Message present
      */
-    public function testGetErrorMessages_onErrors()
+    public function testGetErrorMessagesOnErrors()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitcapturedorder');
@@ -130,7 +130,7 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method getErrorMessages - Capture Successfull, no Errors
      */
-    public function testGetErrorMessages_onNoErrors()
+    public function testGetErrorMessagesOonNoErrors()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitcapturedorder');
@@ -153,11 +153,11 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $mockCaptureService =
             $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CaptureShippingService::class)
                 ->setConstructorArgs([$mockOxOrder])
-                ->setMethods(array('_executeRequestFromOrderData'))
+                ->setMethods(array('executeRequestFromOrderData'))
                 ->getMock();
 
         $mockCaptureService
-            ->method('_executeRequestFromOrderData')
+            ->method('executeRequestFromOrderData')
             ->will($this->returnValue($response));
 
         return $mockCaptureService;

@@ -27,11 +27,11 @@ class ValidateBankAccountResponseEntity extends \OxidProfessionalServices\Arvato
 
     public function getIsValid()
     {
-        return $this->_getData('isValid');
+        return $this->getData('isValid');
     }
 
     public function setIsValid($isValid)
     {
-        return $this->_setData('isValid', $isValid);
+        return $this->setData('isValid', $isValid);
     }
 }

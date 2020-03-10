@@ -30,7 +30,7 @@ class CaptureShippingResponseEntity extends \OxidProfessionalServices\ArvatoAfte
      */
     public function getShippingNumber()
     {
-        return $this->_getData('shippingNumber');
+        return $this->getData('shippingNumber');
     }
 
     /**
@@ -40,6 +40,6 @@ class CaptureShippingResponseEntity extends \OxidProfessionalServices\ArvatoAfte
      */
     public function setShippingNumber($shippingNumber)
     {
-        return $this->_setData('shippingNumber', $shippingNumber);
+        return $this->setData('shippingNumber', $shippingNumber);
     }
 }

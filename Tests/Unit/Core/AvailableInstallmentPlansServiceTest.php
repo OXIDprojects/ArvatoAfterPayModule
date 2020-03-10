@@ -25,7 +25,7 @@ class AvailableInstallmentPlanServiceTest extends \OxidEsales\TestingLibrary\Uni
 
         $sut =
             $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailableInstallmentPlansService::class)
-                ->setMethods(['_parseResponse', 'getAvailableInstallmentPlansClient'])
+                ->setMethods(['parseResponse', 'getAvailableInstallmentPlansClient'])
                 ->getMock();
 
         // Client
@@ -49,7 +49,7 @@ class AvailableInstallmentPlanServiceTest extends \OxidEsales\TestingLibrary\Uni
 
         $sut
             ->expects($this->once())
-            ->method('_parseResponse')
+            ->method('parseResponse')
             ->will($this->returnValue('###OK###'));
 
         // run

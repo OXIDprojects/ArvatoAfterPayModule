@@ -30,7 +30,7 @@ class CaptureShippingEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getType()
     {
-        return $this->_getData('type');
+        return $this->getData('type');
     }
 
     /**
@@ -40,7 +40,7 @@ class CaptureShippingEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setType($type)
     {
-        $this->_setData('type', $type);
+        $this->setData('type', $type);
     }
 
     /**
@@ -50,7 +50,7 @@ class CaptureShippingEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getShippingCompany()
     {
-        return $this->_getData('shippingCompany');
+        return $this->getData('shippingCompany');
     }
 
     /**
@@ -60,7 +60,7 @@ class CaptureShippingEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setShippingCompany($shippingCompany)
     {
-        $this->_setData('shippingCompany', $shippingCompany);
+        $this->setData('shippingCompany', $shippingCompany);
     }
 
     /**
@@ -70,7 +70,7 @@ class CaptureShippingEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getTrackingId()
     {
-        return $this->_getData('trackingId');
+        return $this->getData('trackingId');
     }
 
     /**
@@ -80,6 +80,6 @@ class CaptureShippingEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setTrackingId($trackingId)
     {
-        $this->_setData('trackingId', $trackingId);
+        $this->setData('trackingId', $trackingId);
     }
 }

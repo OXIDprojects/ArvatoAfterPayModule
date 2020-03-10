@@ -30,7 +30,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Tests GET requests.
      */
-    public function testexecuteHttpRequest_GET()
+    public function testexecuteHttpRequestGET()
     {
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
@@ -45,7 +45,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Tests POST requests.
      */
-    public function testexecuteHttpRequest_POST()
+    public function testexecuteHttpRequestPOST()
     {
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
@@ -60,7 +60,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Tests POST requests.
      */
-    public function testexecuteHttpRequest_NotPOSTorGET()
+    public function testexecuteHttpRequestNotPOSTorGET()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class, 'Unknown httpMethod FOOBAR');
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
@@ -71,7 +71,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Tests POST requests with headers.
      */
-    public function testexecuteHttpRequest_PostRequestWithHeaders()
+    public function testexecuteHttpRequestPostRequestWithHeaders()
     {
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
@@ -84,7 +84,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testexecuteHttpRequest_badurl()
+    public function testexecuteHttpRequestBadurl()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class, 'Could not resolve host: nowhere', 6);
 
@@ -92,7 +92,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $service->executeHttpRequest('POST', 'http://nowhere/');
     }
 
-    public function testexecuteHttpRequest_nomethod()
+    public function testexecuteHttpRequestNomethod()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
@@ -100,7 +100,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $service->executeHttpRequest(null, 'http://nowhere/');
     }
 
-    public function testexecuteHttpRequest_nourl()
+    public function testexecuteHttpRequestNourl()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
@@ -108,7 +108,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $service->executeHttpRequest('xxx', null);
     }
 
-    public function testexecuteJsonRequest_nomethod()
+    public function testexecuteJsonRequestNomethod()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
@@ -116,7 +116,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $service->executeJsonRequest(null, 'http://nowhere/');
     }
 
-    public function testexecuteJsonRequest_nourl()
+    public function testexecuteJsonRequestNourl()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 

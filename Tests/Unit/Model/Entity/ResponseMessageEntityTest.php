@@ -37,7 +37,7 @@ class ResponseMessageEntityTest extends \OxidProfessionalServices\ArvatoAfterpay
         ];
 
         $testObject = $this->getSUT();
-        $this->_testGetSet($testObject, $testData);
+        $this->testGetSet($testObject, $testData);
         $this->assertEquals((object) $testData, $testObject->exportData(), 'exported object not valid');
     }
 

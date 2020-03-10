@@ -30,7 +30,7 @@ class Service
     /**
      * @return CaptureShippingResponseEntity
      */
-    protected function _getEntity()
+    protected function getEntity()
     {
         return $this->_entity;
     }
@@ -67,14 +67,14 @@ class Service
      */
     public function getErrorMessages()
     {
-        if ($this->_getEntity() && $this->_getEntity()->getCustomerFacingMessage()) {
-            return $this->_getEntity()->getCustomerFacingMessage();
+        if ($this->getEntity() && $this->getEntity()->getCustomerFacingMessage()) {
+            return $this->getEntity()->getCustomerFacingMessage();
         }
 
         $errorMessages = [];
 
-        if ($this->_getEntity() && is_array($this->_getEntity()->getErrors()) && count($this->_getEntity()->getErrors())) {
-            $businessErrors = $this->_getEntity()->getErrors();
+        if ($this->getEntity() && is_array($this->getEntity()->getErrors()) && count($this->getEntity()->getErrors())) {
+            $businessErrors = $this->getEntity()->getErrors();
 
             foreach ($businessErrors as $businessError) {
                 if (is_array($businessError)) {
@@ -97,7 +97,7 @@ class Service
      */
     public function getLastErrorNo()
     {
-        if ($this->_getEntity() && $this->_getEntity()->getCustomerFacingMessage()) {
+        if ($this->getEntity() && $this->getEntity()->getCustomerFacingMessage()) {
             return \OxidEsales\Eshop\Application\Model\Order::ORDER_STATE_PAYMENTERROR;
         }
 
@@ -112,7 +112,7 @@ class Service
      * @return Entity
      * @throws CurlException
      */
-    protected function _parseResponse($response)
+    protected function parseResponse($response)
     {
         $base = $this->getBaseClassName();
         if (is_array($response)) {

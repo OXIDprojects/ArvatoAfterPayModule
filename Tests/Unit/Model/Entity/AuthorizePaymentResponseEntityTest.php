@@ -37,7 +37,7 @@ class AuthorizePaymentResponseEntityTest extends \OxidProfessionalServices\Arvat
         ];
 
         $testObject = $this->getSUT();
-        $this->_testGetSet($testObject, $testData);
+        $this->testGetSet($testObject, $testData);
     }
 
     /**

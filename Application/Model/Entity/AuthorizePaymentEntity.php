@@ -29,7 +29,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getPayment()
     {
-        return $this->_getData('payment');
+        return $this->getData('payment');
     }
 
     /**
@@ -39,7 +39,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setPayment(PaymentEntity $payment)
     {
-        $this->_setData('payment', $payment);
+        $this->setData('payment', $payment);
     }
 
     /**
@@ -49,7 +49,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getCheckoutId()
     {
-        return $this->_getData('checkoutId');
+        return $this->getData('checkoutId');
     }
 
     /**
@@ -59,7 +59,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setCheckoutId($checkoutId)
     {
-        $this->_setData('checkoutId', $checkoutId);
+        $this->setData('checkoutId', $checkoutId);
     }
 
     /**
@@ -69,7 +69,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getMerchantId()
     {
-        return $this->_getData('merchantId');
+        return $this->getData('merchantId');
     }
 
     /**
@@ -79,7 +79,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setMerchantId($merchantId)
     {
-        $this->_setData('merchantId', $merchantId);
+        $this->setData('merchantId', $merchantId);
     }
 
     /**
@@ -89,7 +89,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getCustomer()
     {
-        return $this->_getData('customer');
+        return $this->getData('customer');
     }
 
     /**
@@ -99,7 +99,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setCustomer(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity $customer)
     {
-        $this->_setData('customer', $customer);
+        $this->setData('customer', $customer);
     }
 
     /**
@@ -109,7 +109,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getDeliveryCustomer()
     {
-        return $this->_getData('deliveryCustomer');
+        return $this->getData('deliveryCustomer');
     }
 
     /**
@@ -119,7 +119,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setDeliveryCustomer(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity $deliveryCustomer)
     {
-        $this->_setData('deliveryCustomer', $deliveryCustomer);
+        $this->setData('deliveryCustomer', $deliveryCustomer);
     }
 
     /**
@@ -129,7 +129,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getOrder()
     {
-        return $this->_getData('order');
+        return $this->getData('order');
     }
 
     /**
@@ -139,7 +139,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setOrder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderEntity $order)
     {
-        $this->_setData('order', $order);
+        $this->setData('order', $order);
     }
 
     /**
@@ -149,7 +149,7 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getParentTransactionReference()
     {
-        return $this->_getData('parentTransactionReference');
+        return $this->getData('parentTransactionReference');
     }
 
     /**
@@ -159,6 +159,6 @@ class AuthorizePaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setParentTransactionReference($parentTransactionReference)
     {
-        $this->_setData('parentTransactionReference', $parentTransactionReference);
+        $this->setData('parentTransactionReference', $parentTransactionReference);
     }
 }

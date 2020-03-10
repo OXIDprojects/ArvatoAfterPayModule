@@ -28,7 +28,7 @@ class LoggingTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Assert that with disabled logging no logfile is written
      */
-    public function testLogRestRequest_loggingDisabled()
+    public function testLogRestRequestLoggingDisabled()
     {
         $sut = $this->getMokedSut(false);
         $sut->logRestRequest('abc', 'def', 'http://foobar');
@@ -38,7 +38,7 @@ class LoggingTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Assert that logfile with correct content is written, when enabled
      */
-    public function testLogRestRequest_loggingEnabled()
+    public function testLogRestRequestLoggingEnabled()
     {
         $sut = $this->getMokedSut(true);
         $sut->logRestRequest('abc', 'def', 'http://foobar');

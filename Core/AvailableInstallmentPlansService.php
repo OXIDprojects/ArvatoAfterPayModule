@@ -38,9 +38,9 @@ class AvailableInstallmentPlansService extends \OxidProfessionalServices\ArvatoA
         $client = $this->getAvailableInstallmentPlansClient();
         $response = $client->execute($data);
 
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
 
-        return $this->_getEntity();
+        return $this->getEntity();
     }
 
     /////////////////////////////////////////////////////

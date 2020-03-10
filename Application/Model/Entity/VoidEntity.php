@@ -27,7 +27,7 @@ class VoidEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applicat
      */
     public function getCancellationDetails()
     {
-        return $this->_getData('cancellationDetails');
+        return $this->getData('cancellationDetails');
     }
 
     /**
@@ -35,6 +35,6 @@ class VoidEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applicat
      */
     public function setCancellationDetails($cancellationDetails)
     {
-        $this->_setData('cancellationDetails', $cancellationDetails);
+        $this->setData('cancellationDetails', $cancellationDetails);
     }
 }

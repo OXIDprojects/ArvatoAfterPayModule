@@ -28,16 +28,16 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function testrender()
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
-            ->setMethods(array('parent_render'))
+            ->setMethods(array('parentRender'))
             ->getMock();
         $sut->expects($this->once())
-            ->method('parent_render')
+            ->method('parentRender')
             ->will($this->returnValue('###OK###'));
         $render = $sut->render();
         $this->assertEquals('###OK###', $render);
     }
 
-    public function testvalidatePayment_noAfterPayPayment()
+    public function testvalidatePaymentNoAfterPayPayment()
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
             ->setMethods([
@@ -61,7 +61,7 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals(0, $render);
     }
 
-    public function testvalidatePayment_DebitNote()
+    public function testvalidatePaymentDebitNote()
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
             ->setMethods([
@@ -69,7 +69,7 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
                 'validateDebitNote',
                 'validateAndSaveSelectedInstallmentPforileId',
                 'validateInstallment',
-                'parent_validate_payment'
+                'parentValidatePayment'
             ])
             ->getMock();
 
@@ -81,13 +81,13 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->expects($this->once())->method('validateDebitNote')->will($this->returnValue(0));
         $sut->expects($this->never())->method('validateAndSaveSelectedInstallmentPforileId');
         $sut->expects($this->never())->method('validateInstallment');
-        $sut->expects($this->once())->method('parent_validate_payment')->will($this->returnValue('order'));
+        $sut->expects($this->once())->method('parentValidatePayment')->will($this->returnValue('order'));
 
         $render = $sut->validatePayment();
         $this->assertEquals('order', $render);
     }
 
-    public function testvalidatePayment_Installment()
+    public function testvalidatePaymentInstallment()
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
             ->setMethods([
@@ -95,7 +95,7 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
                 'validateDebitNote',
                 'validateAndSaveSelectedInstallmentPforileId',
                 'validateInstallment',
-                'parent_validate_payment'
+                'parentValidatePayment'
             ])
             ->getMock();
 
@@ -107,19 +107,19 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->expects($this->once())->method('validateInstallment')->will($this->returnValue(0));
         $sut->expects($this->once())->method('validateAndSaveSelectedInstallmentPforileId');
         $sut->expects($this->never())->method('validateDebitNote');
-        $sut->expects($this->once())->method('parent_validate_payment')->will($this->returnValue('order'));
+        $sut->expects($this->once())->method('parentValidatePayment')->will($this->returnValue('order'));
 
         $render = $sut->validatePayment();
         $this->assertEquals('order', $render);
     }
 
-    public function testgetAvailableInstallmentPlans_NoPlans()
+    public function testgetAvailableInstallmentPlansNoPlans()
     {
         $sut = $this->getSut_MockedInstallment(123, false);
         $this->assertNull($sut->getAvailableInstallmentPlans());
     }
 
-    public function testgetAvailableInstallmentPlans_FoundPlans()
+    public function testgetAvailableInstallmentPlansFoundPlans()
     {
         $sut = $this->getSut_MockedInstallment(123, true);
         $sutReturn = $sut->getAvailableInstallmentPlans();
@@ -149,14 +149,14 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals(1, $sut->validateInstallment($aDynvalue));
     }
 
-    public function testvalidateAndSaveSelectedInstallmentPforileId_noError()
+    public function testvalidateAndSaveSelectedInstallmentPforileIdNoError()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Controller\PaymentController::class);
         $sutReturn = $sut->validateAndSaveSelectedInstallmentPforileId(['afterpayInstallmentProfileId' => 1]);
         $this->assertEquals(0, $sutReturn);
     }
 
-    public function testvalidateAndSaveSelectedInstallmentPforileId_unselectedProfileIdError()
+    public function testvalidateAndSaveSelectedInstallmentPforileIdUnselectedProfileIdError()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Controller\PaymentController::class);
         $sutReturn = $sut->validateAndSaveSelectedInstallmentPforileId(['afterpayInstallmentProfileId' => null]);
@@ -186,12 +186,12 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return PaymentController
      */
-    protected function getSUT_NoInstallment($oxSession = null)
+    protected function getSUTNoInstallment($oxSession = null)
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
-            ->setMethods(array('parent_render', 'getSession'))
+            ->setMethods(array('parentRender', 'getSession'))
             ->getMock();
-        $sut->method('parent_render')
+        $sut->method('parentRender')
             ->will($this->returnValue('parent_render_called.tpl'));
         $sut->expects($this->atLeastOnce())
             ->method('getSession')
@@ -206,7 +206,7 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return PaymentController
      */
-    protected function getSUT_InstallmentProfileId($iInstallmentProfileId)
+    protected function getSUTInstallmentProfileId($iInstallmentProfileId)
     {
         $oxSession = Registry::getSession();
         $oxSession->setVariable('dynvalue', []);
@@ -233,17 +233,17 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return PaymentController
      */
-    protected function getSUT_Installment($oxSession = null)
+    protected function getSUTInstallment($oxSession = null)
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
             ->setMethods([
-                'parent_render',
+                'parentRender',
                 'getSession',
                 'updateSelectedInstallmentPlanProfileIdInSession',
                 'getAvailableInstallmentPlans'
             ])
             ->getMock();
-        $sut->method('parent_render')
+        $sut->method('parentRender')
             ->will($this->returnValue('parent_render_called.tpl'));
         $sut->expects($this->atLeastOnce())
             ->method('getSession')
@@ -271,7 +271,7 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return PaymentController
      */
-    protected function getSut_MockedInstallment($fBasketPrice, $bFoundInstallmentPlans)
+    protected function getSutMockedInstallment($fBasketPrice, $bFoundInstallmentPlans)
     {
 
         $oxPrice = $this->getMockBuilder('stdClass')->setMethods(['getBruttoPrice'])->getMock();

@@ -36,7 +36,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function getOutcome()
     {
-        return $this->_getData('outcome');
+        return $this->getData('outcome');
     }
 
     /**
@@ -46,7 +46,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function setOutcome($outcome)
     {
-        $this->_setData('outcome', $outcome);
+        $this->setData('outcome', $outcome);
     }
 
     /**
@@ -56,7 +56,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function getCustomer()
     {
-        return $this->_getData('customer');
+        return $this->getData('customer');
     }
 
     /**
@@ -66,7 +66,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function setCustomer(CustomerResponseEntity $customer)
     {
-        $this->_setData('customer', $customer);
+        $this->setData('customer', $customer);
     }
 
     /**
@@ -76,7 +76,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function getDeliveryCustomer()
     {
-        return $this->_getData('deliveryCustomer');
+        return $this->getData('deliveryCustomer');
     }
 
     /**
@@ -86,7 +86,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function setDeliveryCustomer(CustomerResponseEntity $deliveryCustomer)
     {
-        $this->_setData('deliveryCustomer', $deliveryCustomer);
+        $this->setData('deliveryCustomer', $deliveryCustomer);
     }
 
     /**
@@ -96,7 +96,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function getReservationId()
     {
-        return $this->_getData('reservationId');
+        return $this->getData('reservationId');
     }
 
     /**
@@ -106,7 +106,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function setReservationId($reservationId)
     {
-        $this->_setData('reservationId', $reservationId);
+        $this->setData('reservationId', $reservationId);
     }
 
     /**
@@ -116,7 +116,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function getCheckoutId()
     {
-        return $this->_getData('checkoutId');
+        return $this->getData('checkoutId');
     }
 
     /**
@@ -126,7 +126,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function setCheckoutId($checkoutId)
     {
-        $this->_setData('checkoutId', $checkoutId);
+        $this->setData('checkoutId', $checkoutId);
     }
 
 
@@ -137,7 +137,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function getRiskCheckMessages()
     {
-        return $this->_getData('riskCheckMessages');
+        return $this->getData('riskCheckMessages');
     }
 
     /**
@@ -147,7 +147,7 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
      */
     public function setRiskCheckMessages($riskCheckMessages)
     {
-        $this->_setData('riskCheckMessages', $riskCheckMessages);
+        $this->setData('riskCheckMessages', $riskCheckMessages);
     }
 
     public function addAddress(ResponseMessageEntity $responseMessageEntity)

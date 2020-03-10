@@ -28,15 +28,15 @@ abstract class EntityAbstract extends \OxidEsales\TestingLibrary\UnitTestCase
      * @param Entity $testObject
      * @param mixed[] $testData
      */
-    protected function _testGetSet(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity $testObject, $testData)
+    protected function testGetSet(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity $testObject, $testData)
     {
         foreach ($testData as $key => $value) {
-            $setter = $this->_getSetterName($key);
+            $setter = $this->getSetterName($key);
             $testObject->$setter($value);
         }
 
         foreach ($testData as $key => $value) {
-            $getter = $this->_getGetterName($key);
+            $getter = $this->getGetterName($key);
             if (is_object($value)) {
                 $this->assertSame(
                     $value,
@@ -59,7 +59,7 @@ abstract class EntityAbstract extends \OxidEsales\TestingLibrary\UnitTestCase
      * @param string $property
      * @return string
      */
-    protected function _getSetterName($property)
+    protected function getSetterName($property)
     {
         return 'set' . ucfirst($property);
     }
@@ -70,7 +70,7 @@ abstract class EntityAbstract extends \OxidEsales\TestingLibrary\UnitTestCase
      * @param string $property
      * @return string
      */
-    protected function _getGetterName($property)
+    protected function getGetterName($property)
     {
         return 'get' . ucfirst($property);
     }

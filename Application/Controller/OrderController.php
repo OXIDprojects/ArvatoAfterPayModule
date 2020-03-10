@@ -48,7 +48,7 @@ class OrderController extends OrderController_parent
         if ('afterpayinstallment' == $this->getSession()->getVariable('paymentid')) {
             $this->renderSelectedInstallmentPlan();
         }
-        return $this->parent_render();
+        return $this->parentRender();
     }
 
     public function getOrderStateCheckAddressConstant()
@@ -247,7 +247,7 @@ class OrderController extends OrderController_parent
      * @codeCoverageIgnore Deliberately untested, since mocked
      * @return mixed
      */
-    protected function parent_render()
+    protected function parentRender()
     {
         return parent::render();
     }

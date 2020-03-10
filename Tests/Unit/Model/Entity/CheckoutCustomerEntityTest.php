@@ -46,7 +46,7 @@ class CheckoutCustomerEntityTest extends \OxidProfessionalServices\ArvatoAfterpa
         ];
 
         $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::class);
-        $this->_testGetSet($testObject, $testData);
+        $this->testGetSet($testObject, $testData);
 
         $this->assertEquals((object) [
             'customerCategory'      => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CheckoutCustomerEntity::CUSTOMER_CATEGORY_PERSON,

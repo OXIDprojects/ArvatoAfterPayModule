@@ -20,13 +20,13 @@ namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 class CreateContractServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
-    public function test__construct()
+    public function testConstruct()
     {
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);
         $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $sut);
     }
 
-    public function test_executeRequest_exception()
+    public function test_executeRequestException()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException::class);
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);

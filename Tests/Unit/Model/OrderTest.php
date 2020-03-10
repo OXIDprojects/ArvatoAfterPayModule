@@ -26,7 +26,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method isAfterpayPaymentType
      */
-    public function testIsAfterpayPaymentType_true()
+    public function testIsAfterpayPaymentTypeTrue()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $this->assertTrue($sut->isAfterpayPaymentType('afterpayFoobar'));
@@ -36,7 +36,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method isAfterpayPaymentType
      */
-    public function testIsAfterpayPaymentType_false()
+    public function testIsAfterpayPaymentTypeFalse()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $this->assertFalse($sut->isAfterpayPaymentType('oxidFoobar'));
@@ -46,7 +46,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method GetAfterpayOrder
      */
-    public function testGetAfterpayOrder_returnEmpty()
+    public function testGetAfterpayOrderReturnEmpty()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $AfterpayOrder = $sut->getAfterpayOrder();
@@ -56,7 +56,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method GetAfterpayOrder
      */
-    public function testGetAfterpayOrder_returnFound()
+    public function testGetAfterpayOrderReturnFound()
     {
 
         /** @ var oxOrder $sut */

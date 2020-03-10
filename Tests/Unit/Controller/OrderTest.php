@@ -25,7 +25,7 @@ use OxidEsales\Eshop\Core\Registry;
 class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
-    public function testrender_noafterpayinstallment()
+    public function testrendernoafterpayinstallment()
     {
         $oxSession = Registry::getSession();
         $oxSession->setVariable('paymentid', 'definitlynotafterpay');
@@ -35,7 +35,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('parent_render_called.tpl', $render);
     }
 
-    public function testrender_afterpayinstallment()
+    public function testrenderafterpayinstallment()
     {
         $oxSession = Registry::getSession();
         $oxSession->setVariable('paymentid', 'afterpayinstallment');
@@ -45,40 +45,40 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('parent_render_called.tpl', $render);
     }
 
-    public function testgetAvailableInstallmentPlans_SessionLost()
+    public function testgetAvailableInstallmentPlansSessionLost()
     {
         $sut = $this->getSut_MockedInstallment(0, false);
         $this->assertFalse($sut->getAvailableInstallmentPlans());
     }
 
-    public function testgetAvailableInstallmentPlans_NoPlans()
+    public function testgetAvailableInstallmentPlansNoPlans()
     {
         $sut = $this->getSut_MockedInstallment(123, false);
         $this->assertNull($sut->getAvailableInstallmentPlans());
     }
 
-    public function testgetAvailableInstallmentPlans_FoundPlans()
+    public function testgetAvailableInstallmentPlansFoundPlans()
     {
         $sut = $this->getSut_MockedInstallment(123, true);
         $sutReturn = $sut->getAvailableInstallmentPlans();
         $this->assertEquals('{"99":{"installmentProfileNumber":99}}', json_encode($sutReturn));
     }
 
-    public function testupdateSelectedInstallmentPlanProfileIdInSession_IdSet()
+    public function testupdateSelectedInstallmentPlanProfileIdInSessionIdSet()
     {
         $sut = $this->getSUT_InstallmentProfileId(12);
         $sutReturn = $sut->updateSelectedInstallmentPlanProfileIdInSession(true);
         $this->assertEquals(12, $sutReturn);
     }
 
-    public function testupdateSelectedInstallmentPlanProfileIdInSession_IdNotSet()
+    public function testupdateSelectedInstallmentPlanProfileIdInSessionIdNotSet()
     {
         $sut = $this->getSUT_InstallmentProfileId(0);
         $sutReturn = $sut->updateSelectedInstallmentPlanProfileIdInSession(true);
         $this->assertEquals(1, $sutReturn);
     }
 
-    public function test_getNextStep_onNoError()
+    public function testgetNextStepOnNoError()
     {
         $class = new \ReflectionClass(\OxidEsales\Eshop\Application\Controller\OrderController::class);
         $method = $class->getMethod('_getNextStep');
@@ -87,7 +87,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('thankyou', $sutReturn);
     }
 
-    public function test_getNextStep_onError()
+    public function testgetNextStepOnError()
     {
         $class = new \ReflectionClass(\OxidEsales\Eshop\Application\Controller\OrderController::class);
         $method = $class->getMethod('_getNextStep');
@@ -99,7 +99,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('user?wecorrectedyouraddress=1', $sutReturn);
     }
 
-    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected_noRedirect_notInstallmentSelected()
+    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelectedNoRedirectNotInstallmentSelected()
     {
 
         $oxSession = Registry::getSession();
@@ -120,7 +120,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->redirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected([1, 2]);
     }
 
-    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected_noRedirect_PlansAvailable()
+    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelectedNoRedirectPlansAvailable()
     {
 
         $oxSession = Registry::getSession();
@@ -141,7 +141,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->redirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected([1, 2]);
     }
 
-    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected_redirect()
+    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelectedRedirect()
     {
         $oxSession = Registry::getSession();
         $oxSession->setVariable('paymentid', 'afterpayinstallment');
@@ -172,12 +172,12 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return OrderController
      */
-    protected function getSUT_NoInstallment($oxSession = null)
+    protected function getSUTNoInstallment($oxSession = null)
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\OrderController::class)
-            ->setMethods(array('parent_render', 'getSession'))
+            ->setMethods(array('parentRender', 'getSession'))
             ->getMock();
-        $sut->method('parent_render')
+        $sut->method('parentRender')
             ->will($this->returnValue('parent_render_called.tpl'));
         $sut->expects($this->atLeastOnce())
             ->method('getSession')
@@ -192,7 +192,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return OrderController
      */
-    protected function getSUT_InstallmentProfileId($iInstallmentProfileId)
+    protected function getSUTInstallmentProfileId($iInstallmentProfileId)
     {
         $oxSession = Registry::getSession();
         $oxSession->setVariable('dynvalue', []);
@@ -219,17 +219,17 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return OrderController
      */
-    protected function getSUT_Installment($oxSession = null)
+    protected function getSUTInstallment($oxSession = null)
     {
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\OrderController::class)
             ->setMethods([
-                'parent_render',
+                'parentRender',
                 'getSession',
                 'updateSelectedInstallmentPlanProfileIdInSession',
                 'getAvailableInstallmentPlans'
             ])
             ->getMock();
-        $sut->method('parent_render')
+        $sut->method('parentRender')
             ->will($this->returnValue('parent_render_called.tpl'));
         $sut->expects($this->atLeastOnce())
             ->method('getSession')
@@ -257,7 +257,7 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
      *
      * @return OrderController
      */
-    protected function getSut_MockedInstallment($fBasketPrice, $bFoundInstallmentPlans)
+    protected function getSutMockedInstallment($fBasketPrice, $bFoundInstallmentPlans)
     {
 
         $oxPrice = $this->getMockBuilder('stdClass')->setMethods(['getBruttoPrice'])->getMock();

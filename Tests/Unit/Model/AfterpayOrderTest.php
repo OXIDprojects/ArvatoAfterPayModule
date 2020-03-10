@@ -52,7 +52,7 @@ class AfterpayOrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method setStatus
      */
-    public function testSetStatus_legalStatus()
+    public function testSetStatusLegalStatus()
     {
         $sut = $this->getSUT();
         $sut->setStatus('authorized');
@@ -63,7 +63,7 @@ class AfterpayOrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
      * Testing method setStatus
      * @expectedException \OxidEsales\Eshop\Core\Exception\StandardException::class
      */
-    public function testSetStatus_illegalStatus()
+    public function testSetStatusIllegalStatus()
     {
         $sut = $this->getSUT();
         $sut->setStatus('FooBar!');

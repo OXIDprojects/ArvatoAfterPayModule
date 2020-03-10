@@ -56,7 +56,7 @@ class CreateContractService extends \OxidProfessionalServices\ArvatoAfterpayModu
         $iNumberOfInstallments = null
     ) {
         $response = $this->executeRequest($this->_afterpayCheckoutId, $paymentId, $sIBAN, $sBIC, $iSelectedInstallmentPlanProfileId, $iNumberOfInstallments);
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
         return $this->_entity->getContractId();
     }
 

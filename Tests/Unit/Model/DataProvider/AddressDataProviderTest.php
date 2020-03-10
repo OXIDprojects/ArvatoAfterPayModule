@@ -65,7 +65,7 @@ class AddressDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals($testData['oxcompany'], $address->getCareOf());
     }
 
-    public function testgetDeliveryAddress_addressfound()
+    public function testgetDeliveryAddressAddressfound()
     {
         $testData = [
             'oxcountryid' => DatabaseProvider::getDb()->getOne("select oxid from oxcountry where oxisoalpha3 = 'DEU'"),
@@ -105,7 +105,7 @@ class AddressDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals($testData['oxcompany'], $address->getCareOf());
     }
 
-    public function testgetDeliveryAddress_addressnotfound()
+    public function testgetDeliveryAddressAddressnotfound()
     {
         $testData = [
             'oxcountryid' => DatabaseProvider::getDb()->getOne("select oxid from oxcountry where oxisoalpha3 = 'DEU'"),

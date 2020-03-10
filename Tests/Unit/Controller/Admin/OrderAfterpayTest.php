@@ -29,7 +29,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Test that an afterpay order is correctly loaded and given to smarty
      */
-    public function testRender_isAfterpayOrder()
+    public function testRenderIsAfterpayOrder()
     {
         $oxID = 'unitcapturedorder';
         $sut = $this->getSUT($oxID);
@@ -64,7 +64,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Test that a non-afterpay-order is correctly marked
      */
-    public function testRender_isNotRecordedAfterpayOrder()
+    public function testRenderIsNotRecordedAfterpayOrder()
     {
         $oxID = 'unitnonrecordedafterpayorder';
         $sut = $this->getSUT($oxID);
@@ -84,7 +84,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Test that a non-afterpay-order is correctly marked
      */
-    public function testRender_isNotAfterpayOrder()
+    public function testRenderIsNotAfterpayOrder()
     {
         $oxID = 'unitnonafterpayorder';
         $sut = $this->getSUT($oxID);
@@ -109,7 +109,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('unitcapturedorder', $editObject->getId());
     }
 
-    public function testCapture_didCapture()
+    public function testCaptureDidCapture()
     {
         $sut = $this->getCaptureMockedSut(132.45);
         $aViewData = $sut->getViewData();
@@ -117,7 +117,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertTrue(isset($aViewData['oCaptureSuccess']));
     }
 
-    public function testCapture_didNotCapture_ServiceLevelError()
+    public function testCaptureDidNotCaptureServiceLevelError()
     {
         $sut = $this->getCaptureMockedSut(0, true);
         $aViewData = $sut->getViewData();
@@ -125,7 +125,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertFalse(isset($aViewData['oCaptureSuccess']));
     }
 
-    public function testCapture_didNotCapture_ResponseLevelError()
+    public function testCaptureDidNotCaptureResponseLevelError()
     {
         $sut = $this->getCaptureMockedSut(0, false);
         $aViewData = $sut->getViewData();
@@ -133,7 +133,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertFalse(isset($aViewData['oCaptureSuccess']));
     }
 
-    public function testCaptureshipping_successfull()
+    public function testCaptureshippingSuccessfull()
     {
         $sut = $this->getCaptureshippingMockedSut(123);
         $aViewData = $sut->getViewData();
@@ -141,7 +141,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertTrue(isset($aViewData['oCaptureShippingSuccess']), 'capture shipping success set');
     }
 
-    public function testCaptureshipping_unsuccessfull_ServiceLevelError()
+    public function testCaptureshippingUnsuccessfullServiceLevelError()
     {
         $sut = $this->getCaptureshippingMockedSut(null, true);
         $aViewData = $sut->getViewData();
@@ -149,7 +149,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertFalse(isset($aViewData['oCaptureShippingSuccess']), 'capture shipping success set');
     }
 
-    public function testCaptureshipping_unsuccessfull_ResponseLevelError()
+    public function testCaptureshippingUnsuccessfullResponseLevelError()
     {
         $sut = $this->getCaptureshippingMockedSut(null, false);
         $aViewData = $sut->getViewData();
@@ -157,7 +157,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertFalse(isset($aViewData['oCaptureShippingSuccess']), 'capture shipping success set');
     }
 
-    public function testrefund_successfull()
+    public function testrefundSuccessfull()
     {
         $sut = $this->getRefundMockedSut([800012345]);
         $aViewData = $sut->getViewData();
@@ -165,7 +165,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertTrue(isset($aViewData['oRefundSuccess']), 'refund success set');
     }
 
-    public function testrefund_unsuccessfull()
+    public function testrefundUnsuccessfull()
     {
         $sut = $this->getRefundMockedSut(null);
         $aViewData = $sut->getViewData();
@@ -176,7 +176,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * @expectedException \OxidEsales\Eshop\Core\Exception\StandardException::class
      */
-    public function testrefund_exception()
+    public function testrefundException()
     {
 
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
@@ -213,7 +213,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testgetRefundVatPercentages_oneVatOnly()
+    public function testgetRefundVatPercentagesOneVatOnly()
     {
 
         $orderarticle_vat19 = new \stdClass();
@@ -275,7 +275,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         );
     }
 
-    public function testorderitemaction_casecapture()
+    public function testorderitemactionCasecapture()
     {
 
         $sut = $this->getOrderItemActionSUT();
@@ -286,7 +286,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('c', $sut->orderitemaction());
     }
 
-    public function testorderitemaction_caserefund()
+    public function testorderitemactionCaserefund()
     {
 
         $sut = $this->getOrderItemActionSUT();
@@ -297,7 +297,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('r', $sut->orderitemaction());
     }
 
-    public function testorderitemaction_casevoid()
+    public function testorderitemactionCasevoid()
     {
 
         $sut = $this->getOrderItemActionSUT();
@@ -325,28 +325,28 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->setMethods(array(
                 'getFromRequest',
                 'getOrderDetailsService',
-                'orderitemaction_capture',
-                'orderitemaction_refund',
-                'orderitemaction_void'
+                'orderitemactionCapture',
+                'orderitemactionRefund',
+                'orderitemactionVoid'
             ))
             ->getMock();
 
         $sut->method('getOrderDetailsService')
             ->will($this->returnValue($service));
 
-        $sut->method('orderitemaction_capture')
+        $sut->method('orderitemactionCapture')
             ->will($this->returnValue('c'));
 
-        $sut->method('orderitemaction_refund')
+        $sut->method('orderitemactionRefund')
             ->will($this->returnValue('r'));
 
-        $sut->method('orderitemaction_void')
+        $sut->method('orderitemactionVoid')
             ->will($this->returnValue('v'));
 
         return $sut;
     }
 
-    public function testorderitemaction_capture()
+    public function testorderitemactionCapture()
     {
 
         $article = new \stdClass();
@@ -374,10 +374,10 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->with($this->equalTo($items))// This is the assertion
             ->will($this->returnValue(null));
 
-        $sut->orderitemaction_capture($response, $items);
+        $sut->orderitemactionCapture($response, $items);
     }
 
-    public function testorderitemaction_refund()
+    public function testorderitemactionRefund()
     {
 
         $article = new \stdClass();
@@ -409,10 +409,10 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->with(null, $this->equalTo($items), 123)// This is the assertion
             ->will($this->returnValue(null));
 
-        $sut->orderitemaction_refund($response, $items);
+        $sut->orderitemactionRefund($response, $items);
     }
 
-    public function testorderitemaction_void()
+    public function testorderitemactionVoid()
     {
 
         $article = new \stdClass();
@@ -441,10 +441,10 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->with($this->equalTo($items))// This is the assertion
             ->will($this->returnValue(null));
 
-        $sut->orderitemaction_void($response, $items);
+        $sut->orderitemactionVoid($response, $items);
     }
 
-    public function testvoid_success()
+    public function testvoidSuccess()
     {
 
         $response = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\VoidResponseEntity::class)

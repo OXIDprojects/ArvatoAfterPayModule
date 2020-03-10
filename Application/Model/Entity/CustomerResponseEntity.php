@@ -33,7 +33,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getCustomerNumber()
     {
-        return $this->_getData('customerNumber');
+        return $this->getData('customerNumber');
     }
 
     /**
@@ -43,7 +43,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setCustomerNumber($customerNumber)
     {
-        $this->_setData('customerNumber', $customerNumber);
+        $this->setData('customerNumber', $customerNumber);
     }
 
     /**
@@ -53,7 +53,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getFirstName()
     {
-        return $this->_getData('firstName');
+        return $this->getData('firstName');
     }
 
     /**
@@ -63,7 +63,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setFirstName($firstName)
     {
-        $this->_setData('firstName', $firstName);
+        $this->setData('firstName', $firstName);
     }
 
     /**
@@ -73,7 +73,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getLastName()
     {
-        return $this->_getData('lastName');
+        return $this->getData('lastName');
     }
 
     /**
@@ -83,7 +83,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setLastName($lastName)
     {
-        $this->_setData('lastName', $lastName);
+        $this->setData('lastName', $lastName);
     }
 
     /**
@@ -93,7 +93,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getAddressList()
     {
-        return $this->_getData('addressList');
+        return $this->getData('addressList');
     }
 
     /**
@@ -103,7 +103,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setAddressList($addressList)
     {
-        $this->_setData('addressList', $addressList);
+        $this->setData('addressList', $addressList);
     }
 
     /**
@@ -113,7 +113,7 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function addAddress(AddressEntity $address)
     {
-        $this->_addItem('addressList', $address);
+        $this->addItem('addressList', $address);
     }
 
     /**
@@ -123,6 +123,6 @@ class CustomerResponseEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function removeAddress($index)
     {
-        $this->_addItem('addressList', $index);
+        $this->addItem('addressList', $index);
     }
 }

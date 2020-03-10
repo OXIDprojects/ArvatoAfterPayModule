@@ -37,7 +37,7 @@ class PaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function getType()
     {
-        return $this->_getData('type');
+        return $this->getData('type');
     }
 
     /**
@@ -47,6 +47,6 @@ class PaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
      */
     public function setType($type)
     {
-        $this->_setData('type', $type);
+        $this->setData('type', $type);
     }
 }

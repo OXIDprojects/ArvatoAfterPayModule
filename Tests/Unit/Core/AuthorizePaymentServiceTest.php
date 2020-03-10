@@ -37,7 +37,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
      * Testing method AuthorizePayment - successfull
      * reservation ID, checkout ID and Accepted-outcome
      */
-    public function testAuthorizePayment_successfull()
+    public function testAuthorizePaymentSuccessfull()
     {
         // Build SUT : Get ResponseData, Language, and Session to inject results into.
 
@@ -65,7 +65,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
      * Testing method AuthorizePayment - unsuccessfull
      * No reservation ID, checkout ID or Accepted-outcome
      */
-    public function testAuthorizePayment_unsuccessfull()
+    public function testAuthorizePaymentUnsuccessfull()
     {
         $responseData = new \stdClass();
 
@@ -133,32 +133,32 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
         $this->assertEquals('###OK###', $sut->executeRequestFromSessionData(oxNew(\OxidEsales\Eshop\Application\Model\Order::class)));
     }
 
-    public function testupdateCorrectedCustomerAddress_noAddress()
+    public function testupdateCorrectedCustomerAddressNoAddress()
     {
-        $sut = $this->getMockFor_updateCorrectedCustomerAddress(false, false, false);
+        $sut = $this->getMockForUpdateCorrectedCustomerAddress(false, false, false);
         $sutReturn = $sut->updateCorrectedCustomerAddress([null], false);
         // Assertion in mocks method call counter
         $this->assertNull($sutReturn);
     }
 
-    public function testupdateCorrectedCustomerAddress_BillingAddress()
+    public function testupdateCorrectedCustomerAddressBillingAddress()
     {
         $oAddress = new \stdClass();
         $oAddress->lorem = 'ipsum';
 
-        $sut = $this->getMockFor_updateCorrectedCustomerAddress(true, true, false);
+        $sut = $this->getMockForUpdateCorrectedCustomerAddress(true, true, false);
 
         $sutReturn = $sut->updateCorrectedCustomerAddress([$oAddress], false);
         // Assertion in mocks method call counter
         $this->assertNull($sutReturn);
     }
 
-    public function testupdateCorrectedCustomerAddress_DeliveryAddress()
+    public function testupdateCorrectedCustomerAddressDeliveryAddress()
     {
         $oAddress = new \stdClass();
         $oAddress->lorem = 'ipsum';
 
-        $sut = $this->getMockFor_updateCorrectedCustomerAddress(true, true, true);
+        $sut = $this->getMockForUpdateCorrectedCustomerAddress(true, true, true);
         $sutReturn = $sut->updateCorrectedCustomerAddress([$oAddress], true);
         // Assertion in mocks method call counter
         $this->assertNull($sutReturn);
@@ -207,7 +207,7 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
      *
      * @return PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getMockFor_updateCorrectedCustomerAddress($bAddressFound, $bIsUserFound, $bIsDeliveryAddress)
+    protected function getMockForUpdateCorrectedCustomerAddress($bAddressFound, $bIsUserFound, $bIsDeliveryAddress)
     {
         $mockOxAddress =
             $this->getMockBuilder(\OxidEsales\Eshop\Application\Model\Address::class)

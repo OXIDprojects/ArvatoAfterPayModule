@@ -45,7 +45,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getType()
     {
-        return $this->_getData('type');
+        return $this->getData('type');
     }
 
     /**
@@ -55,7 +55,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setType($type)
     {
-        $this->_setData('type', $type);
+        $this->setData('type', $type);
     }
 
     /**
@@ -65,7 +65,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getCode()
     {
-        return $this->_getData('code');
+        return $this->getData('code');
     }
 
     /**
@@ -75,7 +75,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setCode($code)
     {
-        $this->_setData('code', $code);
+        $this->setData('code', $code);
     }
 
     /**
@@ -85,7 +85,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getMessage()
     {
-        return $this->_getData('message');
+        return $this->getData('message');
     }
 
     /**
@@ -95,7 +95,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setMessage($message)
     {
-        $this->_setData('message', $message);
+        $this->setData('message', $message);
     }
 
     /**
@@ -105,7 +105,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getCustomerFacingMessage()
     {
-        return $this->_getData('customerFacingMessage');
+        return $this->getData('customerFacingMessage');
     }
 
     /**
@@ -115,7 +115,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setCustomerFacingMessage($customerFacingMessage)
     {
-        $this->_setData('customerFacingMessage', $customerFacingMessage);
+        $this->setData('customerFacingMessage', $customerFacingMessage);
     }
 
     /**
@@ -125,7 +125,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getActionCode()
     {
-        return $this->_getData('actionCode');
+        return $this->getData('actionCode');
     }
 
     /**
@@ -135,7 +135,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setActionCode($actionCode)
     {
-        $this->_setData('actionCode', $actionCode);
+        $this->setData('actionCode', $actionCode);
     }
 
     /**
@@ -145,7 +145,7 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function getFieldReference()
     {
-        return $this->_getData('fieldReference');
+        return $this->getData('fieldReference');
     }
 
     /**
@@ -155,6 +155,6 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
      */
     public function setFieldReference($fieldReference)
     {
-        $this->_setData('fieldReference', $fieldReference);
+        $this->setData('fieldReference', $fieldReference);
     }
 }

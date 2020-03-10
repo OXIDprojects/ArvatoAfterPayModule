@@ -49,7 +49,7 @@ class OrderItemEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule
         ];
 
         $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderItemEntity::class);
-        $this->_testGetSet($testObject, $testData);
+        $this->testGetSet($testObject, $testData);
         $this->assertEquals((object)$testData, $testObject->exportData(), 'exported object not valid');
     }
 }

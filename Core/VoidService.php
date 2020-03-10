@@ -50,18 +50,18 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Se
      */
     public function void($sRecordedApiKey, array $aOrderItems = null)
     {
-        $response = $this->_executeRequestFromOrderData($sRecordedApiKey, $aOrderItems);
-        $this->_entity = $this->_parseResponse($response);
+        $response = $this->executeRequestFromOrderData($sRecordedApiKey, $aOrderItems);
+        $this->_entity = $this->parseResponse($response);
 
         if (
-            is_numeric($this->_getEntity()->getTotalAuthorizedAmount())
-            && is_numeric($this->_getEntity()->getTotalCapturedAmount())
+            is_numeric($this->getEntity()->getTotalAuthorizedAmount())
+            && is_numeric($this->getEntity()->getTotalCapturedAmount())
         ) {
             $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_AUTHORIZATIONVOIDED);
             $this->_afterpayOrder->save();
         }
 
-        return $this->_getEntity();
+        return $this->getEntity();
     }
 
     /**
@@ -72,7 +72,7 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Se
      *
      * @codeCoverageIgnore Deliberately uncovered since only setter & getter
      */
-    protected function _executeRequestFromOrderData($sRecordedApiKey, array $aOrderItems = null)
+    protected function executeRequestFromOrderData($sRecordedApiKey, array $aOrderItems = null)
     {
         $data = $this->getVoidDataForApi($aOrderItems);
         $client = $this->getVoidClientForApi($sRecordedApiKey);
@@ -91,9 +91,9 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Se
      * @return stdClass|stdClass[]
      * @codeCoverageIgnore Deliberately uncovered since only setter & getter
      */
-    public function test_executeRequestFromOrderData($sRecordedApiKey)
+    public function testexecuteRequestFromOrderData($sRecordedApiKey)
     {
-        return $this->_executeRequestFromOrderData($sRecordedApiKey);
+        return $this->executeRequestFromOrderData($sRecordedApiKey);
     }
 
     /**

@@ -27,21 +27,21 @@ class ValidateBankAccountEntity extends \OxidProfessionalServices\ArvatoAfterpay
 
     public function getBankAccount()
     {
-        return $this->_getData('bankAccount');
+        return $this->getData('bankAccount');
     }
 
     public function setBankAccount($sIBAN)
     {
-        return $this->_setData('bankAccount', $sIBAN);
+        return $this->setData('bankAccount', $sIBAN);
     }
 
     public function getBankCode()
     {
-        return $this->_getData('bankCode');
+        return $this->getData('bankCode');
     }
 
     public function setBankCode($sBIC)
     {
-        return $this->_setData('bankCode', $sBIC);
+        return $this->setData('bankCode', $sBIC);
     }
 }

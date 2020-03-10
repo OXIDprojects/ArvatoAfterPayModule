@@ -46,7 +46,7 @@ class AuthorizePaymentService extends \OxidProfessionalServices\ArvatoAfterpayMo
     {
         $response = $this->executeRequestFromSessionData($oOrder);
 
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
         $this->_session->setVariable('arvatoAfterpayReservationId', $this->_entity->getReservationId());
         $this->_session->setVariable('arvatoAfterpayCheckoutId', $this->_entity->getCheckoutId());
 

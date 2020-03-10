@@ -36,8 +36,8 @@ class ValidateBankAccountService extends \OxidProfessionalServices\ArvatoAfterpa
         $data = $this->getRequestData($sIBAN, $sBIC);
         $client = $this->getClient();
         $response = $client->execute($data);
-        $this->_entity = $this->_parseResponse($response);
-        return $this->_getEntity();
+        $this->_entity = $this->parseResponse($response);
+        return $this->getEntity();
     }
 
     /**

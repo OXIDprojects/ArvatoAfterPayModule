@@ -38,7 +38,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getNumber()
     {
-        return $this->_getData('number');
+        return $this->getData('number');
     }
 
     /**
@@ -48,7 +48,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setNumber($number)
     {
-        $this->_setData('number', $number);
+        $this->setData('number', $number);
     }
 
     /**
@@ -58,7 +58,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getTotalGrossAmount()
     {
-        return $this->_getData('totalGrossAmount');
+        return $this->getData('totalGrossAmount');
     }
 
     /**
@@ -68,7 +68,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setTotalGrossAmount($totalGrossAmount)
     {
-        $this->_setData('totalGrossAmount', $totalGrossAmount);
+        $this->setData('totalGrossAmount', $totalGrossAmount);
     }
 
     /**
@@ -78,7 +78,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getCurrency()
     {
-        return $this->_getData('currency');
+        return $this->getData('currency');
     }
 
     /**
@@ -88,7 +88,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setCurrency($currency)
     {
-        $this->_setData('currency', $currency);
+        $this->setData('currency', $currency);
     }
 
     /**
@@ -98,7 +98,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getItems()
     {
-        return $this->_getData('items');
+        return $this->getData('items');
     }
 
     /**
@@ -108,7 +108,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setItems($items)
     {
-        $this->_setData('items', $items);
+        $this->setData('items', $items);
     }
 
     /**
@@ -118,7 +118,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getTotalNetAmount()
     {
-        return $this->_getData('totalNetAmount');
+        return $this->getData('totalNetAmount');
     }
 
     /**
@@ -128,7 +128,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setTotalNetAmount($totalNetAmount)
     {
-        $this->_setData('totalNetAmount', $totalNetAmount);
+        $this->setData('totalNetAmount', $totalNetAmount);
     }
 
     /**
@@ -138,7 +138,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getImageUrl()
     {
-        return $this->_getData('imageUrl');
+        return $this->getData('imageUrl');
     }
 
     /**
@@ -148,7 +148,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setImageUrl($imageUrl)
     {
-        $this->_setData('imageUrl', $imageUrl);
+        $this->setData('imageUrl', $imageUrl);
     }
 
     /**
@@ -158,7 +158,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getGoogleAnalyticsUserId()
     {
-        return $this->_getData('googleAnalyticsUserId');
+        return $this->getData('googleAnalyticsUserId');
     }
 
     /**
@@ -168,7 +168,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setGoogleAnalyticsUserId($googleAnalyticsUserId)
     {
-        $this->_setData('googleAnalyticsUserId', $googleAnalyticsUserId);
+        $this->setData('googleAnalyticsUserId', $googleAnalyticsUserId);
     }
 
     /**
@@ -178,7 +178,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getGoogleAnalyticsClientId()
     {
-        return $this->_getData('googleAnalyticsClientId');
+        return $this->getData('googleAnalyticsClientId');
     }
 
     /**
@@ -188,7 +188,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setGoogleAnalyticsClientId($googleAnalyticsClientId)
     {
-        $this->_setData('googleAnalyticsClientId', $googleAnalyticsClientId);
+        $this->setData('googleAnalyticsClientId', $googleAnalyticsClientId);
     }
 
     /**
@@ -198,7 +198,7 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function getDiscountAmount()
     {
-        return $this->_getData('discountAmount');
+        return $this->getData('discountAmount');
     }
 
     /**
@@ -208,6 +208,6 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
      */
     public function setDiscountAmount($discountAmount)
     {
-        $this->_setData('discountAmount', $discountAmount);
+        $this->setData('discountAmount', $discountAmount);
     }
 }

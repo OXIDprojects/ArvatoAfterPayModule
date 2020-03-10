@@ -27,7 +27,7 @@ class WebServiceClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method setFunction - nonvariable URL
      */
-    public function testSetFunction_nonVariableUrl()
+    public function testSetFunctionNonVariableUrl()
     {
         $sut = $this->getSUT();
         $sut->setFunction('LoremIpsum123');
@@ -48,7 +48,7 @@ class WebServiceClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method setFunction - nonvariable URL
      */
-    public function testSetFunction_variableUrl()
+    public function testSetFunctionVariableUrl()
     {
         $sut = $this->getSUT();
         $sut->setFunction('LoremIpsum/%d', [123]);

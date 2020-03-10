@@ -32,7 +32,7 @@ class RefundEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applic
      */
     public function getCaptureNumber()
     {
-        return $this->_getData('captureNumber');
+        return $this->getData('captureNumber');
     }
 
     /**
@@ -42,7 +42,7 @@ class RefundEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applic
      */
     public function setCaptureNumber($captureNumber)
     {
-        $this->_setData('captureNumber', $captureNumber);
+        $this->setData('captureNumber', $captureNumber);
     }
 
     /**
@@ -52,7 +52,7 @@ class RefundEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applic
      */
     public function getItems()
     {
-        return $this->_getData('orderItems');
+        return $this->getData('orderItems');
     }
 
     /**
@@ -62,6 +62,6 @@ class RefundEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applic
      */
     public function setItems($items)
     {
-        $this->_setData('orderItems', $items);
+        $this->setData('orderItems', $items);
     }
 }

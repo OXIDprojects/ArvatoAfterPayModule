@@ -47,8 +47,8 @@ class OrderDetailsService extends \OxidProfessionalServices\ArvatoAfterpayModule
     {
         $client = $this->getClient();
         $response = $client->execute();
-        $this->_entity = $this->_parseResponse($response);
-        return $this->_getEntity();
+        $this->_entity = $this->parseResponse($response);
+        return $this->getEntity();
     }
 
     /**

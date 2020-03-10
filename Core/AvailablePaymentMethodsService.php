@@ -54,7 +54,7 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
 
         $response = $this->executeRequestFromSessionData();
 
-        $this->_entity = $this->_parseResponse($response);
+        $this->_entity = $this->parseResponse($response);
 
         if (isset($this->_entity)) {
             $this->_session->setVariable('arvatoAfterpayCheckoutId', $this->_entity->getCheckoutId());

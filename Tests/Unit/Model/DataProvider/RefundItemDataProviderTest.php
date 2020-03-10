@@ -20,7 +20,7 @@ namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\DataPro
 class RefundItemDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
-    public function testgetRefundDataFromVatSplittedRefunds_exception()
+    public function testgetRefundDataFromVatSplittedRefundsException()
     {
         $this->setExpectedException(\OxidEsales\Eshop\Core\Exception\StandardException::class);
 
@@ -35,7 +35,7 @@ class RefundItemDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->getRefundDataFromVatSplittedRefunds(123, $items);
     }
 
-    public function testgetRefundDataFromVatSplittedRefunds_ok()
+    public function testgetRefundDataFromVatSplittedRefundsOk()
     {
         $items = [1, 2, 3];
 
@@ -69,7 +69,7 @@ class RefundItemDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals($expected, json_encode($sutreturn));
     }
 
-    public function testgetRefundItem_ok()
+    public function testgetRefundItemOk()
     {
         $items = ['vatPercent' => 19, 'grossUnitPrice' => 99.99];
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class);
@@ -78,7 +78,7 @@ class RefundItemDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals($expected, json_encode($sutreturn->exportData()));
     }
 
-    public function testgetRefundItem_error()
+    public function testgetRefundItemError()
     {
         $items = ['vatPercent' => 19, 'grossUnitPrice' => 0];
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class);

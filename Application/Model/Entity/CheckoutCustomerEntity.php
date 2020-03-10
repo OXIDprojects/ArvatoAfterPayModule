@@ -42,7 +42,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getSalutation()
     {
-        return $this->_getData('salutation');
+        return $this->getData('salutation');
     }
 
     /**
@@ -52,7 +52,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setSalutation($salutation)
     {
-        $this->_setData('salutation', $salutation);
+        $this->setData('salutation', $salutation);
     }
 
     /**
@@ -62,7 +62,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getFirstName()
     {
-        return $this->_getData('firstName');
+        return $this->getData('firstName');
     }
 
     /**
@@ -72,7 +72,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setFirstName($firstName)
     {
-        $this->_setData('firstName', $firstName);
+        $this->setData('firstName', $firstName);
     }
 
     /**
@@ -82,7 +82,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getLastName()
     {
-        return $this->_getData('lastName');
+        return $this->getData('lastName');
     }
 
     /**
@@ -92,7 +92,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setLastName($lastName)
     {
-        $this->_setData('lastName', $lastName);
+        $this->setData('lastName', $lastName);
     }
 
     /**
@@ -102,7 +102,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getEmail()
     {
-        return $this->_getData('email');
+        return $this->getData('email');
     }
 
     /**
@@ -112,7 +112,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setEmail($email)
     {
-        $this->_setData('email', $email);
+        $this->setData('email', $email);
     }
 
     /**
@@ -122,7 +122,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getCustomerCategory()
     {
-        return $this->_getData('customerCategory');
+        return $this->getData('customerCategory');
     }
 
     /**
@@ -132,7 +132,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setCustomerCategory($customerCategory)
     {
-        $this->_setData('customerCategory', $customerCategory);
+        $this->setData('customerCategory', $customerCategory);
     }
 
     /**
@@ -142,7 +142,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getAddress()
     {
-        return $this->_getData('address');
+        return $this->getData('address');
     }
 
     /**
@@ -152,7 +152,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setAddress(AddressEntity $address)
     {
-        $this->_setData('address', $address);
+        $this->setData('address', $address);
     }
 
     /**
@@ -162,7 +162,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getConversationLanguage()
     {
-        return $this->_getData('conversationLanguage');
+        return $this->getData('conversationLanguage');
     }
 
     /**
@@ -172,7 +172,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setConversationLanguage($conversationLanguage)
     {
-        $this->_setData('conversationLanguage', $conversationLanguage);
+        $this->setData('conversationLanguage', $conversationLanguage);
     }
 
     /**
@@ -182,7 +182,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getIdentificationNumber()
     {
-        return $this->_getData('identificationNumber');
+        return $this->getData('identificationNumber');
     }
 
     /**
@@ -192,7 +192,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setIdentificationNumber($identificationNumber)
     {
-        $this->_setData('identificationNumber', $identificationNumber);
+        $this->setData('identificationNumber', $identificationNumber);
     }
 
     /**
@@ -202,7 +202,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getCustomerNumber()
     {
-        return $this->_getData('customerNumber');
+        return $this->getData('customerNumber');
     }
 
     /**
@@ -212,7 +212,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setCustomerNumber($customerNumber)
     {
-        $this->_setData('customerNumber', $customerNumber);
+        $this->setData('customerNumber', $customerNumber);
     }
 
     /**
@@ -222,7 +222,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getPhone()
     {
-        return $this->_getData('phone');
+        return $this->getData('phone');
     }
 
     /**
@@ -232,7 +232,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setPhone($phone)
     {
-        $this->_setData('phone', $phone);
+        $this->setData('phone', $phone);
     }
 
     /**
@@ -242,7 +242,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getMobilePhone()
     {
-        return $this->_getData('mobilePhone');
+        return $this->getData('mobilePhone');
     }
 
     /**
@@ -252,7 +252,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setMobilePhone($mobilePhone)
     {
-        $this->_setData('mobilePhone', $mobilePhone);
+        $this->setData('mobilePhone', $mobilePhone);
     }
 
     /**
@@ -262,7 +262,7 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function getBirthDate()
     {
-        return $this->_getData('birthDate');
+        return $this->getData('birthDate');
     }
 
     /**
@@ -272,6 +272,6 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
      */
     public function setBirthDate($birthDate)
     {
-        $this->_setData('birthDate', $birthDate);
+        $this->setData('birthDate', $birthDate);
     }
 }

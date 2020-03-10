@@ -46,7 +46,7 @@ class AuthorizePaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterpa
         ];
 
         $testObject = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentEntity::class);
-        $this->_testGetSet($testObject, $testData);
+        $this->testGetSet($testObject, $testData);
 
         $this->assertEquals((object) [
             'payment'                       => (object) ['type' => \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\PaymentEntity::TYPE_DEBITNOTE],

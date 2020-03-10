@@ -36,13 +36,13 @@ class Entity
     {
         if (0 === strpos($name, 'get')) {
             $name = lcfirst(substr($name, 3));
-            return $this->_getData($name);
+            return $this->getData($name);
         } elseif (0 === strpos($name, 'set')) {
             if (!array_key_exists(0, $arguments)) {
                 throw new \OxidEsales\Eshop\Core\Exception\StandardException("Calling Setter $name without value argument");
             }
             $name = lcfirst(substr($name, 3));
-            return $this->_setData($name, $arguments[0]);
+            return $this->setData($name, $arguments[0]);
         } elseif (0 === strpos($name, 'has')) {
             $name = lcfirst(substr($name, 3));
             return array_key_exists($name, $this->_data);
@@ -83,7 +83,7 @@ class Entity
      * @param string $key
      * @param mixed $value
      */
-    protected function _setData($key, $value)
+    protected function setData($key, $value)
     {
         // We wont save empty strings or null, but we explicitly need the number 0.
         if (isset($value) && '' !== $value) {
@@ -100,7 +100,7 @@ class Entity
      *
      * @return mixed
      */
-    protected function _getData($key)
+    protected function getData($key)
     {
         return $this->_data[$key];
     }
@@ -111,7 +111,7 @@ class Entity
      * @param string $key
      * @param mixed $value
      */
-    protected function _addItem($key, $value)
+    protected function addItem($key, $value)
     {
         if (is_array($this->_data[$key])) {
             $this->_data[$key][] = $value;

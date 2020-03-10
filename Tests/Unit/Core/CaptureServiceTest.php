@@ -59,7 +59,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method capture - success
      */
-    public function testCapture_success()
+    public function testCaptureSuccess()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitauthorizedorder');
@@ -80,7 +80,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method capture - failure
      */
-    public function testCapture_failure()
+    public function testCaptureFailure()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitauthorizedorder');
@@ -102,7 +102,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method getErrorMessages - Capture fails, Error Message present
      */
-    public function testGetErrorMessages_onErrors()
+    public function testGetErrorMessagesOnErrors()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitauthorizedorder');
@@ -116,7 +116,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     /**
      * Testing method getErrorMessages - Capture Successfull, no Errors
      */
-    public function testGetErrorMessages_onNoErrors()
+    public function testGetErrorMessagesOnNoErrors()
     {
         $oxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         $oxOrder->load('unitauthorizedorder');
@@ -126,7 +126,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('', $errorMessages);
     }
 
-    public function test_executeRequestFromOrderData()
+    public function testExecuteRequestFromOrderData()
     {
 
         $sut =
@@ -160,7 +160,7 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue('###OK###'));
 
         // run
-        $this->assertEquals('###OK###', $sut->test_executeRequestFromOrderData('SomeApiKey'));
+        $this->assertEquals('###OK###', $sut->testexecuteRequestFromOrderData('SomeApiKey'));
     }
 
     /**
@@ -174,12 +174,12 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $mockCaptureService =
             $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CaptureService::class)
                 ->setConstructorArgs([$mockOxOrder])
-                ->setMethods(array('_executeRequestFromOrderData'))
+                ->setMethods(array('executeRequestFromOrderData'))
                 ->getMock();
 
         $mockCaptureService
             ->expects($this->once())
-            ->method('_executeRequestFromOrderData')
+            ->method('executeRequestFromOrderData')
             ->will($this->returnValue($response));
 
         return $mockCaptureService;

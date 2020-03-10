@@ -130,15 +130,15 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         $orderDetailsResponse = $this->getOrderDetailsService()->getOrderDetails();
 
         if ('capture' == $sOderItemAction) {
-            return $this->orderitemaction_capture($orderDetailsResponse, $aOrderItemQuantities);
+            return $this->orderitemactionCapture($orderDetailsResponse, $aOrderItemQuantities);
         }
 
         if ('refund' == $sOderItemAction) {
-            return $this->orderitemaction_refund($orderDetailsResponse, $aOrderItemQuantities);
+            return $this->orderitemactionRefund($orderDetailsResponse, $aOrderItemQuantities);
         }
 
         if ('void' == $sOderItemAction) {
-            return $this->orderitemaction_void($orderDetailsResponse, $aOrderItemQuantities);
+            return $this->orderitemactionVoid($orderDetailsResponse, $aOrderItemQuantities);
         }
         return null;
     }
@@ -151,7 +151,7 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
      *
      * @return null No return value
      */
-    protected function orderitemaction_capture($orderDetailsResponse, $aOrderItemQuantities)
+    protected function orderitemactionCapture($orderDetailsResponse, $aOrderItemQuantities)
     {
         // Get full data set of every order item
         $aApiOrderItems = $orderDetailsResponse->getOrderItems(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_CANCAPTUREORVOID);
@@ -185,7 +185,7 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
      *
      * @return null|void
      */
-    protected function orderitemaction_refund($orderDetailsResponse, $aOrderItemQuantities)
+    protected function orderitemactionRefund($orderDetailsResponse, $aOrderItemQuantities)
     {
         $sCaptureNo = $this->getFromRequest('captureNo');
 
@@ -228,7 +228,7 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
      * @param $orderDetailsResponse
      * @param $aOrderItemQuantities
      */
-    protected function orderitemaction_void($orderDetailsResponse, $aOrderItemQuantities)
+    protected function orderitemactionVoid($orderDetailsResponse, $aOrderItemQuantities)
     {
         // Get full data set of every order item
         $aApiOrderItems = $orderDetailsResponse->getOrderItems(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_CANCAPTUREORVOID);
