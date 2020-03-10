@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -24,9 +25,9 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
     /**
      * Constants for outcome property.
      */
-    const OUTCOME_ACCEPTED = 'Accepted';
-    const OUTCOME_PENDING = 'Pending';
-    const OUTCOME_REJECTED = 'Rejected';
+    public const OUTCOME_ACCEPTED = 'Accepted';
+    public const OUTCOME_PENDING = 'Pending';
+    public const OUTCOME_REJECTED = 'Rejected';
 
     /**
      * Getter for outcome property.
@@ -149,7 +150,8 @@ class AuthorizePaymentResponseEntity extends \OxidProfessionalServices\ArvatoAft
         $this->_setData('riskCheckMessages', $riskCheckMessages);
     }
 
-    public function addAddress(ResponseMessageEntity $responseMessageEntity){
+    public function addAddress(ResponseMessageEntity $responseMessageEntity)
+    {
         //Intentionally empty.
     }
 }

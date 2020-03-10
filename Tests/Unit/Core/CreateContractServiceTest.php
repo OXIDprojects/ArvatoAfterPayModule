@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -19,16 +20,16 @@ namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 class CreateContractServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
 
-    public function test__construct() {
+    public function test__construct()
+    {
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);
         $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $sut);
     }
 
-    public function test_executeRequest_exception() {
+    public function test_executeRequest_exception()
+    {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException::class);
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);
-        $sut->executeRequest(null,null,null,null);
+        $sut->executeRequest(null, null, null, null);
     }
-
-
 }

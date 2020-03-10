@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -24,18 +25,18 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
     /**
      * Constants for type property.
      */
-    const TYPE_BUSINESS_ERROR = 'BusinessError';
-    const TYPE_TECHNICAL_ERROR = 'TechnicalError';
-    const TYPE_NOTIFICATION_MESSAGE = 'NotificationMessage';
+    public const TYPE_BUSINESS_ERROR = 'BusinessError';
+    public const TYPE_TECHNICAL_ERROR = 'TechnicalError';
+    public const TYPE_NOTIFICATION_MESSAGE = 'NotificationMessage';
 
     /**
      * Constants for action code property.
      */
-    const ACTION_CODE_UNAVAILABLE = 'Unavailable';
-    const ACTION_CODE_ASK_CONSUMER_TO_CONFIRM = 'AskConsumerToConfirm';
-    const ACTION_CODE_ASK_CONSUMER_TO_REENTER_DATA = 'AskConsumerToReEnterData';
-    const ACTION_CODE_OFFER_SECURE_PAYMENT_METHODS = 'OfferSecurePaymentMethods';
-    const ACTION_CODE_REQUIRES_SSN = 'RequiresSsn';
+    public const ACTION_CODE_UNAVAILABLE = 'Unavailable';
+    public const ACTION_CODE_ASK_CONSUMER_TO_CONFIRM = 'AskConsumerToConfirm';
+    public const ACTION_CODE_ASK_CONSUMER_TO_REENTER_DATA = 'AskConsumerToReEnterData';
+    public const ACTION_CODE_OFFER_SECURE_PAYMENT_METHODS = 'OfferSecurePaymentMethods';
+    public const ACTION_CODE_REQUIRES_SSN = 'RequiresSsn';
 
     /**
      * Getter for type property.
@@ -156,5 +157,4 @@ class ResponseMessageEntity extends \OxidProfessionalServices\ArvatoAfterpayModu
     {
         $this->_setData('fieldReference', $fieldReference);
     }
-
 }

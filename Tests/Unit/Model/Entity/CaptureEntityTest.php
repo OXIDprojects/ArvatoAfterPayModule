@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -38,7 +39,6 @@ class CaptureEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\T
         $testObject = $this->getSUT();
         $this->_testGetSet($testObject, $testData);
         $this->assertEquals((object) $testData, $testObject->exportData(), 'exported object not valid');
-
     }
 
     /**
@@ -50,5 +50,4 @@ class CaptureEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\T
     {
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CaptureEntity::class);
     }
-
 }

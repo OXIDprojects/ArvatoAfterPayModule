@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -36,20 +37,20 @@ class VoidDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule\Ap
     public function getDataObject(\OxidEsales\Eshop\Application\Model\Order $oxOrder, array $aOrderItems = null)
     {
         $orderDetails = new \stdClass();
-        foreach($aOrderItems as $k=> $v) {
+        foreach ($aOrderItems as $k => $v) {
             unset($aOrderItems[$k]->oxArticle);
         }
 
-        if(!count($aOrderItems)) {
+        if (!count($aOrderItems)) {
             $orderDetails->totalNetAmount = (float)$oxOrder->oxorder__oxtotalnetsum->value;
             $orderDetails->totalGrossAmount = (float)$oxOrder->oxorder__oxtotalbrutsum->value;
         } else {
             $orderDetails->items = array_values($aOrderItems); //remove any array keys
             $orderDetails->totalNetAmount = 0;
             $orderDetails->totalGrossAmount = 0;
-            foreach($aOrderItems as $oOrderItem) {
-                $orderDetails->totalNetAmount += (float)$oOrderItem->netUnitPrice*$oOrderItem->quantity;
-                $orderDetails->totalGrossAmount += (float)$oOrderItem->grossUnitPrice*$oOrderItem->quantity;
+            foreach ($aOrderItems as $oOrderItem) {
+                $orderDetails->totalNetAmount += (float)$oOrderItem->netUnitPrice * $oOrderItem->quantity;
+                $orderDetails->totalGrossAmount += (float)$oOrderItem->grossUnitPrice * $oOrderItem->quantity;
             }
         }
 

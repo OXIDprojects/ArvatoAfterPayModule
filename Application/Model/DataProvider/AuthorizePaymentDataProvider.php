@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class AuthorizePaymentDataProvider: Data provider for autorize payment data.

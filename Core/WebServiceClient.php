@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -24,27 +25,27 @@ class WebServiceClient extends \OxidProfessionalServices\ArvatoAfterpayModule\Co
     /**
      * Constants for the REST-functions (i.e. the URL-paths)
      */
-    const FUNCTION_AUTHORIZE_CHECKOUT = 'checkout/authorize';
-    const FUNCTION_CAPTURE = 'orders/%s/captures';
-    const FUNCTION_VOID = 'orders/%s/voids';
-    const FUNCTION_CAPTURESHIPPING = 'orders/%s/captures/%s/shipping-details';
-    const FUNCTION_VALIDATEBANKACCOUNT = 'validate/bank-account';
-    const FUNCTION_REFUND = 'orders/%s/refunds';
-    const FUNCTION_AVAILABLEPAYMENTMETHODS = 'checkout/payment-methods';
-    const FUNCTION_CREATECONTRACT = 'checkout/%s/contract ';
-    const FUNCTION_AVAILABLEINSTALLMENTPLANS = 'lookup/installment-plans';
-    const FUNCTION_ORDERDETAILS = 'orders/%s';
+    public const FUNCTION_AUTHORIZE_CHECKOUT = 'checkout/authorize';
+    public const FUNCTION_CAPTURE = 'orders/%s/captures';
+    public const FUNCTION_VOID = 'orders/%s/voids';
+    public const FUNCTION_CAPTURESHIPPING = 'orders/%s/captures/%s/shipping-details';
+    public const FUNCTION_VALIDATEBANKACCOUNT = 'validate/bank-account';
+    public const FUNCTION_REFUND = 'orders/%s/refunds';
+    public const FUNCTION_AVAILABLEPAYMENTMETHODS = 'checkout/payment-methods';
+    public const FUNCTION_CREATECONTRACT = 'checkout/%s/contract ';
+    public const FUNCTION_AVAILABLEINSTALLMENTPLANS = 'lookup/installment-plans';
+    public const FUNCTION_ORDERDETAILS = 'orders/%s';
 
-    const HTTPMETHOD_AUTHORIZE_CHECKOUT = 'POST';
-    const HTTPMETHOD_CAPTURE = 'POST';
-    const HTTPMETHOD_VOID = 'POST';
-    const HTTPMETHOD_CAPTURESHIPPING = 'POST';
-    const HTTPMETHOD_VALIDATEBANKACCOUNT = 'POST';
-    const HTTPMETHOD_REFUND = 'POST';
-    const HTTPMETHOD_AVAILABLEPAYMENTMETHODS = 'POST';
-    const HTTPMETHOD_CREATECONTRACT = 'POST';
-    const HTTPMETHOD_AVAILABLEINSTALLMENTPLANS = 'POST';
-    const HTTPMETHOD_ORDERDETAILS = 'GET';
+    public const HTTPMETHOD_AUTHORIZE_CHECKOUT = 'POST';
+    public const HTTPMETHOD_CAPTURE = 'POST';
+    public const HTTPMETHOD_VOID = 'POST';
+    public const HTTPMETHOD_CAPTURESHIPPING = 'POST';
+    public const HTTPMETHOD_VALIDATEBANKACCOUNT = 'POST';
+    public const HTTPMETHOD_REFUND = 'POST';
+    public const HTTPMETHOD_AVAILABLEPAYMENTMETHODS = 'POST';
+    public const HTTPMETHOD_CREATECONTRACT = 'POST';
+    public const HTTPMETHOD_AVAILABLEINSTALLMENTPLANS = 'POST';
+    public const HTTPMETHOD_ORDERDETAILS = 'GET';
 
     /**
      * @var string Url for the method relatively to the base url.
@@ -83,7 +84,6 @@ class WebServiceClient extends \OxidProfessionalServices\ArvatoAfterpayModule\Co
     public function setFunction($function, array $sprintfArgs = null)
     {
         if (isset($sprintfArgs) && is_array($sprintfArgs) && count($sprintfArgs)) {
-
             foreach ($sprintfArgs as $k => $urlParameter) {
                 if (!isset($urlParameter)) {
                     throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException("Parameter $k for curl function $function was empty");
@@ -95,7 +95,6 @@ class WebServiceClient extends \OxidProfessionalServices\ArvatoAfterpayModule\Co
             } elseif (2 === count($sprintfArgs)) {
                 $function = sprintf($function, $sprintfArgs[0], $sprintfArgs[1]);
             }
-
         }
         $this->_function = $function;
     }

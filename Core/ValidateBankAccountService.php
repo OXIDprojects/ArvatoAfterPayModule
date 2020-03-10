@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class ValidateBankAccountService
@@ -82,5 +83,4 @@ class ValidateBankAccountService extends \OxidProfessionalServices\ArvatoAfterpa
     {
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getValidateBankAccountClient();
     }
-
 }

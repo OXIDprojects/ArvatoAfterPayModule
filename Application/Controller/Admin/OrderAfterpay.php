@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller\Admin;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Order class wrapper for Afterpay module
@@ -91,7 +92,6 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
             $response->getOrderItems(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_REFUNDED, true);
 
         foreach ($this->_aViewData["aArvatoAllOrderItems"] as $productId => &$item) {
-
             $item->orderedQty = $item->quantity;
             $item->capturedQty = $this->_aViewData["aArvatoCapturedOrderItems"][$productId]->quantity ?: 0;
             $item->refundedQty = $this->_aViewData["aArvatoRefundedOrderItems"][$productId]->quantity ?: 0;
@@ -101,19 +101,19 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         // Lists based od possible actions
 
         if ($this->getEditObject()->getAfterpayOrder()->getStatus() != \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_AUTHORIZATIONVOIDED) {
-
             $this->_aViewData["aArvatoOrderItemsCanRefund"] =
                 $response->getOrderItems(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_CANREFUND, false);
 
             $this->_aViewData["aArvatoOrderItemsCanCaptureOrVoid"] =
-                $response->getOrderItems(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_CANCAPTUREORVOID,
-                    true);
+                $response->getOrderItems(
+                    \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_CANCAPTUREORVOID,
+                    true
+                );
 
             $this->_aViewData["bArvatoCanFreeRefund"] = $response->canFreeRefund();
         } else {
             $this->_aViewData['sMessage'] = Registry::getLang()->translateString("AFTERPAY_ORDER_ALREADY_VOIDED");
         }
-
     }
 
     /**
@@ -190,8 +190,10 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         $sCaptureNo = $this->getFromRequest('captureNo');
 
         // Get full data set of every order item
-        $aApiOrderItems = $orderDetailsResponse->getOrderItems(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_ALLITEMS,
-            true);
+        $aApiOrderItems = $orderDetailsResponse->getOrderItems(
+            \OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\OrderDetailsResponseEntity::ORDERITEM_FILTER_ALLITEMS,
+            true
+        );
 
         // Set the capture quantity of every item to 0
         array_walk($aApiOrderItems, function (&$e) {
@@ -491,5 +493,4 @@ class OrderAfterpay extends \OxidEsales\Eshop\Application\Controller\Admin\Admin
         $return = Registry::getConfig()->getConfigParam($param);
         return $return ?: $default;
     }
-
 }

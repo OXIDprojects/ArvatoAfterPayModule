@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -60,7 +61,7 @@ class AuthorizePaymentResponseParser extends \OxidProfessionalServices\ArvatoAft
         if (is_array($object->riskCheckMessages)) {
             foreach ($object->riskCheckMessages as $riskCheckMessage) {
                 $responseMessage->addAddress(oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\ResponseMessageParser::class)->parse($riskCheckMessage));
-                if($riskCheckMessage->customerFacingMessage) {
+                if ($riskCheckMessage->customerFacingMessage) {
                     $responseMessage->setCustomerFacingMessage($riskCheckMessage->customerFacingMessage);
                 }
             }

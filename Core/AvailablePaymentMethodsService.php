@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -71,16 +72,13 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
         $this->getAvailablePaymentMethods();
 
         if (is_array($this->_entity->getPaymentMethods()) and count($this->_entity->getPaymentMethods())) {
-
             foreach ($this->_entity->getPaymentMethods() as $stdClassMethod) {
                 if ($stdClassMethod->type == 'Invoice' && !isset($stdClassMethod->directDebit)) {
                     return true;
                 }
             }
-
         }
         return false;
-
     }
 
     /**
@@ -99,8 +97,8 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
         }
 
         foreach ($aPaymentMethods as $stdClassMethod) {
-
-            if ($stdClassMethod->type == 'Installment' &&
+            if (
+                $stdClassMethod->type == 'Installment' &&
                 isset($stdClassMethod->installment) &&
                 isset($stdClassMethod->installment->installmentProfileNumber) &&
                 (!$bRequireDirectDebit || $stdClassMethod->directDebit->available)
@@ -111,12 +109,10 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
                 if ($iProfileId == $stdClassMethod->installment->installmentProfileNumber) {
                     return true;
                 }
-
             }
         }
 
         return false;
-
     }
 
     /**
@@ -130,17 +126,14 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
         }
 
         if (is_array($this->_entity->getPaymentMethods()) and count($this->_entity->getPaymentMethods())) {
-
             foreach ($this->_entity->getPaymentMethods() as $stdClassMethod) {
                 if ($stdClassMethod->type == 'Invoice' && isset($stdClassMethod->directDebit) && $stdClassMethod->directDebit) {
                     return true;
                 }
             }
-
         }
 
         return false;
-
     }
 
     /**
@@ -200,7 +193,5 @@ class AvailablePaymentMethodsService extends \OxidProfessionalServices\ArvatoAft
         }
 
         return parent::getLastErrorNo();
-
     }
-
 }

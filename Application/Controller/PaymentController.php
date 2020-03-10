@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class PaymentController : Extends payment controller with AfterPay validation call.
@@ -27,7 +28,7 @@ use \OxidEsales\Eshop\Core\Registry;
 class PaymentController extends PaymentController_parent
 {
 
-    const ARVATO_ORDER_STATE_SELECTINSTALLMENT = -13337;
+    public const ARVATO_ORDER_STATE_SELECTINSTALLMENT = -13337;
 
     /**
      * @var string[] Error messages from the AfterPay service.
@@ -79,7 +80,6 @@ class PaymentController extends PaymentController_parent
         $bAlreadyHavePhone = $oxcmp_user->oxuser__oxfon->value || $oxcmp_user->oxuser__oxmob->value || $oxcmp_user->oxuser__oxprivfon->value;
 
         foreach (array_keys($aRequirements) as $sPayment) {
-
             $aRequirements[$sPayment]['SSN'] =
                 Registry::getConfig()->getConfigParam('arvatoAfterpay' . $sPayment . 'RequiresSSN');
 
@@ -88,14 +88,12 @@ class PaymentController extends PaymentController_parent
 
             $aRequirements[$sPayment]['Fon'] =
                 (!$bAlreadyHavePhone && Registry::getConfig()->getConfigParam('arvatoAfterpay' . $sPayment . 'RequiresBirthdate'));
-
         }
 
         $oSmarty->assign('aAfterpayRequiredFields', $aRequirements);
 
         // Return value solely for unit testing
         return $aRequirements;
-
     }
 
     /**
@@ -127,7 +125,6 @@ class PaymentController extends PaymentController_parent
 
         // Everything null on error, return parent::return if everything is ok.
         return $iError ? null : $parentReturn;
-
     }
 
     /**
@@ -148,7 +145,6 @@ class PaymentController extends PaymentController_parent
         $aAvailableInstallmentPlans = $oAvailableInstallmentPlans->getAvailableInstallmentPlans();
 
         if (is_array($aAvailableInstallmentPlans) && count($aAvailableInstallmentPlans)) {
-
             foreach ($aAvailableInstallmentPlans as &$plan) {
                 unset($plan->effectiveAnnualPercentageRate);
             }
@@ -175,7 +171,6 @@ class PaymentController extends PaymentController_parent
     {
         $OrderController = oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class);
         return $OrderController->updateSelectedInstallmentPlanProfileIdInSession(true);
-
     }
 
     /**
@@ -187,7 +182,8 @@ class PaymentController extends PaymentController_parent
      */
     protected function validateDebitNote($aDynvalue)
     {
-        if (!isset($aDynvalue['apdebitbankaccount'])
+        if (
+            !isset($aDynvalue['apdebitbankaccount'])
             || !isset($aDynvalue['apdebitbankcode'])
             || !$aDynvalue['apdebitbankaccount']
             || !$aDynvalue['apdebitbankcode']
@@ -206,7 +202,8 @@ class PaymentController extends PaymentController_parent
      */
     protected function validateInstallment($aDynvalue)
     {
-        if (!isset($aDynvalue['apinstallmentbankaccount'])
+        if (
+            !isset($aDynvalue['apinstallmentbankaccount'])
             || !isset($aDynvalue['apinstallmentbankcode'])
             || !$aDynvalue['apinstallmentbankaccount']
             || !$aDynvalue['apinstallmentbankcode']
@@ -224,7 +221,6 @@ class PaymentController extends PaymentController_parent
     protected function validateAndSaveSelectedInstallmentPforileId($aDynvalue)
     {
         if (isset($aDynvalue['afterpayInstallmentProfileId']) && $aDynvalue['afterpayInstallmentProfileId']) {
-
             $this->getSession()->setVariable(
                 'arvatoAfterpayInstallmentProfileId',
                 $aDynvalue['afterpayInstallmentProfileId']
@@ -286,5 +282,4 @@ class PaymentController extends PaymentController_parent
         $requestReturn = Registry::getConfig()->getRequestParameter($sParamName);
         return $requestReturn ?: $this->getSession()->getVariable($sParamName);
     }
-
 }

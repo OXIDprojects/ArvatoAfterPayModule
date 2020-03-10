@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class UserController : Extends user controller with AfterPay customer facing message getter
@@ -27,7 +28,8 @@ class UserController extends UserController_parent
     /**
      * @return string CustomerFacingMessage
      */
-    public function getCustomerFacingMessage() {
+    public function getCustomerFacingMessage()
+    {
         $oxSession = Registry::getSession();
         return $oxSession->getVariable('arvatoAfterpayCustomerFacingMessage');
     }

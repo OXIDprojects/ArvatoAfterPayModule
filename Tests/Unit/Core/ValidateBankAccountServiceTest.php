@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 class ValidateBankAccountServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
@@ -133,5 +134,4 @@ class ValidateBankAccountServiceTest extends \OxidEsales\TestingLibrary\UnitTest
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ValidateBankAccountService::class);
         $this->assertTrue($sut->isValid(123, 456));
     }
-
 }

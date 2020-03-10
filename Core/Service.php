@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -73,11 +74,9 @@ class Service
         $errorMessages = [];
 
         if ($this->_getEntity() && is_array($this->_getEntity()->getErrors()) && count($this->_getEntity()->getErrors())) {
-
             $businessErrors = $this->_getEntity()->getErrors();
 
             foreach ($businessErrors as $businessError) {
-
                 if (is_array($businessError)) {
                     $businessError = reset($businessError);
                 }
@@ -87,9 +86,7 @@ class Service
                 } elseif ($businessError instanceof stdClass) {
                     $errorMessages[] = $businessError->customerFacingMessage ?: $businessError->message;
                 }
-
             }
-
         }
 
         return join('; ', $errorMessages);
@@ -146,5 +143,4 @@ class Service
 
         return $sClassName;
     }
-
 }

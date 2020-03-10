@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -141,7 +142,6 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->method('createContract')->will($this->returnValue(12345));
 
         $this->assertEquals(12345, $sut->handleInstallment(oxNew(\OxidEsales\Eshop\Application\Model\Order::class)));
-
     }
 
 
@@ -184,7 +184,6 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->method('createContract')->will($this->returnValue(12345));
 
         $this->assertFalse($sut->handleInstallment(oxNew(\OxidEsales\Eshop\Application\Model\Order::class)));
-
     }
 
     /**
@@ -243,7 +242,6 @@ class PaymentGatewayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->method('getCreateContractService')->will($this->returnValue($mockCCService));
 
         $this->assertEquals(12345, $sut->handleDebitNote(oxNew(\OxidEsales\Eshop\Application\Model\Order::class)));
-
     }
 
 

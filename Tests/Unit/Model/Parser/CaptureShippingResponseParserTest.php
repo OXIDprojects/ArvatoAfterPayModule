@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -41,8 +42,8 @@ class CaptureShippingResponseParserTest extends \OxidEsales\TestingLibrary\UnitT
         $sut = $this->getSUT();
         $sutReturn = $sut->parse($object);
 
-        $this->assertEquals( 111, $sutReturn->getShippingNumber());
-        $this->assertEquals( [222], $sutReturn->getErrors());
+        $this->assertEquals(111, $sutReturn->getShippingNumber());
+        $this->assertEquals([222], $sutReturn->getErrors());
     }
 
     /**
@@ -54,5 +55,4 @@ class CaptureShippingResponseParserTest extends \OxidEsales\TestingLibrary\UnitT
     {
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Parser\CaptureShippingResponseParser::class);
     }
-
 }

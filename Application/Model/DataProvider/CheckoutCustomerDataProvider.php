@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class AvailableInstallmentPlansDataProvider
@@ -73,7 +74,6 @@ class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfter
         $birthdate = $user->oxuser__oxbirthdate->value;
 
         if (isset($aDynValues['apbirthday'][$sPaymentId])) {
-
             $birthdate = $aDynValues['apbirthday'][$sPaymentId];
 
             // Target: yyyy-mm-dd
@@ -86,7 +86,6 @@ class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfter
             } elseif ($aBirthdateDE && is_array($aBirthdateDE) && 3 == count($aBirthdateDE)) {
                 $birthdate = $aBirthdateDE[2] . '.' . $aBirthdateDE[1] . '.' . $aBirthdateDE[0];
             }
-
         }
 
         if (!empty($birthdate) && $birthdate != '0000-00-00') {
@@ -103,12 +102,10 @@ class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfter
         // Profile Tracking
 
         if (!isAdmin() && Registry::getConfig()->getConfigParam('arvatoAfterpayProfileTrackingEnabled')) {
-
             $riskData = new \stdClass();
             $riskData->profileTrackingId = 'md5' . md5(Registry::getSession()->getId());
             $riskData->ipAddress = $_SERVER['REMOTE_ADDR'];
             $dataObject->setRiskData($riskData);
-
         }
 
         return $dataObject;

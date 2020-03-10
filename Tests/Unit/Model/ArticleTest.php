@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,8 +17,8 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model;
 
-use \OxidEsales\Eshop\Core\Registry;
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class ArticleTest: Tests for Article.
@@ -41,14 +42,13 @@ class ArticleTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut = oxNew(\OxidEsales\Eshop\Application\Model\Article::class);
         $this->assertTrue($sut->load('unitoxarticle' . $ce));
         $sut->oxarticles__aapproductgroup = new \OxidEsales\Eshop\Core\Field(null);
-        if ($this->isEE())
-        {
+        if ($this->isEE()) {
             $sut->assignToShop($this->isEE() ? '1' : 'oxbaseshop');
         }
 
         $cat = oxNew(\OxidEsales\Eshop\Application\Model\Category::class);
-        $cat->load('unitoxcat'.$ce);
-        $this->assertTrue($sut->inCategory('unitoxcat'.$ce),'Product must be in unit category - assign failed, check fixture sql');
+        $cat->load('unitoxcat' . $ce);
+        $this->assertTrue($sut->inCategory('unitoxcat' . $ce), 'Product must be in unit category - assign failed, check fixture sql');
 
         $this->assertEquals('ProductgroupByCat', $sut->getAfterpayProductGroup());
     }
@@ -87,5 +87,4 @@ class ArticleTest extends \OxidEsales\TestingLibrary\UnitTestCase
             }
         }
     }
-
 }

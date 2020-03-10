@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class PaymentGateway
@@ -45,7 +46,6 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
     {
 
         try {
-
             // Reset some session data to be generated during upcoming process
             $this->resetArvatoSessionVars();
 
@@ -62,20 +62,20 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
             $result = $this->dereferToPaymentHandling($oOrder);
             $this->resetArvatoSessionVars();
 
-            if (!$result
+            if (
+                !$result
                 && oxNew(\OxidEsales\Eshop\Application\Controller\PaymentController::class)->getOrderStateSelectInstallmentConstant() != $this->_iLastErrorNo
-                && oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class)->getOrderStateCheckAddressConstant() != $this->_iLastErrorNo) {
+                && oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class)->getOrderStateCheckAddressConstant() != $this->_iLastErrorNo
+            ) {
                 // Set error to "Select other payment"
                 $this->_iLastErrorNo = 5;
             }
 
             return $result;
-
         } catch (Exception $exception) {
             $this->resetArvatoSessionVars();
             return false;
         }
-
     }
 
     /**
@@ -174,7 +174,8 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
             }
         }
 
-        if (!$apdebitbankaccount ||
+        if (
+            !$apdebitbankaccount ||
             !$apdebitbankcode ||
             !$this->getValidateBankAccountService()->isValid($apdebitbankaccount, $apdebitbankcode)
         ) {
@@ -366,7 +367,5 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
             $iSelectedInstallmentPlanProfileId,
             $iNumberOfInstallments
         );
-
     }
-
 }

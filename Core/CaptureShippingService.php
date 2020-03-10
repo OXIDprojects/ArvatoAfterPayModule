@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class CaptureShippingService: Service for capturing a shipping.
@@ -67,7 +68,7 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterpayMod
         if (is_numeric($shippingNumber) && $shippingNumber > 0) {
             $this->_oxOrder->oxorder__oxtrackcode = new \OxidEsales\Eshop\Core\Field($trackingId);
             $this->_oxOrder->oxorder__oxsenddate = new \OxidEsales\Eshop\Core\Field(
-                date("Y-m-d H:i:s",Registry::getUtilsDate()->getTime())
+                date("Y-m-d H:i:s", Registry::getUtilsDate()->getTime())
             );
             $this->_oxOrder->save();
         }
@@ -130,5 +131,4 @@ class CaptureShippingService extends \OxidProfessionalServices\ArvatoAfterpayMod
             $sRecordedApiKey
         );
     }
-
 }

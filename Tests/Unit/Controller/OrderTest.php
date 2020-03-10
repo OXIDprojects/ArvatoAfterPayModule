@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Controller;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class OrderTest: Tests for OrderController.
@@ -91,13 +92,14 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $class = new \ReflectionClass(\OxidEsales\Eshop\Application\Controller\OrderController::class);
         $method = $class->getMethod('_getNextStep');
         $method->setAccessible(true);
-        $sutReturn = $method->invokeArgs(oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class),
-            [oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class)->getOrderStateCheckAddressConstant()]);
+        $sutReturn = $method->invokeArgs(
+            oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class),
+            [oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class)->getOrderStateCheckAddressConstant()]
+        );
         $this->assertEquals('user?wecorrectedyouraddress=1', $sutReturn);
     }
 
-    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected_noRedirect_notInstallmentSelected(
-    )
+    public function testredirectToPaymentIfNoInstallmentPlanAvailableAlthoughSelected_noRedirect_notInstallmentSelected()
     {
 
         $oxSession = Registry::getSession();
@@ -289,7 +291,5 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('getSession')
             ->will($this->returnValue($oxSession));
         return $sut;
-
     }
-
 }

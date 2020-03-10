@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -41,5 +42,4 @@ class AddressEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule\T
 
         $this->assertEquals((object) $testData, $testObject->exportData(), 'exported object not valid');
     }
-
 }

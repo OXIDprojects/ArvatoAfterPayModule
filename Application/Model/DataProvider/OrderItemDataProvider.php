@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -71,13 +72,11 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModu
             }
 
             $list[] = $orderItem;
-
         }
 
         // Add vouchers
 
         if ($basket->getVoucherDiscount()) {
-
             $grossVaucher = 0 - round($basket->getVoucherDiscValue(), 2);
             $netVaucher = round($grossVaucher * ($sumNetto / $sumBrutto), 2);
 
@@ -105,7 +104,6 @@ class OrderItemDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModu
         $fGrossDiscount = abs($basket->getBruttoSum()) - abs($basket->getDiscountedProductsBruttoPrice()) - abs($grossVaucher);
 
         if ($fGrossDiscount) {
-
             $fGrossDiscount = 0 - abs(round($fGrossDiscount, 2));
             $fNetDiscount = round($fGrossDiscount * ($sumNetto / $sumBrutto), 2);
 

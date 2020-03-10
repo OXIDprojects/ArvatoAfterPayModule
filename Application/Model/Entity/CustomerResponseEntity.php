@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpLongTypeFormInspection */
+<?php
+
+/** @noinspection PhpLongTypeFormInspection */
 
 /**
  * This Software is the property of OXID eSales and is protected

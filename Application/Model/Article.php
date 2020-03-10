@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -49,5 +50,4 @@ class Article extends Article_parent
         }
         return null;
     }
-
 }

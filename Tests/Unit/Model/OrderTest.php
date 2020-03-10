@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -28,8 +29,8 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function testIsAfterpayPaymentType_true()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
-        $this->assertTrue( $sut->isAfterpayPaymentType('afterpayFoobar') );
-        $this->assertTrue( $sut->isAfterpayPaymentType('afterpayInvoice') );
+        $this->assertTrue($sut->isAfterpayPaymentType('afterpayFoobar'));
+        $this->assertTrue($sut->isAfterpayPaymentType('afterpayInvoice'));
     }
 
     /**
@@ -38,8 +39,8 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function testIsAfterpayPaymentType_false()
     {
         $sut = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
-        $this->assertFalse( $sut->isAfterpayPaymentType('oxidFoobar') );
-        $this->assertFalse( $sut->isAfterpayPaymentType('') );
+        $this->assertFalse($sut->isAfterpayPaymentType('oxidFoobar'));
+        $this->assertFalse($sut->isAfterpayPaymentType(''));
     }
 
     /**
@@ -75,5 +76,4 @@ class OrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
         $afterpayOrder->delete();
     }
-
 }

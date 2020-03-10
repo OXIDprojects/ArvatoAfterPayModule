@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,8 +17,8 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
 
-use \OxidEsales\Eshop\Core\Registry;
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class Order
@@ -64,8 +65,8 @@ class Order extends Order_parent
 
         $iCnt = $oDb->getOne($sQ, false, false);
 
-            if (!(int)$iCnt || (int)$this->oxorder__oxordernr->value !== (int)$iCnt) {
-                // Meanwhile there was another order
+        if (!(int)$iCnt || (int)$this->oxorder__oxordernr->value !== (int)$iCnt) {
+            // Meanwhile there was another order
             return;
         }
 
@@ -74,7 +75,6 @@ class Order extends Order_parent
         $oDb->execute($sQ, [$iCnt, $sIdent]);
 
         $oDb->commitTransaction();
-
     }
 
     /**
@@ -87,7 +87,9 @@ class Order extends Order_parent
      */
     protected function _getGateway()
     {
-        if (!$this->isAfterpayPaymentType()) {return parent::_getGateway();}
+        if (!$this->isAfterpayPaymentType()) {
+            return parent::_getGateway();
+        }
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\PaymentGateway::class);
     }
 
@@ -174,5 +176,4 @@ class Order extends Order_parent
 
         return $aporder;
     }
-
 }

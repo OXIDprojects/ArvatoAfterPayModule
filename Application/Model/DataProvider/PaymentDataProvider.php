@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -47,8 +48,12 @@ class PaymentDataProvider extends \OxidProfessionalServices\ArvatoAfterpayModule
         } elseif ('afterpaydebitnote' === $paymentId) {
             $payment = $this->createDebitNotePayment($sIBAN, $sBIC);
         } elseif ('afterpayinstallment' === $paymentId) {
-            $payment = $this->createInstallmentPayment($sIBAN, $sBIC, $iSelectedInstallmentPlanProfileId,
-                $iNumberOfInstallments);
+            $payment = $this->createInstallmentPayment(
+                $sIBAN,
+                $sBIC,
+                $iSelectedInstallmentPlanProfileId,
+                $iNumberOfInstallments
+            );
         } else {
             throw new \OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException('Unknown Payment Type ' . $paymentId);
         }

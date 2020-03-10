@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -52,7 +53,8 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Se
         $response = $this->_executeRequestFromOrderData($sRecordedApiKey, $aOrderItems);
         $this->_entity = $this->_parseResponse($response);
 
-        if (is_numeric($this->_getEntity()->getTotalAuthorizedAmount())
+        if (
+            is_numeric($this->_getEntity()->getTotalAuthorizedAmount())
             && is_numeric($this->_getEntity()->getTotalCapturedAmount())
         ) {
             $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_AUTHORIZATIONVOIDED);
@@ -115,8 +117,9 @@ class VoidService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\Se
      */
     protected function getVoidClientForApi($sRecordedApiKey)
     {
-        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getVoidClient($this->_oxOrder->oxorder__oxordernr->value,
-            $sRecordedApiKey);
+        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getVoidClient(
+            $this->_oxOrder->oxorder__oxordernr->value,
+            $sRecordedApiKey
+        );
     }
-
 }

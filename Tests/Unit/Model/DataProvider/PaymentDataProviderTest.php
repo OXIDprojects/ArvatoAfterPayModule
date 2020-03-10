@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -41,23 +42,25 @@ class PaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals(3, $sut->getPayment('foobar'));
     }
 
-    public function testcreateDebitNotePayment() {
+    public function testcreateDebitNotePayment()
+    {
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class);
-        $sutreturn = $sut->createDebitNotePayment(1,2);
+        $sutreturn = $sut->createDebitNotePayment(1, 2);
         $this->assertEquals('{"type":"Invoice","directDebit":{"bankAccount":1,"bankCode":2}}', json_encode($sutreturn->exportData()));
     }
 
-    public function testcreateInvoicePayment() {
+    public function testcreateInvoicePayment()
+    {
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class);
-        $sutreturn = $sut->createInvoicePayment(1,2);
+        $sutreturn = $sut->createInvoicePayment(1, 2);
         $this->assertEquals('{"type":"Invoice"}', json_encode($sutreturn->exportData()));
     }
 
-    public function testcreateInstallmentPayment() {
+    public function testcreateInstallmentPayment()
+    {
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\PaymentDataProvider::class);
-        $sutreturn = $sut->createInstallmentPayment(1,2,3,4);
+        $sutreturn = $sut->createInstallmentPayment(1, 2, 3, 4);
         $expected = '{"type":"Installment","directDebit":{"bankAccount":1,"bankCode":2},"installment":{"profileNo":3,"numberOfInstallments":4}}';
         $this->assertEquals($expected, json_encode($sutreturn->exportData()));
     }
-
 }

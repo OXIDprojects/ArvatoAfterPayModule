@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -24,11 +25,11 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
     /**
      * Constants for currency property.
      */
-    const CURRENCY_EUR = 'EUR';
-    const CURRENCY_NOK = 'NOK';
-    const CURRENCY_SEK = 'SEK';
-    const CURRENCY_DKK = 'DKK';
-    const CURRENCY_CHF = 'CHF';
+    public const CURRENCY_EUR = 'EUR';
+    public const CURRENCY_NOK = 'NOK';
+    public const CURRENCY_SEK = 'SEK';
+    public const CURRENCY_DKK = 'DKK';
+    public const CURRENCY_CHF = 'CHF';
 
     /**
      * Getter for order number property.
@@ -209,5 +210,4 @@ class OrderEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applica
     {
         $this->_setData('discountAmount', $discountAmount);
     }
-
 }

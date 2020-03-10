@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -50,5 +51,4 @@ class CaptureShippingResponseEntityTest extends \OxidEsales\TestingLibrary\UnitT
     {
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CaptureShippingResponseEntity::class);
     }
-
 }

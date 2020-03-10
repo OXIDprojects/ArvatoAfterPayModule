@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -55,7 +56,8 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
         $capturedAmout = $this->_getEntity()->getCapturedAmount();
         $remainingAuthorizedAmount = $this->_getEntity()->getRemainingAuthorizedAmount();
         $captureNumber = $this->_getEntity()->getCaptureNumber();
-        if (is_numeric($capturedAmout) && $capturedAmout > 0
+        if (
+            is_numeric($capturedAmout) && $capturedAmout > 0
             && is_numeric($remainingAuthorizedAmount)
         ) {
             $this->_afterpayOrder->setStatus(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::AFTERPAYSTATUS_CAPTURED, $captureNumber);
@@ -118,5 +120,4 @@ class CaptureService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core
     {
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getCaptureClient($this->_oxOrder->oxorder__oxordernr->value, $sRecordedApiKey);
     }
-
 }

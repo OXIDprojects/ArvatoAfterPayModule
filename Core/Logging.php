@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,10 +17,9 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
-use \Monolog\Logger;
-use \Monolog\Handler\StreamHandler;
-
-use \OxidEsales\Eshop\Core\Registry;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class Logging: Logging helper class
@@ -106,14 +106,12 @@ class Logging
     {
         $sLogger = (!empty($sLogger) ? $sLogger : 'OXID Logger');
 
-        if (!array_key_exists($sLogger, $this->_aLogger))
-        {
+        if (!array_key_exists($sLogger, $this->_aLogger)) {
             $sFile = (!empty($sFile) ? $sFile : 'oxideshop.log');
 
             $sPath = Registry::getConfig()->getLogsDir() . $sFile;
 
-            if (!is_file($sPath))
-            {
+            if (!is_file($sPath)) {
                 file_put_contents($sPath, '');
             }
 

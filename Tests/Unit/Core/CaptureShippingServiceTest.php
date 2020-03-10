@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,8 +17,8 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class CaptureShippingServiceTest: Tests for CaptureShippingService.
@@ -73,7 +74,6 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
             'captured',
             $oxOrder->getAfterpayOrder()->getStatus()
         );
-
     }
 
     /**
@@ -94,7 +94,6 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
             'captured',
             $oxOrder->getAfterpayOrder()->getStatus()
         );
-
     }
 
     /**
@@ -110,7 +109,6 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $trackingID = 'tr12345';
         $shippingCompany = 'ACME';
         $CaptureResponseEntity = $sut->captureShipping($trackingID, 'SomeApiKey', $shippingCompany);
-
     }
 
     /**
@@ -187,9 +185,9 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     protected function getSutThatWillFailCaptureShipping(\OxidEsales\Eshop\Application\Model\Order $oxOrder)
     {
         $response = json_decode(file_get_contents(
-                Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureShippingFailureResponse.json')
-        );
+            Registry::getConfig()->getConfigParam('sShopDir')
+            . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureShippingFailureResponse.json'
+        ));
 
         // Self-Testing Fixtures:
         $this->assertNotNull($oxOrder->getAfterpayOrder());
@@ -212,9 +210,9 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     protected function getSutThatWillThrowException(\OxidEsales\Eshop\Application\Model\Order $oxOrder)
     {
         $response = json_decode(file_get_contents(
-                Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureShippingFailureResponse.json')
-        );
+            Registry::getConfig()->getConfigParam('sShopDir')
+            . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureShippingFailureResponse.json'
+        ));
 
         // Self-Testing Fixtures:
         $this->assertNotNull($oxOrder->getAfterpayOrder());
@@ -234,9 +232,9 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         // Build SUT : Get ResponseData to inject
 
         $response = json_decode(file_get_contents(
-                Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureShippingSuccessResponse.json')
-        );
+            Registry::getConfig()->getConfigParam('sShopDir')
+            . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureShippingSuccessResponse.json'
+        ));
 
         // Self-Testing Fixtures:
         $this->assertNotNull($oxOrder->getAfterpayOrder());
@@ -250,5 +248,4 @@ class CaptureShippingServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
         return $this->getMockedCaptureShippingService($response, $oxOrder);
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -109,5 +110,4 @@ class WebServiceClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->setMethods(array('executeJsonRequest'))
             ->getMock();
     }
-
 }

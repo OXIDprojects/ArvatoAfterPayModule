@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -56,5 +57,4 @@ class RefundServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         // run
         $this->assertEquals('###OK###', $sut->refund(123, 'SomeApiKey'));
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -33,7 +34,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     {
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
-        $data = $service->executeHttpRequest('GET','version');
+        $data = $service->executeHttpRequest('GET', 'version');
 
         $this->assertEquals(
             json_decode('{"message":"Authorization has been denied for this request."}'),
@@ -48,7 +49,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
     {
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
-        $data = $service->executeHttpRequest('POST','version', 'POST data');
+        $data = $service->executeHttpRequest('POST', 'version', 'POST data');
 
         $this->assertTrue(
             $data == json_decode('{"message":"The requested resource does not support http method \'POST\'."}')
@@ -64,7 +65,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class, 'Unknown httpMethod FOOBAR');
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
-        $service->executeHttpRequest('FOOBAR','version', 'POST data');
+        $service->executeHttpRequest('FOOBAR', 'version', 'POST data');
     }
 
     /**
@@ -75,7 +76,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $service->setRequestHeaders(array('X-Auth-Key: ABCDEF'));
-        $data = $service->executeHttpRequest('POST','version', 'POST data');
+        $data = $service->executeHttpRequest('POST', 'version', 'POST data');
 
         $this->assertTrue(
             $data == json_decode('{"message":"The requested resource does not support http method \'POST\'."}')
@@ -88,7 +89,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class, 'Could not resolve host: nowhere', 6);
 
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
-        $service->executeHttpRequest('POST','http://nowhere/');
+        $service->executeHttpRequest('POST', 'http://nowhere/');
     }
 
     public function testexecuteHttpRequest_nomethod()
@@ -96,7 +97,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
-        $service->executeHttpRequest(null,'http://nowhere/');
+        $service->executeHttpRequest(null, 'http://nowhere/');
     }
 
     public function testexecuteHttpRequest_nourl()
@@ -112,7 +113,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\CurlException::class);
 
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
-        $service->executeJsonRequest(null,'http://nowhere/');
+        $service->executeJsonRequest(null, 'http://nowhere/');
     }
 
     public function testexecuteJsonRequest_nourl()
@@ -131,7 +132,7 @@ class HttpClientTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\HttpClient::class);
         $service->setBaseUrl('https://sandbox.afterpay.io/api/v3/');
         $inputData = (object) ['data' => 'json'];
-        $outputData = $service->executeJsonRequest('POST','version', $inputData);
+        $outputData = $service->executeJsonRequest('POST', 'version', $inputData);
 
         $this->assertTrue(
             $outputData == json_decode('{"message":"The requested resource does not support http method \'POST\'."}')

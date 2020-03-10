@@ -12,7 +12,7 @@ module.exports = {
                 dest: '../Application/views/out/flow/src/css',
                 ext: '.min.css',
                 extDot: 'last'
-            },
+        },
             {
                 expand: true,
                 cwd: '../Application/views/out/wave/src/css',
@@ -20,7 +20,7 @@ module.exports = {
                 dest: '../Application/views/out/wave/src/css',
                 ext: '.min.css',
                 extDot: 'last'
-            }
+        }
 
         ]
     }

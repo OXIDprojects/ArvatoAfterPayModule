@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -51,5 +52,4 @@ class OrderItemEntityTest extends \OxidProfessionalServices\ArvatoAfterpayModule
         $this->_testGetSet($testObject, $testData);
         $this->assertEquals((object)$testData, $testObject->exportData(), 'exported object not valid');
     }
-
 }

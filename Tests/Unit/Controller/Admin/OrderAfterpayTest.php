@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,8 +17,8 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Controller\Admin;
 
-use \OxidEsales\Eshop\Core\Registry;
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class OrderAfterpayTest: Tests for OrderAfterpay.
@@ -58,7 +59,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         }
 
         $this->assertFalse(isset($aViewData['sMessage']));
-
     }
 
     /**
@@ -79,7 +79,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertFalse(isset($aViewData['oOrder']), 'isset aOrder');
         $this->assertFalse(isset($aViewData['oAfterpayOrder']), 'isset aAfterpayOrder');
         $this->assertTrue(isset($aViewData['sMessage']), 'isset sMessage');
-
     }
 
     /**
@@ -100,7 +99,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertFalse(isset($aViewData['oOrder']));
         $this->assertFalse(isset($aViewData['oAfterpayOrder']));
         $this->assertTrue(isset($aViewData['sMessage']));
-
     }
 
     public function testGetEditObject()
@@ -195,7 +193,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue($oxOrder));
 
         $sut->refund(['lorem', 'ipsum'], ['lorem', 'ipsum']);
-
     }
 
     public function testgetDefaultShippingCompany()
@@ -276,7 +273,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             $items,
             $aViewData['aArvatoAllOrderItems']
         );
-
     }
 
     public function testorderitemaction_casecapture()
@@ -288,7 +284,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue('capture'));
 
         $this->assertEquals('c', $sut->orderitemaction());
-
     }
 
     public function testorderitemaction_caserefund()
@@ -300,7 +295,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue('refund'));
 
         $this->assertEquals('r', $sut->orderitemaction());
-
     }
 
     public function testorderitemaction_casevoid()
@@ -312,7 +306,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue('void'));
 
         $this->assertEquals('v', $sut->orderitemaction());
-
     }
 
     protected function getOrderItemActionSUT()
@@ -351,7 +344,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue('v'));
 
         return $sut;
-
     }
 
     public function testorderitemaction_capture()
@@ -383,7 +375,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue(null));
 
         $sut->orderitemaction_capture($response, $items);
-
     }
 
     public function testorderitemaction_refund()
@@ -419,7 +410,6 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue(null));
 
         $sut->orderitemaction_refund($response, $items);
-
     }
 
     public function testorderitemaction_void()
@@ -452,10 +442,10 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->will($this->returnValue(null));
 
         $sut->orderitemaction_void($response, $items);
-
     }
 
-    public function testvoid_success() {
+    public function testvoid_success()
+    {
 
         $response = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\VoidResponseEntity::class)
             ->disableOriginalConstructor()
@@ -493,8 +483,7 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
         $sut->void();
 
-        $this->assertEquals(123, $sut->getViewData()['bVoidSuccessAuthAmountLeft'] );
-
+        $this->assertEquals(123, $sut->getViewData()['bVoidSuccessAuthAmountLeft']);
     }
 
     /**
@@ -691,5 +680,4 @@ class OrderAfterpayTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut->refund(['lorem', 'ipsum']);
         return $sut;
     }
-
 }

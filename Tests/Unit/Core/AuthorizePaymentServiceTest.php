@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class AuthorizePaymentServiceTest: Tests for AuthorizePaymentService.
@@ -41,9 +42,9 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
         // Build SUT : Get ResponseData, Language, and Session to inject results into.
 
         $responseData = json_decode(file_get_contents(
-                Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/1stepAuthPaymentSuccessResponse.json')
-        );
+            Registry::getConfig()->getConfigParam('sShopDir')
+            . '/modules/oxps/arvatoafterpay/Tests/Fixtures/1stepAuthPaymentSuccessResponse.json'
+        ));
 
         $mockOxSession = $this->getMockOxSession();
         $mockOxSession
@@ -58,7 +59,6 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
 
         $sut = $this->getAuthorizePaymentServiceMockedSut($responseData, $mockOxSession, $oxLang);
         $this->assertEquals('Accepted', $sut->authorizePayment(oxNew(\OxidEsales\Eshop\Application\Model\Order::class)));
-
     }
 
     /**
@@ -81,7 +81,6 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
 
         $sut = $this->getAuthorizePaymentServiceMockedSut($responseData, $mockOxSession, $oxLang);
         $this->assertNotEquals('Accepted', $sut->authorizePayment(oxNew(\OxidEsales\Eshop\Application\Model\Order::class)));
-
     }
 
     public function testexecuteRequestFromSessionData()
@@ -251,5 +250,4 @@ class AuthorizePaymentServiceTest extends \OxidEsales\TestingLibrary\UnitTestCas
                 ->setMethods(['getAuthorizePaymentClient', 'getAuthorizePaymentDataProvider'])
                 ->getMock();
     }
-
 }

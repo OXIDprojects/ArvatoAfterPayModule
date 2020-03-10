@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class AfterpayOrderTest: Tests for AfterpayOrder.
@@ -88,5 +89,4 @@ class AfterpayOrderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $dummyOxOrder = oxNew(\OxidEsales\Eshop\Application\Model\Order::class);
         return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $dummyOxOrder);
     }
-
 }

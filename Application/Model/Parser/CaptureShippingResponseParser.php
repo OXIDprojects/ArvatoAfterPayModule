@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -31,8 +32,12 @@ class CaptureShippingResponseParser extends \OxidProfessionalServices\ArvatoAfte
     public function parse(\stdClass $object)
     {
         $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\CaptureShippingResponseEntity::class);
-        if (isset($object->shippingNumber)) {$responseMessage->setShippingNumber($object->shippingNumber);}
-        if (isset($object->message)) {$responseMessage->setErrors([$object->message]);}
+        if (isset($object->shippingNumber)) {
+            $responseMessage->setShippingNumber($object->shippingNumber);
+        }
+        if (isset($object->message)) {
+            $responseMessage->setErrors([$object->message]);
+        }
         return $responseMessage;
     }
 }

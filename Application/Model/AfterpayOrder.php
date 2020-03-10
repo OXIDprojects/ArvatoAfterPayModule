@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -26,10 +27,10 @@ namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
  */
 class AfterpayOrder extends \OxidEsales\Eshop\Core\Model\BaseModel
 {
-    const AFTERPAYSTATUS_AUTHORIZED = 'authorized';
-    const AFTERPAYSTATUS_AUTHORIZATIONVOIDED = 'authorizationvoided';
-    const AFTERPAYSTATUS_CAPTURED = 'captured';
-    const AFTERPAYSTATUS_REFUNDED = 'refunded';
+    public const AFTERPAYSTATUS_AUTHORIZED = 'authorized';
+    public const AFTERPAYSTATUS_AUTHORIZATIONVOIDED = 'authorizationvoided';
+    public const AFTERPAYSTATUS_CAPTURED = 'captured';
+    public const AFTERPAYSTATUS_REFUNDED = 'refunded';
 
     /**
      * @var string Name of current class
@@ -70,16 +71,20 @@ class AfterpayOrder extends \OxidEsales\Eshop\Core\Model\BaseModel
     {
         $this->arvatoafterpayafterpayorder__apreservationid = new \OxidEsales\Eshop\Core\Field(
             $session->getVariable('arvatoAfterpayReservationId'),
-            \OxidEsales\Eshop\Core\Field::T_RAW);
+            \OxidEsales\Eshop\Core\Field::T_RAW
+        );
         $this->arvatoafterpayafterpayorder__apcheckoutid = new \OxidEsales\Eshop\Core\Field(
             $session->getVariable('arvatoAfterpayCheckoutId'),
-            \OxidEsales\Eshop\Core\Field::T_RAW);
+            \OxidEsales\Eshop\Core\Field::T_RAW
+        );
         $this->arvatoafterpayafterpayorder__apstatus = new \OxidEsales\Eshop\Core\Field(
             self::AFTERPAYSTATUS_AUTHORIZED,
-            \OxidEsales\Eshop\Core\Field::T_RAW);
+            \OxidEsales\Eshop\Core\Field::T_RAW
+        );
         $this->arvatoafterpayafterpayorder__apusedapikey = new \OxidEsales\Eshop\Core\Field(
             $session->getVariable('arvatoAfterpayApiKey'),
-            \OxidEsales\Eshop\Core\Field::T_RAW);
+            \OxidEsales\Eshop\Core\Field::T_RAW
+        );
     }
 
     /**
@@ -88,20 +93,18 @@ class AfterpayOrder extends \OxidEsales\Eshop\Core\Model\BaseModel
      * @param string $status see class constants
      * @param string $eventNo e.g. CaptureNo
      */
-    public function setStatus($status, $eventNo=null)
+    public function setStatus($status, $eventNo = null)
     {
         $reflection = new \ReflectionClass(__CLASS__);
         $classConstants = $reflection->getConstants();
 
         if (in_array($status, $classConstants)) {
-
             $this->arvatoafterpayafterpayorder__apstatus = new \OxidEsales\Eshop\Core\Field($status, \OxidEsales\Eshop\Core\Field::T_RAW);
 
             if (self::AFTERPAYSTATUS_CAPTURED == $status) {
                 $this->arvatoafterpayafterpayorder__apcaptureno = new \OxidEsales\Eshop\Core\Field($eventNo, \OxidEsales\Eshop\Core\Field::T_RAW);
                 $this->arvatoafterpayafterpayorder__apcapturetimestamp = new \OxidEsales\Eshop\Core\Field(date("Y-m-d H:i:s"), \OxidEsales\Eshop\Core\Field::T_RAW);
             }
-
         } else {
             throw new \OxidEsales\Eshop\Core\Exception\StandardException('Illegal status ' . serialize($status) . ', choose among the class constants');
         }
@@ -141,8 +144,8 @@ class AfterpayOrder extends \OxidEsales\Eshop\Core\Model\BaseModel
      * @return oxOrder
      * @codeCoverageIgnore
      */
-    public function getOxOrder() {
+    public function getOxOrder()
+    {
         return $this->_sOxOrder;
     }
-
 }

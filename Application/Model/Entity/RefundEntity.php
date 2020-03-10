@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -63,6 +64,4 @@ class RefundEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Applic
     {
         $this->_setData('orderItems', $items);
     }
-
-
 }

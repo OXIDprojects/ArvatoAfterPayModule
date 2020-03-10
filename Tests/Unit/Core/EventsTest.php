@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -38,11 +39,9 @@ class EventsTest extends \OxidEsales\TestingLibrary\UnitTestCase
     public function testOnActivate()
     {
         $sutReturn = \OxidProfessionalServices\ArvatoAfterpayModule\Core\Events::onActivate();
-        $this->assertTrue( $sutReturn);
+        $this->assertTrue($sutReturn);
         // Must be idempotent - let's repeat
         $sutReturn = \OxidProfessionalServices\ArvatoAfterpayModule\Core\Events::onActivate();
-        $this->assertTrue( $sutReturn);
+        $this->assertTrue($sutReturn);
     }
-
-
 }

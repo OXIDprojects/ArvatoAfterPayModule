@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class LoggingTest: Test class for Logging.
@@ -92,7 +93,7 @@ class LoggingTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sut = $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class)
             ->setMethods(array('isLoggingEnabled'))
             ->getMock();
-        $sut->expects($willOverrideLoggingStatus? $this->never() : $this->once())
+        $sut->expects($willOverrideLoggingStatus ? $this->never() : $this->once())
             ->method('isLoggingEnabled')
             ->will($this->returnValue((bool)$loggingEnabled));
 
@@ -110,5 +111,4 @@ class LoggingTest extends \OxidEsales\TestingLibrary\UnitTestCase
             oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class)->isLoggingEnabled()
         );
     }
-
 }

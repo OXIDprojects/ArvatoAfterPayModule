@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -24,10 +25,10 @@ class PaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
     /**
      * Constants for type property.
      */
-    const TYPE_INVOICE = 'Invoice';
-    const TYPE_DEBITNOTE = 'Invoice'; // [sic.]
-    const TYPE_INSTALLMENT = 'Installment';
-    const TYPE_CONSOLIDATED_INVOICE = 'Consolidatedinvoice';
+    public const TYPE_INVOICE = 'Invoice';
+    public const TYPE_DEBITNOTE = 'Invoice'; // [sic.]
+    public const TYPE_INSTALLMENT = 'Installment';
+    public const TYPE_CONSOLIDATED_INVOICE = 'Consolidatedinvoice';
 
     /**
      * Getter for type property.
@@ -48,5 +49,4 @@ class PaymentEntity extends \OxidProfessionalServices\ArvatoAfterpayModule\Appli
     {
         $this->_setData('type', $type);
     }
-
 }

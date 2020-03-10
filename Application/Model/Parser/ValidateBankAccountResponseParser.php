@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -34,8 +35,12 @@ class ValidateBankAccountResponseParser extends \OxidProfessionalServices\Arvato
     public function parse(\stdClass $object)
     {
         $responseMessage = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\ValidateBankAccountResponseEntity::class);
-        if (isset($object->isValid)) {$responseMessage->setIsValid($object->isValid);}
-        if (isset($object->message)) {$responseMessage->setErrors([$object->message]);}
+        if (isset($object->isValid)) {
+            $responseMessage->setIsValid($object->isValid);
+        }
+        if (isset($object->message)) {
+            $responseMessage->setErrors([$object->message]);
+        }
         return $responseMessage;
     }
 }

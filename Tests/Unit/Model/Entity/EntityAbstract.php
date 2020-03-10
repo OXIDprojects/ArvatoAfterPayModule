@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -29,14 +30,12 @@ abstract class EntityAbstract extends \OxidEsales\TestingLibrary\UnitTestCase
      */
     protected function _testGetSet(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\Entity $testObject, $testData)
     {
-        foreach ($testData as $key => $value)
-        {
+        foreach ($testData as $key => $value) {
             $setter = $this->_getSetterName($key);
             $testObject->$setter($value);
         }
 
-        foreach ($testData as $key => $value)
-        {
+        foreach ($testData as $key => $value) {
             $getter = $this->_getGetterName($key);
             if (is_object($value)) {
                 $this->assertSame(

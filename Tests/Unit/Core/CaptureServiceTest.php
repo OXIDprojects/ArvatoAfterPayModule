@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,8 +17,8 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class CaptureServiceTest: Tests for CaptureService.
@@ -74,7 +75,6 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
             'captured',
             $oxOrder->getAfterpayOrder()->getStatus()
         );
-
     }
 
     /**
@@ -97,7 +97,6 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
             $oxOrder->getAfterpayOrder()->getStatus(),
             'Assert that order is not set to captures-status on failure'
         );
-
     }
 
     /**
@@ -127,7 +126,8 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals('', $errorMessages);
     }
 
-    public function test_executeRequestFromOrderData() {
+    public function test_executeRequestFromOrderData()
+    {
 
         $sut =
             $this->getMockBuilder(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CaptureService::class)
@@ -208,9 +208,9 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
     protected function getSutThatWillFailCapture(\OxidEsales\Eshop\Application\Model\Order $oxOrder)
     {
         $response = json_decode(file_get_contents(
-                Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureErrorResponse.json')
-        );
+            Registry::getConfig()->getConfigParam('sShopDir')
+            . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureErrorResponse.json'
+        ));
 
         // Self-Testing Fixtures:
         $this->assertNotNull($oxOrder->getAfterpayOrder());
@@ -236,9 +236,9 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         // Build SUT : Get ResponseData to inject
 
         $response = json_decode(file_get_contents(
-                Registry::getConfig()->getConfigParam('sShopDir')
-                . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureSuccessResponse.json')
-        );
+            Registry::getConfig()->getConfigParam('sShopDir')
+            . '/modules/oxps/arvatoafterpay/Tests/Fixtures/captureSuccessResponse.json'
+        ));
 
         // Self-Testing Fixtures:
         $this->assertNotNull($oxOrder->getAfterpayOrder());
@@ -252,5 +252,4 @@ class CaptureServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
         return $this->getMockedCaptureService($response, $oxOrder);
     }
-
 }

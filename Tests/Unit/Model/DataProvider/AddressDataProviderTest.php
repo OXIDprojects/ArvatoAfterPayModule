@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\DataProvider;
 
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class AddressDataProviderTest: Tests for AddressDataProvider.
@@ -132,5 +133,4 @@ class AddressDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals($testData['oxcity'], $address->getPostalPlace());
         $this->assertEquals($testData['oxcompany'], $address->getCareOf());
     }
-
 }

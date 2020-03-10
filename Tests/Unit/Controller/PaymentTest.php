@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Controller;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class PaymentController: Tests for PaymentController.
@@ -162,7 +163,8 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertEquals(-13337, $sutReturn);
     }
 
-    public function testassignRequiredDynValue() {
+    public function testassignRequiredDynValue()
+    {
 
         $sut = $this->getMockBuilder(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
             ->setMethods(array('getUser'))
@@ -303,7 +305,5 @@ class PaymentTest extends \OxidEsales\TestingLibrary\UnitTestCase
             ->method('getSession')
             ->will($this->returnValue($oxSession));
         return $sut;
-
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -95,8 +96,10 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
         $vatSplittedRefunds,
         $sRecordedApiKey
     ) {
-        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromVatSplittedRefunds($sLastCaptureId,
-            $vatSplittedRefunds)->exportData();
+        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromVatSplittedRefunds(
+            $sLastCaptureId,
+            $vatSplittedRefunds
+        )->exportData();
         $client = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getRefundClient($sOrderNr, $sRecordedApiKey);
         return $client->execute($data);
     }
@@ -118,10 +121,11 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
         $aOrderItems,
         $sRecordedApiKey
     ) {
-        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromOrderItems($sLastCaptureId,
-            $aOrderItems)->exportData();
+        $data = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\DataProvider\RefundItemDataProvider::class)->getRefundDataFromOrderItems(
+            $sLastCaptureId,
+            $aOrderItems
+        )->exportData();
         $client = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->getRefundClient($sOrderNr, $sRecordedApiKey);
         return $client->execute($data);
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class ClientConfigurator: Configures a client for the AfterPay webservice.
@@ -250,7 +251,6 @@ class ClientConfigurator
             [$checkoutId],
             $bIsInstallmentApi,
             $sRecordedApiKey
-
         );
     }
 
@@ -374,7 +374,5 @@ class ClientConfigurator
         }
 
         return $customerCountryCode;
-
     }
-
 }

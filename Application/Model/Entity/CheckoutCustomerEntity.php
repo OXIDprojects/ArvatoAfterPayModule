@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -24,15 +25,15 @@ class CheckoutCustomerEntity extends \OxidProfessionalServices\ArvatoAfterpayMod
     /**
      * Constants for customer category property.
      */
-    const CUSTOMER_CATEGORY_COMPANY = 'Company';
-    const CUSTOMER_CATEGORY_PERSON = 'Person';
+    public const CUSTOMER_CATEGORY_COMPANY = 'Company';
+    public const CUSTOMER_CATEGORY_PERSON = 'Person';
 
     /**
      * Constants for salutation property.
      */
-    const SALUTATION_MR = 'Mr';
-    const SALUTATION_MRS = 'Mrs';
-    const SALUTATION_MISS = 'Miss';
+    public const SALUTATION_MR = 'Mr';
+    public const SALUTATION_MRS = 'Mrs';
+    public const SALUTATION_MISS = 'Miss';
 
     /**
      * Getter for salutation property.

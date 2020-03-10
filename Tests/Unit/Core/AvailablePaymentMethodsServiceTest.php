@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Core;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class CaptureServiceTest: Tests for CaptureService.
@@ -228,5 +229,4 @@ class AvailablePaymentMethodsServiceTest extends \OxidEsales\TestingLibrary\Unit
 
         $this->assertEquals(1337, $sut->getNumberOfInstallmentsByProfileId(2));
     }
-
 }

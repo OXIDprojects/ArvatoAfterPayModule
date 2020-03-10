@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -66,7 +67,6 @@ class RefundItemDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
 
         $expected = '[1]';
         $this->assertEquals($expected, json_encode($sutreturn));
-
     }
 
     public function testgetRefundItem_ok()
@@ -85,5 +85,4 @@ class RefundItemDataProviderTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $sutreturn = $sut->getRefundItem($items);
         $this->assertNull($sutreturn);
     }
-
 }

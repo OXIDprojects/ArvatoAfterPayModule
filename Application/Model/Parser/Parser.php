@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -79,5 +80,4 @@ abstract class Parser
         $parserClass = get_class($this);
         return str_replace('Parser', 'Entity', $parserClass);
     }
-
 }

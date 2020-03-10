@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -54,5 +55,4 @@ class AvailableInstallmentPlanServiceTest extends \OxidEsales\TestingLibrary\Uni
         // run
         $this->assertEquals('###OK###', $sut->getAvailableInstallmentPlans(123));
     }
-
 }

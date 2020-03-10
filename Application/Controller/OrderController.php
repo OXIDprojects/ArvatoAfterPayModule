@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Controller;
 
-use \OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 /**
  * Class OrderController : Extends order controller with AfterPay service call.
@@ -35,7 +36,7 @@ class OrderController extends OrderController_parent
      * Send this code as result of paymentGateway::getLastErrorNo()
      * to redirect User to address page
      */
-    const ARVATO_ORDER_STATE_CHECKADDRESS = 41470; // Completely random code
+    public const ARVATO_ORDER_STATE_CHECKADDRESS = 41470; // Completely random code
 
     /**
      * @var string[] Error messages from the AfterPay service.
@@ -75,9 +76,10 @@ class OrderController extends OrderController_parent
 
         // Ok, here we either have not selected an installment plan, or there are installment plans available.
         if ($aAvailableInstallmentPlans) {
-            $this->smartyAssignAvailableInstallmentPlans($aAvailableInstallmentPlans,
-                $selectedInstallmentPlanProfileIdInSession);
-
+            $this->smartyAssignAvailableInstallmentPlans(
+                $aAvailableInstallmentPlans,
+                $selectedInstallmentPlanProfileIdInSession
+            );
         }
     }
 
@@ -99,7 +101,6 @@ class OrderController extends OrderController_parent
         $aAvailableInstallmentPlans = $oAvailableInstallmentPlans->getAvailableInstallmentPlans();
 
         if (is_array($aAvailableInstallmentPlans) && count($aAvailableInstallmentPlans)) {
-
             foreach ($aAvailableInstallmentPlans as &$plan) {
                 unset($plan->effectiveAnnualPercentageRate);
             }
@@ -115,7 +116,6 @@ class OrderController extends OrderController_parent
         }
 
         return null;
-
     }
 
     /**
@@ -290,5 +290,4 @@ class OrderController extends OrderController_parent
     }
 
     // @codeCoverageIgnoreEnd
-
 }

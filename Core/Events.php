@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,7 +17,7 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Core;
 
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class ArvatoAfterpayEvents: Events for the afterpay module.
@@ -32,7 +33,6 @@ class Events
         $Logging = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Logging::class);
 
         foreach (self::getSQLs() as $sql) {
-
             try {
                 $db->execute($sql);
             } catch (\Exception $e) {
@@ -45,29 +45,32 @@ class Events
             "SELECT 1
                    FROM information_schema.COLUMNS
                    WHERE TABLE_NAME = 'oxarticles'
-                   AND COLUMN_NAME = 'AAPPRODUCTGROUP'");
+                   AND COLUMN_NAME = 'AAPPRODUCTGROUP'"
+        );
 
         $colCategoryProductGroupExist = $db->getOne(
             "SELECT 1
                    FROM information_schema.COLUMNS
                    WHERE TABLE_NAME = 'oxcategories'
-                   AND COLUMN_NAME = 'AAPPRODUCTGROUP'");
+                   AND COLUMN_NAME = 'AAPPRODUCTGROUP'"
+        );
 
         // Insert columns if not exist
-        if (!$colArticleProductGroupExist)
+        if (!$colArticleProductGroupExist) {
             DatabaseProvider::getDb()->execute(
                 "ALTER TABLE `oxarticles`  ADD `AAPPRODUCTGROUP` varchar(32) COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Arvato Afterpay product group - leave empty for category default'"
             );
+        }
 
-        if (!$colCategoryProductGroupExist)
+        if (!$colCategoryProductGroupExist) {
             DatabaseProvider::getDb()->execute(
                 "ALTER TABLE `oxcategories`  ADD `AAPPRODUCTGROUP` varchar(32) COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Arvato Afterpay product group'"
-           );
+            );
+        }
 
         $aShops = DatabaseProvider::getDb()->getAll('SELECT oxid FROM oxshops');
 
         foreach (self::getShopSpecificSQLs() as $sql) {
-
             foreach ($aShops as $sShopId) {
                 $sShopId = reset($sShopId);
                 if (!$sShopId) {

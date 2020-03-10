@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -16,8 +17,8 @@
 
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Tests\Unit\Model\DataProvider;
 
-use \OxidEsales\Eshop\Core\Registry;
-use \OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Core\DatabaseProvider;
 
 /**
  * Class AuthorizePaymentDataProviderTest: Tests for AuthorizePaymentDataProvider.
@@ -76,12 +77,10 @@ class AuthorizePaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTe
 
         try {
             $this->assertTrue($oxBasket->addToBasket('unitoxarticle', 1) instanceof oxbasketitem);
-        } catch(\OxidEsales\Eshop\Core\Exception\NoArticleException $e) {
-
+        } catch (\OxidEsales\Eshop\Core\Exception\NoArticleException $e) {
             try {
                 $this->assertTrue($oxBasket->addToBasket('unitoxarticlece', 1) instanceof oxbasketitem);
-            } catch(\OxidEsales\Eshop\Core\Exception\NoArticleException $e) {
-
+            } catch (\OxidEsales\Eshop\Core\Exception\NoArticleException $e) {
                 // This particular test fails because fixture can't handle oxshop=oxbaseshop vs. oxshop=1)
                 $this->markTestSkipped();
                 return;
@@ -102,5 +101,4 @@ class AuthorizePaymentDataProviderTest extends \OxidEsales\TestingLibrary\UnitTe
         $sutReturn = $sut->getDataObject($oxSesssion, $oxLang, oxNew(\OxidEsales\Eshop\Application\Model\Order::class));
         $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\Entity\AuthorizePaymentEntity::class, $sutReturn);
     }
-
 }

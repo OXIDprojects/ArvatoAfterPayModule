@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -27,7 +28,8 @@ class AvailableInstallmentPlansResponseParser extends \OxidProfessionalServices\
      *
      * @return Entity
      */
-    public function parse(\stdClass $object) {
+    public function parse(\stdClass $object)
+    {
         $this->aFields = [
             'availableInstallmentPlans',
         ];

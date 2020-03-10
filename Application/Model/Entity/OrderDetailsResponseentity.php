@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -26,13 +27,13 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
 {
 
     // Lists based on prior actions
-    const ORDERITEM_FILTER_ALLITEMS = false;
-    const ORDERITEM_FILTER_CAPTURED = 'ORDERITEM_FILTER_CAPTURED';
-    const ORDERITEM_FILTER_REFUNDED = 'ORDERITEM_FILTER_REFUNDED';
+    public const ORDERITEM_FILTER_ALLITEMS = false;
+    public const ORDERITEM_FILTER_CAPTURED = 'ORDERITEM_FILTER_CAPTURED';
+    public const ORDERITEM_FILTER_REFUNDED = 'ORDERITEM_FILTER_REFUNDED';
 
     // Lists based od possible actions
-    const ORDERITEM_FILTER_CANREFUND = 'ORDERITEM_FILTER_CANREFUND';
-    const ORDERITEM_FILTER_CANCAPTUREORVOID = 'ORDERITEM_FILTER_CANCAPTUREORVOID';
+    public const ORDERITEM_FILTER_CANREFUND = 'ORDERITEM_FILTER_CANREFUND';
+    public const ORDERITEM_FILTER_CANCAPTUREORVOID = 'ORDERITEM_FILTER_CANCAPTUREORVOID';
 
     /**
      * @param string $filter What data to show. @see class constants
@@ -54,7 +55,6 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
 
         // Lists based od possible actions
         if (self::ORDERITEM_FILTER_CANREFUND == $filter) {
-
             $aCapturedUnrefundedItems = $this->getCapturedUnrefundedItems($bMerge);
 
             foreach ($aCapturedUnrefundedItems as $k => $ignore) {
@@ -71,9 +71,7 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
             }
 
             return $aCapturedUnrefundedItems;
-
         } elseif (self::ORDERITEM_FILTER_CANCAPTUREORVOID == $filter) {
-
             $allItems = $this->getAllItems();
             $capturedItems = $this->getCapturedItems(true);
             $aNonCapturedItems = $this->subtractItems($allItems, $capturedItems);
@@ -82,7 +80,8 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
         return null;
     }
 
-    public function canFreeRefund() {
+    public function canFreeRefund()
+    {
         return 1 === count($this->getCaptures()) && 0 === count($this->getRefunds());
     }
 
@@ -136,7 +135,6 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
         }
 
         foreach ($aRefundsByCaptureNumber as $sCaptureNumber => $oRefund) {
-
             $aRefundItems = $oRefund->refundItems;
             if (!isset($aRefundItems) || !is_array($aRefundItems) || !count($aRefundItems)) {
                 continue;
@@ -152,13 +150,10 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
                     }
                     unset($captureItem);
                 }
-
             }
-
         }
 
         return $aCapturesByCaptureNumber;
-
     }
 
     protected function getAllItems()
@@ -191,7 +186,6 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
         }
 
         foreach ($aCaptures as $captureIndex => $oCapture) {
-
             // RESPONSE->captures[n]
 
             $aCaptureItems = $oCapture->captureItems;
@@ -217,13 +211,10 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
                     $oArt->load($oCaptureItem->productId);
                     $aCaptureItems[$captureItemIndex]->oxArticle = $oArt;
                 }
-
             }
-
         }
 
         return $bMerge ? $aCombinedCapturedItems : $aCaptureItems;
-
     }
 
     protected function getRefundedItems($bMerge = true)
@@ -262,13 +253,10 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
                     $oArt->load($oRefundItem->productId);
                     $aRefundItems[$refundIndex]->oxArticle = $oArt;
                 }
-
             }
-
         }
 
         return $bMerge ? $aCombinedRefundItems : $aRefundItems;
-
     }
 
     protected function getVoidedItems($bMerge = true)
@@ -294,7 +282,6 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
     {
         $aRemainingItems = $aAllItems;
         foreach ($aRemainingItems as $k => $v) {
-
             // Skip if there is nothing to subtract
             if (!isset($aSubtractItems[$k])) {
                 continue;
@@ -307,11 +294,8 @@ class OrderDetailsResponseEntity extends \OxidProfessionalServices\ArvatoAfterpa
             if (!$aRemainingItems[$k]->quantity) {
                 unset($aRemainingItems[$k]);
             }
-
         }
 
         return $aRemainingItems;
-
     }
-
 }

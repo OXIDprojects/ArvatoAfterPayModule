@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This Software is the property of OXID eSales and is protected
  * by copyright law - it is NOT Freeware.
@@ -57,5 +58,4 @@ class AuthorizePaymentEntityTest extends \OxidProfessionalServices\ArvatoAfterpa
             'parentTransactionReference'    => 'x1x2x3x'
         ], $testObject->exportData(), 'exported object not valid');
     }
-
 }
