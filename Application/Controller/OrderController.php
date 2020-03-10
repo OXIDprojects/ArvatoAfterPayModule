@@ -206,7 +206,7 @@ class OrderController extends OrderController_parent
      * @param int $iSuccess status code
      *
      * @return  string  $sNextStep  partial parameter url for next step
-     * @phpcs:disable PEAR.NamingConventions.ValidFunctionName.PublicUnderscore
+     * @phpcs:disable
      */
     protected function _getNextStep($iSuccess)
     {
@@ -225,7 +225,7 @@ class OrderController extends OrderController_parent
      * Validates whether necessary terms and conditions checkboxes were checked.
      * @codeCoverageIgnore
      * @return bool
-     * @phpcs:disable PEAR.NamingConventions.ValidFunctionName.PublicUnderscore
+     * @phpcs:disable
      */
     public function _validateTermsAndConditions()
     {
