@@ -83,8 +83,7 @@ class Order extends Order_parent
      *
      * @return object $oPayTransaction payment gateway object
      *
-     * @codeCoverageIgnore Mocking helper
-     * @phpcs:disable PEAR.NamingConventions.ValidFunctionName.PublicUnderscore
+     * @phpcs:disable
      */
     protected function _getGateway()
     {
