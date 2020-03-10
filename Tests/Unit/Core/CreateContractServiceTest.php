@@ -26,7 +26,7 @@ class CreateContractServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $this->assertInstanceOf(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $sut);
     }
 
-    public function test_executeRequestException()
+    public function testExecuteRequestException()
     {
         $this->setExpectedException(\OxidProfessionalServices\ArvatoAfterpayModule\Core\Exception\PaymentException::class);
         $sut = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, [123]);

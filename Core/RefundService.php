@@ -67,7 +67,7 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
                 $sRecordedApiKey
             );
         } else {
-            $response = $this->_executeRequestFromOrderItems(
+            $response = $this->executeRequestFromOrderItems(
                 $this->_oxOrder->oxorder__oxordernr->value,
                 $sCaptureNo ?: $this->_afterpayOrder->getCaptureNo(),
                 $aOrderItems,
@@ -115,7 +115,7 @@ class RefundService extends \OxidProfessionalServices\ArvatoAfterpayModule\Core\
      *
      * @codeCoverageIgnore Untested, since it contains only mockled-away oxNew-Calls.
      */
-    protected function _executeRequestFromOrderItems(
+    protected function executeRequestFromOrderItems(
         $sOrderNr,
         $sLastCaptureId,
         $aOrderItems,
