@@ -84,7 +84,7 @@ class CheckoutCustomerDataProvider extends \OxidProfessionalServices\ArvatoAfter
             if ($aBirthdateEN && is_array($aBirthdateEN) && 3 == count($aBirthdateEN)) {
                 $birthdate = $aBirthdateEN[2] . '-' . $aBirthdateEN[0] . '-' . $aBirthdateEN[1];
             } elseif ($aBirthdateDE && is_array($aBirthdateDE) && 3 == count($aBirthdateDE)) {
-                $birthdate = $aBirthdateDE[2] . '.' . $aBirthdateDE[1] . '.' . $aBirthdateDE[0];
+                $birthdate = $aBirthdateDE[2] . '-' . $aBirthdateDE[1] . '-' . $aBirthdateDE[0];
             }
         }
 
