@@ -47,6 +47,7 @@ class CreateContractService extends \OxidProfessionalServices\ArvatoAfterpayModu
      * @return string contractId
      *
      * @codeCoverageIgnore We really can't test this without literally mockiung all 3 lines.
+     * @deprecated since version 2.0.5
      */
     public function createContract(
         $paymentId,

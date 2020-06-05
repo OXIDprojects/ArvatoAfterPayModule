@@ -18,6 +18,10 @@
 namespace OxidProfessionalServices\ArvatoAfterpayModule\Application\Model;
 
 use OxidEsales\Eshop\Core\Registry;
+use OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder;
+use OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService;
+use OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService;
+use OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService;
 
 /**
  * Class PaymentGateway
@@ -64,8 +68,10 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
 
             if (
                 !$result
-                && oxNew(\OxidEsales\Eshop\Application\Controller\PaymentController::class)->getOrderStateSelectInstallmentConstant() != $this->_iLastErrorNo
-                && oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class)->getOrderStateCheckAddressConstant() != $this->_iLastErrorNo
+                && oxNew(\OxidEsales\Eshop\Application\Controller\PaymentController::class)
+                    ->getOrderStateSelectInstallmentConstant() != $this->_iLastErrorNo
+                && oxNew(\OxidEsales\Eshop\Application\Controller\OrderController::class)
+                    ->getOrderStateCheckAddressConstant() != $this->_iLastErrorNo
             ) {
                 // Set error to "Select other payment"
                 $this->_iLastErrorNo = 5;
@@ -94,18 +100,21 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
         $success = true;
 
         if ($oOrder->isAfterpayDebitNote()) {
-            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->saveApiKeyToSession(false);
+            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)
+                ->saveApiKeyToSession(false);
             // Call on DebitNote Only
             $success = $this->handleDebitNote($oOrder);
         }
 
         if ($oOrder->isAfterpayInstallment()) {
-            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->saveApiKeyToSession(true);
+            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)
+                ->saveApiKeyToSession(true);
             // Call on DebitNote Only
             $success = $this->handleInstallment($oOrder);
         }
         if ($oOrder->isAfterpayInvoice()) {
-            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)->saveApiKeyToSession(false);
+            oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\ClientConfigurator::class)
+                ->saveApiKeyToSession(false);
         }
 
         if ($success) {
@@ -148,7 +157,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
             return false;
         }
 
-        $aporder = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Application\Model\AfterpayOrder::class, $oOrder);
+        $aporder = oxNew(AfterpayOrder::class, $oOrder);
         $aporder->fillBySession(Registry::getSession());
         $aporder->save();
 
@@ -191,11 +200,17 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
         $this->getSession()->setVariable('arvatoAfterpayIBAN', $apdebitbankaccount);
         $this->getSession()->setVariable('arvatoAfterpayBIC', $apdebitbankcode);
 
+        /*
+        * @deprecated since version 2.0.5
+
         // Create Contract
         $afterpayCheckoutId = Registry::getSession()->getVariable('arvatoAfterpayCheckoutId');
         $service = $this->getCreateContractService($afterpayCheckoutId);
         $paymentType = $oOrder->oxorder__oxpaymenttype->value;
         return $service->createContract($paymentType, $apdebitbankaccount, $apdebitbankcode);
+        */
+
+        return true;
     }
 
     /**
@@ -232,15 +247,21 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
 
         $AvailablePaymentMethodsService = $this->getAvailablePaymentMethodsService($oOrder);
 
-        if (!($AvailablePaymentMethodsService->isSpecificInstallmentAvailable($iSelectedInstallmentPlanProfileId))) {
+        if (
+            !($AvailablePaymentMethodsService
+            ->isSpecificInstallmentAvailable($iSelectedInstallmentPlanProfileId))
+        ) {
             $this->_iLastErrorNo = $AvailablePaymentMethodsService->getLastErrorNo();
             $this->_sLastError = $AvailablePaymentMethodsService->getErrorMessages();
             return false;
         }
 
         $afterpayCheckoutId = Registry::getSession()->getVariable('arvatoAfterpayCheckoutId');
-        $iNumberOfInstallments = $AvailablePaymentMethodsService->getNumberOfInstallmentsByProfileId($iSelectedInstallmentPlanProfileId);
+        $iNumberOfInstallments = $AvailablePaymentMethodsService
+            ->getNumberOfInstallmentsByProfileId($iSelectedInstallmentPlanProfileId);
 
+        /*
+        * @deprecated since version 2.0.5
         $contractId = $this->createContract(
             $afterpayCheckoutId,
             $iSelectedInstallmentPlanProfileId,
@@ -250,6 +271,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
         );
 
         Registry::getSession()->setVariable('arvatoAfterpayContractId', $contractId);
+        */
 
         return $contractId;
     }
@@ -265,7 +287,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
     {
         $session = Registry::getSession();
         $language = Registry::getLang();
-        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AuthorizePaymentService::class, $session, $language);
+        return oxNew(AuthorizePaymentService::class, $session, $language);
     }
 
     /**
@@ -279,7 +301,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
     {
         $session = Registry::getSession();
         $language = Registry::getLang();
-        return oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\AvailablePaymentMethodsService::class, $session, $language, $oOrder);
+        return oxNew(AvailablePaymentMethodsService::class, $session, $language, $oOrder);
     }
 
     /**
@@ -354,6 +376,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
      *
      * @return string
      * @codeCoverageIgnore Mocking helper
+     * @deprecated since version 2.0.5
      */
     protected function createContract(
         $afterpayCheckoutId,
@@ -362,7 +385,7 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
         $sIBAN,
         $sBIC
     ) {
-        $service = oxNew(\OxidProfessionalServices\ArvatoAfterpayModule\Core\CreateContractService::class, $afterpayCheckoutId);
+        $service = oxNew(CreateContractService::class, $afterpayCheckoutId);
         return $service->createContract(
             'afterpayinstallment',
             $sIBAN,
