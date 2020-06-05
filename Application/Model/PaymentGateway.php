@@ -188,6 +188,9 @@ class PaymentGateway extends \OxidEsales\Eshop\Application\Model\PaymentGateway 
             return false;
         }
 
+        $this->getSession()->setVariable('arvatoAfterpayIBAN', $apdebitbankaccount);
+        $this->getSession()->setVariable('arvatoAfterpayBIC', $apdebitbankcode);
+
         // Create Contract
         $afterpayCheckoutId = Registry::getSession()->getVariable('arvatoAfterpayCheckoutId');
         $service = $this->getCreateContractService($afterpayCheckoutId);
