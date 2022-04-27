@@ -9,7 +9,7 @@
     "author": "OXID eSales",
     "devDependencies": {
         "autoprefixer": "^9.8.0",
-        "grunt": "^1.1.0",
+        "grunt": "^1.5.2",
         "grunt-contrib-cssmin": "^3.0.0",
         "grunt-contrib-jshint": "^2.1.0",
         "grunt-contrib-sass": "^1.0.0",
